@@ -41,4 +41,4 @@ MonoBehaviour:
     settings.musicvolume=Music
     Volume
 
-'
+    mainmenu.play=Play'

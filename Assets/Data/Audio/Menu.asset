@@ -15,7 +15,10 @@ MonoBehaviour:
   audios:
   - id: music
     clip: {fileID: 8300000, guid: e6e8d55702f588f4686794a28d1ae8fd, type: 3}
+    volumeModifier: 0.25
   - id: music2
     clip: {fileID: 8300000, guid: 6da1bc67f62d5f441a9d4b39ab55b325, type: 3}
+    volumeModifier: 1
   - id: click
     clip: {fileID: 8300000, guid: 28b32c9b410a4d343b38087491af9f16, type: 3}
+    volumeModifier: 1
