@@ -7,6 +7,8 @@ namespace DLIFR.I18n
     [CreateAssetMenu(fileName = "Language", menuName = "DLIFR/Language", order = 0)]
     public class Language : ScriptableObject
     {
+        public string displayName;
+
         [TextArea(20, 25)]
         public string content;
 

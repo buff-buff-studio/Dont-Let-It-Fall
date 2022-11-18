@@ -28,7 +28,6 @@ namespace DLIFR.Audio
         public List<AudioSource> freeAudioSources = new List<AudioSource>();
         public List<AudioSource> busyAudioSources = new List<AudioSource>();
 
-
         private void Awake() 
         {
             for(int i = 0; i < audioSourceCount; i ++)

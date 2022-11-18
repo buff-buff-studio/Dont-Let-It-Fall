@@ -10,35 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 623fc49282cf4094db13feda42f49617, type: 3}
-  m_Name: EnUs
+  m_Name: PtBr
   m_EditorClassIdentifier: 
-  displayName: English
-  content: '#HUD
-
-    hud.daytime={0:HOUR}
-
-    hud.daynumber=Day {0:DAY}
-
-    hud.coincount=Coins:
-    {0}
-
-    hud.fuellevel=Fuel: {0:F1}
-
-    hud.sellingvalue=Selling: {0}
-
-
-    #Menus
-
-    ui.back=
-    Back
-
-
-    mainmenu.settings=Settings
-
-
-    settings.fxvolume=FX Volume
-
-    settings.musicvolume=Music
-    Volume
-
-'
+  displayName: "Portugu\xEAs (BR)"
+  content: "#HUD\nhud.daytime={0:HOUR}\nhud.daynumber=Day {0:DAY}\nhud.coincount=Coins:
+    {0}\nhud.fuellevel=Fuel: {0:F1}\nhud.sellingvalue=Selling: {0}\n\n#Menus\nui.back=
+    Voltar\nmainmenu.settings=Op\xE7\xF5es\n\nsettings.fxvolume=Volume dos Efeitos\nsettings.musicvolume=Volume
+    da M\xFAsica\n"

@@ -15,13 +15,19 @@ namespace DLIFR.Data
 
         public Value<float> volumeVfx;
         public Value<float> volumeMusic;
+
         public Language language;
+
+        public Language[] languages;
+
+        public int languageIndex => Array.IndexOf(languages, language);
 
         [Serializable]
         public class Values
         {
             public float volumeVfx;
             public float volumeMusic;
+            public int languageIndex;
         }
 
         public void Load()
@@ -34,8 +40,10 @@ namespace DLIFR.Data
             if(File.Exists(filePath))
             {
                 Values values = JsonUtility.FromJson<Values>(File.ReadAllText(filePath));
+                
                 volumeVfx.value = values.volumeVfx;
                 volumeMusic.value = values.volumeMusic;
+                language = languages[values.languageIndex];
             }
             else
             {
@@ -53,6 +61,7 @@ namespace DLIFR.Data
             Values values = new Values();
             values.volumeVfx = volumeVfx.value;
             values.volumeMusic = volumeMusic.value;
+            values.languageIndex = languageIndex;
 
             File.WriteAllText(filePath, JsonUtility.ToJson(values, true));
 
