@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,13 @@ using DLIFR.Data;
 
 namespace DLIFR.Audio
 {
+    [Serializable]
+    public class BusyAudioSource
+    {
+        public AudioSource source;
+        public float volumeModifier;
+    }
+
     public class AudioController : MonoBehaviour 
     {
         private static AudioController _instance;
@@ -20,13 +28,14 @@ namespace DLIFR.Audio
         [Header("AUDIOS")]
         public AudioInterface audioInterface;
         private Dictionary<string, AudioClip> _clipsLookUp = new Dictionary<string, AudioClip>();
+        private Dictionary<string, float> _clipsVMLookUp = new Dictionary<string, float>();
 
         [Header("STATE")]
-         public float musicVolumeMultiplier = 1f;
-        public AudioSource currentMusicSource;
+        public float musicVolumeMultiplier = 1f;
+        public BusyAudioSource currentMusicSource;
 
         public List<AudioSource> freeAudioSources = new List<AudioSource>();
-        public List<AudioSource> busyAudioSources = new List<AudioSource>();
+        public List<BusyAudioSource> busyAudioSources = new List<BusyAudioSource>();
 
         private void Awake() 
         {
@@ -49,9 +58,9 @@ namespace DLIFR.Audio
             volumeVfx.variable.onChange += () => {
                 float v = volumeVfx.value;
 
-                foreach(AudioSource source in busyAudioSources)
+                foreach(BusyAudioSource source in busyAudioSources)
                 {
-                    source.volume = v;
+                    source.source.volume = v * source.volumeModifier;
                 }
             };
 
@@ -59,9 +68,10 @@ namespace DLIFR.Audio
             foreach(AudioInterface.Audio audio in audioInterface.audios)
             {
                 _clipsLookUp.Add(audio.id, audio.clip);
+                _clipsVMLookUp.Add(audio.id, audio.volumeModifier);
             }
 
-            if(startPlayingMusic && currentMusicSource == null)
+            if(startPlayingMusic && (currentMusicSource == null || currentMusicSource.source == null))
             {
                 _PlayMusic(startPlayingMusicId, 0);
             }
@@ -78,17 +88,31 @@ namespace DLIFR.Audio
             return null;
         }
 
-        private AudioSource SetupAudioSource()
+        private float GetClipVM(string audio)
+        {
+            if(audio == null)
+                return 1;
+
+            if(_clipsVMLookUp.TryGetValue(audio, out float vm))
+                return vm;
+            
+            return 1;
+        }
+
+        private BusyAudioSource SetupAudioSource()
         {
             if(freeAudioSources.Count > 0)
             {
                 AudioSource source = freeAudioSources[0];
                 freeAudioSources.RemoveAt(0);
-                busyAudioSources.Add(source);
+
+                BusyAudioSource bas = new BusyAudioSource();
+                bas.source = source;
+                busyAudioSources.Add(bas);
 
                 source.gameObject.SetActive(true);
 
-                return source;
+                return bas;
             }
 
             return null;
@@ -101,9 +125,9 @@ namespace DLIFR.Audio
 
         private IEnumerator ChangeMusic(string audio, float fade)
         {
-            bool isNew = currentMusicSource == null;
+            bool isNew = currentMusicSource == null || currentMusicSource.source == null;
 
-            AudioSource source = isNew ? SetupAudioSource() : currentMusicSource;
+            BusyAudioSource source = isNew ? SetupAudioSource() : currentMusicSource;
 
             if(source != null)
             {
@@ -119,19 +143,20 @@ namespace DLIFR.Audio
                 }     
                 else
                 {
-                    source.loop = true;
-                    source.transform.parent = this.transform;
-                    source.transform.localPosition = Vector3.zero;
+                    source.source.loop = true;
+                    source.source.transform.parent = this.transform;
+                    source.source.transform.localPosition = Vector3.zero;
                     
                     busyAudioSources.Remove(source); 
-                    source.gameObject.name += "(Music)"; 
+                    source.source.gameObject.name += "(Music)"; 
 
                     currentMusicSource = source;
                 }
 
-                source.volume = volumeMusic.value * musicVolumeMultiplier;
-                source.clip = GetClip(audio);
-                source.Play();    
+                source.volumeModifier = GetClipVM(audio);
+                source.source.volume = source.volumeModifier * volumeMusic.value * musicVolumeMultiplier;
+                source.source.clip = GetClip(audio);
+                source.source.Play();    
             }   
 
             Debug.Log($"[AudioController] Playing Music {audio}!");
@@ -149,26 +174,27 @@ namespace DLIFR.Audio
         
         public void _PlayAudio(string audio, Transform transform, Vector3 offset)
         {
-            AudioSource source = SetupAudioSource();
+            BusyAudioSource source = SetupAudioSource();
 
             if(source != null)
             {
-                source.loop = false;
+                source.source.loop = false;
             
                 if(transform is null)
                 {
-                    source.transform.parent = this.transform;
-                    source.transform.position = offset;
+                    source.source.transform.parent = this.transform;
+                    source.source.transform.position = offset;
                 }
                 else
                 {
-                    source.transform.parent = transform;
-                    source.transform.localPosition = offset;
+                    source.source.transform.parent = transform;
+                    source.source.transform.localPosition = offset;
                 }
 
-                source.volume = volumeVfx.value;
-                source.clip = GetClip(audio);
-                source.Play();
+                source.volumeModifier = GetClipVM(audio);
+                source.source.volume = volumeVfx.value * source.volumeModifier;
+                source.source.clip = GetClip(audio);
+                source.source.Play();
 
                 Debug.Log($"[AudioController] Playing {audio} at {transform} + {offset}");
             
@@ -182,26 +208,26 @@ namespace DLIFR.Audio
         {
             for(int i = 0; i < busyAudioSources.Count; i ++)
             {
-                AudioSource source = busyAudioSources[i];
+                BusyAudioSource source = busyAudioSources[i];
 
                 if(source == null || source is null)
                 {
                     busyAudioSources.RemoveAt(i);
                     i --;
                 }
-                else if(!source.isPlaying)
+                else if(!source.source.isPlaying)
                 {
                     busyAudioSources.RemoveAt(i);
-                    freeAudioSources.Add(source);
+                    freeAudioSources.Add(source.source);
 
-                    source.transform.parent = transform;
-                    source.gameObject.SetActive(false);
+                    source.source.transform.parent = transform;
+                    source.source.gameObject.SetActive(false);
                     i --;
                 }
             }
 
-            if(currentMusicSource != null)
-                currentMusicSource.volume = volumeMusic.value * musicVolumeMultiplier;
+            if(currentMusicSource != null && currentMusicSource.source != null)
+                currentMusicSource.source.volume = currentMusicSource.volumeModifier * volumeMusic.value * musicVolumeMultiplier;
         }
     
         #region Static Methods

@@ -11,6 +11,7 @@ namespace DLIFR.Audio
         {
             public string id;
             public AudioClip clip;
+            public float volumeModifier = 1f;
         }
 
         public Audio[] audios;
