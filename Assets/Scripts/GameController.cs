@@ -50,7 +50,6 @@ namespace DLIFR
         public Ship ship;
         public Area shipArea;
         public Shop shop;
-        public Language language;
 
         [Header("PREFABS")]
         public GameObject prefabBird;

@@ -3,6 +3,9 @@ using UnityEngine;
 using DLIFR.Data;
 using DLIFR.I18n;
 using TMPro;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace DLIFR.Interface
 {
@@ -12,10 +15,24 @@ namespace DLIFR.Interface
         static readonly Regex variablesPattern = new Regex(@"\{([^\}]+)\}", RegexOptions.Compiled);
         
         public Variable[] values;
+        public Settings settings;
 
         [SerializeField]
         private string _rawText;
         private TMP_Text text;
+
+        #if UNITY_EDITOR
+        void Reset()
+        {
+            string[] guids = AssetDatabase.FindAssets("t:Settings", new string[]{"Assets/Data"});
+            foreach (string guid in guids) 
+            {
+                string path = AssetDatabase.GUIDToAssetPath(guid);
+                settings = AssetDatabase.LoadAssetAtPath (path, typeof(Settings)) as Settings;
+                break;
+            }
+        }
+        #endif
 
         private void OnEnable() 
         {
@@ -27,7 +44,7 @@ namespace DLIFR.Interface
                 var.onChange += ReloadText;
             }
 
-            GameController.onInit += ReloadText;
+            ReloadText();
         }
 
         private void OnDisable() 
@@ -37,7 +54,7 @@ namespace DLIFR.Interface
 
         public void ReloadText()
         {
-            Language language = GameController.instance.language;
+            Language language = settings.language;
 
             string text = translationPattern.Replace(_rawText, delegate(Match match)
             {

@@ -262,6 +262,7 @@ GameObject:
   - component: {fileID: 41983860}
   - component: {fileID: 41983862}
   - component: {fileID: 41983861}
+  - component: {fileID: 41983863}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -309,7 +310,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: VFX Volume
+  m_text: '[settings.vfx_volume]'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -386,6 +387,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 41983859}
   m_CullTransparentMesh: 1
+--- !u!114 &41983863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41983859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e68914cfb62399144a1ff5fe3205aa6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  values: []
+  settings: {fileID: 11400000, guid: 4768b1ec962dad149b1d92bcb4ae7c31, type: 2}
+  _rawText: 
 --- !u!1 &59153009
 GameObject:
   m_ObjectHideFlags: 0
@@ -1691,6 +1707,7 @@ GameObject:
   - component: {fileID: 1742261878}
   - component: {fileID: 1742261880}
   - component: {fileID: 1742261879}
+  - component: {fileID: 1742261881}
   m_Layer: 5
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
@@ -1738,7 +1755,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Music Volume
+  m_text: '[settings.music_volume]'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1815,6 +1832,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1742261877}
   m_CullTransparentMesh: 1
+--- !u!114 &1742261881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742261877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e68914cfb62399144a1ff5fe3205aa6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  values: []
+  settings: {fileID: 11400000, guid: 4768b1ec962dad149b1d92bcb4ae7c31, type: 2}
+  _rawText: 
 --- !u!1 &1852485320
 GameObject:
   m_ObjectHideFlags: 0
