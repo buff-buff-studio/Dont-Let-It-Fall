@@ -351,7 +351,6 @@ MonoBehaviour:
   ship: {fileID: 192148441}
   shipArea: {fileID: 1441737181}
   shop: {fileID: 1018888765}
-  language: {fileID: 11400000, guid: fc9d1452716a79145a995e6e8303a3f0, type: 2}
   prefabBird: {fileID: 9074178575006121090, guid: e5e7e9191d4a1a84997446a7d41ae306, type: 3}
   prefabRock: {fileID: 1623046747228705461, guid: f7d6d4a5356ee2e4d86a1dc083961afc, type: 3}
   prefabBox: {fileID: 6564368218672256200, guid: fe4f787dbe8137b47880802cfa70602b, type: 3}
@@ -618,6 +617,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   values:
   - {fileID: 11400000, guid: d5467ed847e4b0846a293df587716f36, type: 2}
+  settings: {fileID: 11400000, guid: 4768b1ec962dad149b1d92bcb4ae7c31, type: 2}
   _rawText: 
 --- !u!114 &368530210
 MonoBehaviour:
@@ -874,6 +874,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   values:
   - {fileID: 11400000, guid: e3372b911e49417488c97fc1e6b4e76b, type: 2}
+  settings: {fileID: 11400000, guid: 4768b1ec962dad149b1d92bcb4ae7c31, type: 2}
   _rawText: 
 --- !u!114 &482595510
 MonoBehaviour:
@@ -1509,6 +1510,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   values:
   - {fileID: 11400000, guid: fc2f052d4d7be9f49b276a8bfe85bf0f, type: 2}
+  settings: {fileID: 11400000, guid: 4768b1ec962dad149b1d92bcb4ae7c31, type: 2}
   _rawText: 
 --- !u!114 &827926349
 MonoBehaviour:
@@ -2150,6 +2152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   values:
   - {fileID: 11400000, guid: fc2f052d4d7be9f49b276a8bfe85bf0f, type: 2}
+  settings: {fileID: 11400000, guid: 4768b1ec962dad149b1d92bcb4ae7c31, type: 2}
   _rawText: 
 --- !u!1 &1018888761
 GameObject:
@@ -2532,6 +2535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   values:
   - {fileID: 11400000, guid: e627bfc1315cb7341bfc518c7d851139, type: 2}
+  settings: {fileID: 11400000, guid: 4768b1ec962dad149b1d92bcb4ae7c31, type: 2}
   _rawText: 
 --- !u!114 &1725294951
 MonoBehaviour:
