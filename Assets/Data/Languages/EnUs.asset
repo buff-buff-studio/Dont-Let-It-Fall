@@ -33,12 +33,16 @@ MonoBehaviour:
     Back
 
 
+    mainmenu.play=Play
+
     mainmenu.settings=Settings
 
+    mainmenu.credits=Credits
 
-    settings.fxvolume=FX Volume
+    mainmenu.exit=Exit
 
-    settings.musicvolume=Music
+
+    settings.fxvolume=FX
     Volume
 
-    mainmenu.play=Play'
+    settings.musicvolume=Music Volume'

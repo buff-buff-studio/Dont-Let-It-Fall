@@ -15,5 +15,5 @@ MonoBehaviour:
   displayName: "Portugu\xEAs (BR)"
   content: "#HUD\nhud.daytime={0:HOUR}\nhud.daynumber=Day {0:DAY}\nhud.coincount=Coins:
     {0}\nhud.fuellevel=Fuel: {0:F1}\nhud.sellingvalue=Selling: {0}\n\n#Menus\nui.back=
-    Voltar\nmainmenu.settings=Op\xE7\xF5es\n\nsettings.fxvolume=Volume dos Efeitos\nsettings.musicvolume=Volume
-    da M\xFAsica\nmainmenu.play=Jogar"
+    Voltar\n\nmainmenu.play=Jogar\nmainmenu.settings=Op\xE7\xF5es\nmainmenu.credits=Creditos\nmainmenu.exit=Sair\n\nsettings.fxvolume=Volume
+    dos Efeitos\nsettings.musicvolume=Volume da M\xFAsica"
