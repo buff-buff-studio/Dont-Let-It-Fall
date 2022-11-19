@@ -1,0 +1,17 @@
+#HUD
+hud.daytime={0:HOUR}
+hud.daynumber=Day {0:DAY}
+hud.coincount=Coins: {0}
+hud.fuellevel=Fuel: {0:F1}
+hud.sellingvalue=Selling: {0}
+
+#Menus
+ui.back= Voltar
+
+mainmenu.play=Jogar
+mainmenu.settings=Ajustes
+mainmenu.credits=Creditos
+mainmenu.exit=Sair
+
+settings.fxvolume=Volume dos Efeitos
+settings.musicvolume=Volume da Música

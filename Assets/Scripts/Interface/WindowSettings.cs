@@ -49,6 +49,7 @@ namespace DLIFR.Interface
         {
             if(settings.languageIndex != dropdownLanguage.value)
             {
+                settings.language.Unload();
                 settings.language = settings.languages[dropdownLanguage.value];
             
                 foreach(Label label in Label.LABELS)

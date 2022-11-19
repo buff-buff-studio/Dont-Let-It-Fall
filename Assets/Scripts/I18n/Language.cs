@@ -8,9 +8,7 @@ namespace DLIFR.I18n
     public class Language : ScriptableObject
     {
         public string displayName;
-
-        [TextArea(20, 25)]
-        public string content;
+        public string fileName;
 
         [NonSerialized, HideInInspector]
         private Dictionary<string, string> _entries = new Dictionary<string, string>();
@@ -18,11 +16,19 @@ namespace DLIFR.I18n
         [NonSerialized, HideInInspector]
         private bool _loaded = false;
 
+        public void Unload()
+        {
+            _entries.Clear();
+            _loaded = false;
+        }
+
         public void Load()
         {
             _entries.Clear();
 
-            foreach(string line in content.Split('\n'))
+            TextAsset lang = Resources.Load($"Languages/{fileName}") as TextAsset;
+    
+            foreach(string line in lang.text.Split('\n'))
             {
                 if(line.StartsWith("#"))
                     continue;
