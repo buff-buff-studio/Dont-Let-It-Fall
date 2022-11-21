@@ -5,7 +5,9 @@ hud.coincount=Coins: {0}
 hud.fuellevel=Fuel: {0:F1}
 hud.sellingvalue=Selling: {0}
 
-#Menus
+######################################
+# MENUS
+######################################
 ui.back= Back
 
 mainmenu.play=Play
@@ -15,3 +17,9 @@ mainmenu.exit=Exit
 
 settings.fxvolume=FX Volume
 settings.musicvolume=Music Volume
+
+######################################
+#GAME
+######################################
+game.hud.daytime={0:HOUR}
+game.hud.daynumber=Day {0}
