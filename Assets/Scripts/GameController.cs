@@ -49,7 +49,7 @@ namespace DLIFR
         [Header("REFERENCES")]
         public Ship ship;
         public Area shipArea;
-        public Shop shop;
+        public DLIFR.Interface.Shop shop;
 
         [Header("PREFABS")]
         public GameObject prefabBird;

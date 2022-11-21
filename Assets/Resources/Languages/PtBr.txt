@@ -22,4 +22,5 @@ settings.musicvolume=Volume da Música
 #GAME
 ######################################
 game.hud.daytime={0:HOUR}
-game.hud.daynumber=Day {0}
+game.hud.daynumber=Dia {0}
+game.hud.coins=Coins=Moedas: {0}

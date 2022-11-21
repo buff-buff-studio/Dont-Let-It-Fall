@@ -17,8 +17,6 @@ namespace DLIFR.Props
             _rigidbody = GetComponent<Rigidbody>();
 
             WeightSimulator.AddBody(this);
-
-            transform.parent = GameController.instance.ship.transform;
         }
 
         private void OnDisable() 

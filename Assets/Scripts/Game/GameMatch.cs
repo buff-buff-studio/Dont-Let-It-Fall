@@ -1,11 +1,16 @@
 using UnityEngine;
+using UnityEngine.Events;
 using DLIFR.Data;
 using DLIFR.Entities;
+using DLIFR.Props;
 
 namespace DLIFR.Game
 {
     public class GameMatch : MonoBehaviour
     {
+        [Header("REFERENCES")]
+        public Transform ship;
+
         [Header("SETTINGS")]
         public Value<int> ticksPerDay = 50 * 24;
 
@@ -17,6 +22,9 @@ namespace DLIFR.Game
         [Header("PREFABS")]
         public GameObject prefabBird;
         public GameObject testCargo;
+
+        [Header("HANDLERS")]
+        public UnityEvent onOpenShop;
 
         private void Awake() 
         {
@@ -40,6 +48,7 @@ namespace DLIFR.Game
             if((++gameTicks.value) % ticksPerDay == 0)
             {
                 isOnShop = true;
+                onOpenShop?.Invoke();
             }
         }
 
@@ -52,6 +61,9 @@ namespace DLIFR.Game
             DeliveryBird db = bird.GetComponent<DeliveryBird>();
             db.carrying = carrying.transform;
             db.RefreshCarrying();
+
+            Cargo cargo = carrying.GetComponent<Cargo>();
+            cargo.transform.parent = ship;
 
             return db;
         }
