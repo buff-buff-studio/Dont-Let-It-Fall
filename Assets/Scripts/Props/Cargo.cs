@@ -8,7 +8,7 @@ namespace DLIFR.Props
         public const float VOID_HEIGHT = -15;
 
         public string type = "";
-        public int sellPrice = 10;
+        public int bitCount = 1;
 
         public float fuelValue = 0;
         

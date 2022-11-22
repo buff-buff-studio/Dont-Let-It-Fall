@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using UnityEngine;
 using DLIFR.Props;
+using DLIFR.Game;
 
 namespace DLIFR.Data
 {
@@ -20,12 +21,17 @@ namespace DLIFR.Data
 
         public BuyShop buy;
 
-        public bool Accepts(Cargo cargo, out int price)
+        public bool Accepts(GameMatch match, Cargo cargo, out int price)
         {
-            bool accepts = this.accepts.Contains(cargo.type);
+            bool accepts = Accepts(cargo.type);
 
-            price = accepts ? cargo.sellPrice : 0;
+            price = accepts ? cargo.bitCount * match.types.Where((a) => a.type == cargo.type).First().value : 0;
             return accepts;
+        }
+
+        public bool Accepts(string type)
+        {
+            return this.accepts.Contains(type);
         }
     }
 }

@@ -18,10 +18,18 @@ namespace DLIFR.Game
             public GameObject[] prefabs;
         }
 
+        [Serializable]
+        public class CargoType
+        {
+            public string type;
+            public Sprite sprite;
+            public int value;
+        }
+
         //If a item is not valid for selling, the game just takes with and do not pays you
         public const bool GAME_SELLS_EVERYTHING = true;
         //If you do a wrong split on the shop, the game keeps  you the remainder
-        public const bool GAME_GIVES_BACK_MONEY = false;
+        public const bool GAME_GIVES_BACK_MONEY = true;
 
         [Header("REFERENCES")]
         public Transform ship;
@@ -33,6 +41,7 @@ namespace DLIFR.Game
         public Value<int> ticksPerDay = 50 * 24;
         public LayerMask selectableMask;
         public Value<float> fuelConsumptionRate = 1;
+        public CargoType[] types;
 
         [Header("STATE")]
         public Crewmate currentCrewmate;
@@ -92,7 +101,7 @@ namespace DLIFR.Game
                 {            
                     IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
                     interactable?.OnInteract(m0 ? 0 : 1, this);
-
+                    
                     if(currentCrewmate != null && hit.collider.gameObject.tag == "Ground")
                     {
                         currentCrewmate.OnClickOnGround(hit.point);
@@ -146,7 +155,7 @@ namespace DLIFR.Game
 
             foreach(Cargo cargo in sellArea.cargoes)
             {
-                if(nextShop.Accepts(cargo, out int price) || GAME_SELLS_EVERYTHING)
+                if(nextShop.Accepts(this, cargo, out int price) || GAME_SELLS_EVERYTHING)
                 {
                     ShowSellDisplay(cargo.transform.position, price);
                     GameObject.Destroy(cargo.gameObject);
@@ -203,6 +212,7 @@ namespace DLIFR.Game
             for(int i = 0; i < fuelBoxes; i ++)
                 SpawnBird(GetRandom(prefabFuelBox));
 
+            Debug.Log($"Cargos: {cargoBits}");
             //Spawn cargo
             while(cargoBits > 0)
             {
@@ -213,7 +223,9 @@ namespace DLIFR.Game
 
                     if(i == 0 || UnityEngine.Random.Range(0f, 0.999f) < entry.chance)
                     {
-                        cargoBits -= lm + 1;
+                        cargoBits -= i + 1;
+
+                        Debug.Log($"Drop: {i + 1}");
                        
                         SpawnBird(GetRandom(entry.prefabs));
                     }
