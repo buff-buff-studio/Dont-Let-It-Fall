@@ -24,3 +24,4 @@ settings.musicvolume=Volume da Música
 game.hud.daytime={0:HOUR}
 game.hud.daynumber=Dia {0}
 game.hud.coins=Coins=Moedas: {0}
+game.hud.fuel=Combustível

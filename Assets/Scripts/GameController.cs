@@ -133,7 +133,7 @@ namespace DLIFR
                 if(UnityEngine.Physics.Raycast(ray.origin, ray.direction, out RaycastHit hit, 30f, selectableMask))
                 {
                     IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
-                    interactable?.OnInteract(m0 ? 0 : 1);
+                    interactable?.OnInteract(m0 ? 0 : 1, null);
 
                     if(currentCrewmate != null && hit.collider.gameObject.tag == "Ground")
                     {
@@ -155,7 +155,7 @@ namespace DLIFR
 
         public void UpdateInteractionDisplay()
         {
-            InteractableBehaviour.UpdateInteractionDisplay(true);
+            InteractableBehaviour.UpdateInteractionDisplay(true, null);
         }
 
         public void OnCheckpointBegins()

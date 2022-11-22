@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
+using DLIFR.Props;
 
-namespace DLIFR
+namespace DLIFR.Entities
 {
     [Serializable]
     public class CrewmateState
@@ -94,7 +95,7 @@ namespace DLIFR
         {
             crewmate.SetCarrying(grabbable.gameObject);
 
-            GameController.instance.UpdateInteractionDisplay();
+            crewmate.match.UpdateInteractionDisplay();
             crewmate.state = new CrewmateIdleState();
         }
     }
@@ -120,7 +121,7 @@ namespace DLIFR
             if(crewmate.carrying != null)
                 crewmate.DropCarrying();
 
-            GameController.instance.UpdateInteractionDisplay();
+            crewmate.match.UpdateInteractionDisplay();
             crewmate.state = new CrewmateIdleState();
         }
     }
@@ -147,7 +148,7 @@ namespace DLIFR
                 GameObject.Destroy(crewmate.carrying);
                 crewmate.carrying = null;
 
-                GameController.instance.UpdateInteractionDisplay();
+                crewmate.match.UpdateInteractionDisplay();
                 crewmate.state = new CrewmateIdleState();
             }
         }

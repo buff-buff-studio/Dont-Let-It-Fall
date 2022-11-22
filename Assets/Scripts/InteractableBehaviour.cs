@@ -1,5 +1,6 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
+using DLIFR.Game;
 
 namespace DLIFR
 {
@@ -17,21 +18,21 @@ namespace DLIFR
             behaviours.Remove(this);
         }
 
-        public virtual void OnInteract(int click) {}
-        public virtual void OnUpdateInteractionDisplay(bool enabled) {}
+        public virtual void OnInteract(int click, GameMatch match) {}
+        public virtual void OnUpdateInteractionDisplay(bool enabled, GameMatch match) {}
 
-        public static void UpdateInteractionDisplay(bool enabled)
+        public static void UpdateInteractionDisplay(bool enabled, GameMatch match)
         {
             foreach(InteractableBehaviour behaviour in behaviours)
             {
-                behaviour.OnUpdateInteractionDisplay(enabled);
+                behaviour.OnUpdateInteractionDisplay(enabled, match);
             }
         }
     }
 
     public interface IInteractable
     {
-        void OnInteract(int click);
-        void OnUpdateInteractionDisplay(bool enabled);
+        void OnInteract(int click, GameMatch match);
+        void OnUpdateInteractionDisplay(bool enabled, GameMatch match);
     }
 }

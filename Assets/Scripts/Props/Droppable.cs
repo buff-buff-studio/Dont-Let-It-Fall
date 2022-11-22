@@ -1,23 +1,27 @@
 using UnityEngine;
+using DLIFR.Game;
+using DLIFR.Entities;
 
-namespace DLIFR
+namespace DLIFR.Props
 {   
     public class Droppable : InteractableBehaviour
     {
-        public override void OnInteract(int click)
+        public override void OnInteract(int click, GameMatch match)
         {
-            Crewmate c = GameController.instance.currentCrewmate;
+            Debug.Log("wtf");
+            
+            Crewmate c = match.currentCrewmate;
             if(c != null && c.carrying != null)
             {
                 CrewmateDroppingState state = new CrewmateDroppingState();
                 state.droppable = this;
-                GameController.instance.currentCrewmate.state = state;   
+                match.currentCrewmate.state = state;   
             }
         }
 
-        public override void OnUpdateInteractionDisplay(bool enabled)
+        public override void OnUpdateInteractionDisplay(bool enabled, GameMatch match)
         {
-            Crewmate c = GameController.instance.currentCrewmate;
+            Crewmate c = match.currentCrewmate;
             if(c != null && c.carrying != null)
             {
                 gameObject.layer = LayerMask.NameToLayer("Interactable");

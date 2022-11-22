@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.AI;
+using DLIFR.Game;
 
-namespace DLIFR
+namespace DLIFR.Entities
 {
     public class Crewmate : InteractableBehaviour
     {
@@ -14,6 +15,7 @@ namespace DLIFR
         public NavMeshAgent agent;
         [HideInInspector, SerializeField]
         public Transform targetHolder;
+        public GameMatch match;
 
         [Header("COLOR")]
         public GameObject shellColor;
@@ -239,21 +241,21 @@ namespace DLIFR
         #endregion
 
         #region Interaction
-        public override void OnInteract(int click)
+        public override void OnInteract(int click, GameMatch match)
         {
-            if(GameController.instance.currentCrewmate != null)
+            if(match.currentCrewmate != null)
             {
-                SetLayer(GameController.instance.currentCrewmate.transform, 0);
+                SetLayer(match.currentCrewmate.transform, 0);
             
-                if(GameController.instance.currentCrewmate == this)
+                if(match.currentCrewmate == this)
                 {
-                    GameController.instance.currentCrewmate = null;
+                    match.currentCrewmate = null;
                     return;
                 }
             }
 
             SetLayer(transform, LayerMask.NameToLayer("Selected")); 
-            GameController.instance.currentCrewmate = this;             
+            match.currentCrewmate = this;             
         }
         
         public void OnClickOnGround(Vector3 position)

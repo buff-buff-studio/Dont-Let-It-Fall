@@ -13,10 +13,16 @@ namespace DLIFR.Game
 
         [Header("SETTINGS")]
         public Value<int> ticksPerDay = 50 * 24;
+        public LayerMask selectableMask;
+        public Value<float> fuelConsumptionRate = 1;
 
         [Header("STATE")]
+        public Crewmate currentCrewmate;
         public Value<int> coinCount;
         public Value<int> gameTicks;
+        public Value<float> shipFuelLevel;
+        public Value<float> shipFuelMaxLevel;
+
         public Value<bool> isOnShop = false;
 
         [Header("PREFABS")]
@@ -30,6 +36,7 @@ namespace DLIFR.Game
         {
             gameTicks.value = 0;
             coinCount.value = 0;
+            shipFuelLevel.value = shipFuelMaxLevel.value;
         }
 
         private void Update() 
@@ -38,12 +45,40 @@ namespace DLIFR.Game
             {
                 SpawnBird(testCargo);
             }
+
+            bool m0 = Input.GetMouseButtonUp(0);
+            bool m1 = Input.GetMouseButtonUp(1);
+
+            if(m0 || m1)
+            {
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                if(UnityEngine.Physics.Raycast(ray.origin, ray.direction, out RaycastHit hit, 30f, selectableMask))
+                {            
+                    IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
+                    interactable?.OnInteract(m0 ? 0 : 1, this);
+
+                    if(currentCrewmate != null && hit.collider.gameObject.tag == "Ground")
+                    {
+                        currentCrewmate.OnClickOnGround(hit.point);
+                    }
+                }
+
+                UpdateInteractionDisplay();
+            }  
+        }
+
+        public void UpdateInteractionDisplay()
+        {
+            InteractableBehaviour.UpdateInteractionDisplay(true, this);
         }
 
         private void FixedUpdate() 
         {
             if(isOnShop.value)
                 return;
+
+            shipFuelLevel.value -= Time.fixedDeltaTime * fuelConsumptionRate;
 
             if((++gameTicks.value) % ticksPerDay == 0)
             {

@@ -11,9 +11,9 @@ namespace DLIFR.Props
         public class LootTableEntry
         {
             public GameObject prefab;
-            [Range(0,10)]
+            [Range(0, 20)]
             public int minCount;
-            [Range(0,10)]
+            [Range(0, 20)]
             public int maxCount;
         }
 
@@ -25,15 +25,12 @@ namespace DLIFR.Props
         public const float SIZE = 0.5F;
 
         public LootTable lootTable;
-
-        private void OnEnable() 
-        {
-            
-        }
+        public bool spawnOnStart = true;
 
         private void Start() 
         {
-            Spawn();
+            if(spawnOnStart)
+                Spawn();
         }
 
         private void OnDrawGizmos() 
