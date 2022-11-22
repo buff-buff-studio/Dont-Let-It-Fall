@@ -8,12 +8,12 @@ namespace DLIFR
     {
         public static List<InteractableBehaviour> behaviours = new List<InteractableBehaviour>();
 
-        private void OnEnable() 
+        public virtual void OnEnable() 
         {
             behaviours.Add(this);
         }
 
-        private void OnDisable() 
+        public virtual void OnDisable() 
         {
             behaviours.Remove(this);
         }

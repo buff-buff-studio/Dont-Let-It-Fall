@@ -12,16 +12,20 @@ namespace DLIFR.Props
 
         private Rigidbody _rigidbody;
 
-        private void OnEnable() 
+        public override void OnEnable() 
         {
             _rigidbody = GetComponent<Rigidbody>();
 
             WeightSimulator.AddBody(this);
+
+            base.OnEnable();
         }
 
-        private void OnDisable() 
+        public override void OnDisable() 
         {
             WeightSimulator.RemoveBody(this);
+
+            base.OnDisable();
         }
 
         public float GetWeight()

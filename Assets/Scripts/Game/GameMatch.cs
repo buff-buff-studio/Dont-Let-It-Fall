@@ -70,6 +70,7 @@ namespace DLIFR.Game
 
         public void UpdateInteractionDisplay()
         {
+            Debug.Log("opa");
             InteractableBehaviour.UpdateInteractionDisplay(true, this);
         }
 
