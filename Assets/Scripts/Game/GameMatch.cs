@@ -36,6 +36,7 @@ namespace DLIFR.Game
         public Area sellArea;
         public Canvas canvas;
         public GameShop gameShop;
+        public GameHUD gameHud;
 
         [Header("SETTINGS")]
         public Value<int> ticksPerDay = 50 * 24;
@@ -173,7 +174,9 @@ namespace DLIFR.Game
             sellArea.cargoes.AddRange(keep);
 
             gameShop.gameObject.SetActive(true);
-            isOnShop = true;
+            gameHud.gameObject.SetActive(false);
+
+            isOnShop = true;  
         }
 
         public void CloseShop()
@@ -240,6 +243,8 @@ namespace DLIFR.Game
             #endregion
 
             gameShop.gameObject.SetActive(false);
+            gameHud.gameObject.SetActive(true);
+
             isOnShop = false;
         }
 

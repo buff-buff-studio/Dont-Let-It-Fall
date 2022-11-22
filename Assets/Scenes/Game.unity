@@ -4585,6 +4585,7 @@ MonoBehaviour:
   sellArea: {fileID: 506163410}
   canvas: {fileID: 1952436410}
   gameShop: {fileID: 1050563078}
+  gameHud: {fileID: 1942428257}
   ticksPerDay:
     variable: {fileID: 11400000, guid: c7e00ef0845615c418a73caf4b63ab09, type: 2}
     _value: 50
