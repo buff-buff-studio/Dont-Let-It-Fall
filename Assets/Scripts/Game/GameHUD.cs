@@ -1,11 +1,18 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using DLIFR.Data;
+using DLIFR.Interface.Widgets;
 
 namespace DLIFR.Game
 {
     public class GameHUD : MonoBehaviour
     {
+        [Header("REFERENCES")]
+        public GameMatch match;
+        public RectTransform sellItems;
+        public RectTransform fuelFill;
+
         [Header("SETTINGS")]
         public Value<int> ticksPerDay = 50 * 24;
 
@@ -16,7 +23,8 @@ namespace DLIFR.Game
         public Value<float> shipFuelLevel;
         public Value<float> shipFuelMaxLevel;
 
-        public RectTransform fuelFill;
+        [Header("PREFABS")]
+        public GameObject prefabSellItem;
 
         private void OnEnable() 
         {
@@ -31,6 +39,29 @@ namespace DLIFR.Game
             {
                 fuelFill.sizeDelta = new Vector2(100f * shipFuelLevel.value/shipFuelMaxLevel.value, 25f);  
             };
+
+            UpdateShopWishlist();
+        }
+
+        public void UpdateShopWishlist()
+        {
+            foreach(Transform children in sellItems)
+            {
+                Destroy(children.gameObject);
+            }   
+
+            foreach(GameMatch.CargoType type in match.types)
+            {
+                if(match.nextShop.Accepts(type.type))
+                {
+                    GameObject widget = GameObject.Instantiate(prefabSellItem);
+                    widget.transform.parent = sellItems;
+                    
+                    SellItem sellItem = widget.GetComponent<SellItem>();
+                    sellItem.sprite.sprite = type.sprite;
+                    sellItem.labelPrice.text = $"{type.value}";
+                }
+            }
         }
     }
 }

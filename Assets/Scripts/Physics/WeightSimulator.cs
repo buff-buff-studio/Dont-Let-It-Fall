@@ -48,7 +48,10 @@ namespace DLIFR.Physics
         {
             RecalculateCenterOfMass(transform);
 
-            looker.up = Vector3.Lerp(Vector3.up, centerOfMass, weight);
+            if(bodies.Count > 0)
+                looker.up = Vector3.Lerp(Vector3.up, centerOfMass, weight);
+            else
+                looker.up = Vector3.up;
         }
     }
 }

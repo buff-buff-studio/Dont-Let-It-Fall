@@ -126,7 +126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beingGrabbed: 0
+  type: test
+  sellPrice: 10
   fuelValue: 0
-  sellValue: 10
   explosionParticles: {fileID: 0}
   lightningParticles: {fileID: 4255970444599916459, guid: e9e56cbe1bccc294483a283f3c30e626, type: 3}

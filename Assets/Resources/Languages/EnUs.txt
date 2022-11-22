@@ -29,3 +29,5 @@ game.hud.fuel=Fuel
 game.shop.shop=Shop
 game.shop.done=Done
 game.shop.coins=Coins: {0}
+
+game.tutorial.tutorial=Tutorial
