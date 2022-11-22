@@ -55,18 +55,6 @@ namespace DLIFR.Game
                     deltaTime * 5f
                 );
             }
-            
-
-            //Camera.main.transform.position += Time.unscaledDeltaTime * Vector3.up;
-
-            /*
-            if(Input.GetKeyDown(KeyCode.W))
-            {
-                Display(new TutorialPage(){
-                    text = "Simple Symbol"
-                });
-            }
-            */
         }
     }
 }

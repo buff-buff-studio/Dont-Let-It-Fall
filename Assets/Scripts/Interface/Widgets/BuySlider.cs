@@ -35,6 +35,8 @@ namespace DLIFR.Interface.Widgets
 
             float from = 0;
 
+            int valueLimit = maxValue.value;
+
             for(int i = 0; i < fillAreas.Length; i ++)
             {
                 float to = 1f;
@@ -57,14 +59,21 @@ namespace DLIFR.Interface.Widgets
                         {
                             to = sliders[i].value = nextValue;
                         }
-                    }   
+                    } 
                 }
 
                 RectTransform fillAreaIn = fillAreas[i];
                 fillAreaIn.sizeDelta = new Vector2((to - from) * width , height);
-                fillAreaIn.anchoredPosition = new Vector2(from * width, 0);       
+                fillAreaIn.anchoredPosition = new Vector2(from * width, 0); 
+
+                int value = Mathf.RoundToInt((to - from) * maxValue); 
                 
-                fillValues[i].text = $"{Mathf.RoundToInt((to - from) * maxValue)}";
+                if(i == fillAreas.Length - 1)
+                    value = valueLimit;
+
+                valueLimit -= value;     
+                
+                fillValues[i].text = $"{value}";
 
                 from = to;             
             }
@@ -75,6 +84,46 @@ namespace DLIFR.Interface.Widgets
             fillArea.anchoredPosition = new Vector2(from * width, 0);
             fillValues[fillAreas.Length - 1].text = $"{(1f - from) * maxValue}";       
             */
+        }
+
+        public int GetValue(int section)
+        {
+            /*
+            if(section ==  fillAreas.Length - 1)
+            {
+                int valueLimit = maxValue.value;
+
+                for(int i = 0; i < fillAreas.Length - 2; i ++)
+                {
+                    float from = 0;
+                    float to = 1;
+
+                    if(i > 0)
+                        from = sliders[i].value;
+
+                    if(i < sliders.Length - 1)
+                        to = sliders[i].value;
+
+                    valueLimit -= Mathf.RoundToInt((to - from) * maxValue);
+                }
+
+                return valueLimit;
+            }
+            else
+            */
+            {
+                float from = 0;
+                float to = 1;
+
+                if(section > 0)
+                    from = sliders[section - 1].value;
+
+                if(section <  sliders.Length - 1)
+                    to = sliders[section].value;
+
+                return Mathf.RoundToInt((to - from) * maxValue);
+            }
+            
         }
     }
 }

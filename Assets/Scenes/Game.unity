@@ -1846,7 +1846,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 635594539}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1768740004}
+        m_TargetAssemblyTypeName: DLIFR.Game.GameMatch, Assembly-CSharp
+        m_MethodName: CloseShop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &635594539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2822,6 +2834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0de0e34ef8e4707408a22a20ef598a1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 1789196298}
   shop: {fileID: 11400000, guid: c1c31d16acbc61b49b135ede77afabdb, type: 2}
 --- !u!1001 &1086035684
 PrefabInstance:
@@ -4760,6 +4773,7 @@ MonoBehaviour:
   ship: {fileID: 1332377288}
   sellArea: {fileID: 506163410}
   canvas: {fileID: 1952436410}
+  gameShop: {fileID: 1050563078}
   ticksPerDay:
     variable: {fileID: 11400000, guid: c7e00ef0845615c418a73caf4b63ab09, type: 2}
     _value: 50
@@ -4788,10 +4802,25 @@ MonoBehaviour:
   isPaused:
     variable: {fileID: 11400000, guid: c524c9e3b63b1de49a25be9ecfaa5647, type: 2}
     _value: 0
+  shouldTimePass:
+    variable: {fileID: 0}
+    _value: 0
   nextShop: {fileID: 11400000, guid: c1c31d16acbc61b49b135ede77afabdb, type: 2}
   prefabBird: {fileID: 9074178575006121090, guid: e5e7e9191d4a1a84997446a7d41ae306, type: 3}
-  testCargo: {fileID: 6564368218672256200, guid: fe4f787dbe8137b47880802cfa70602b, type: 3}
   sellDisplay: {fileID: 5236070875371773075, guid: 064ab84302f02be42be242729a444586, type: 3}
+  prefabFuelBox:
+  - {fileID: 4541668888859948258, guid: 8cbc9d203dc067548ba2d894bee99d7f, type: 3}
+  prefabCargoBox:
+  - chance: 1
+    prefabs:
+    - {fileID: 3998082691673985333, guid: f0f9a053285a307429dff54617bb0973, type: 3}
+  - chance: 0.5
+    prefabs:
+    - {fileID: 1839058112608359303, guid: 17abd985b2a705044a5a9eb8180fad32, type: 3}
+  - chance: 0.25
+    prefabs:
+    - {fileID: 3998082691673985333, guid: f0f9a053285a307429dff54617bb0973, type: 3}
+  prefabCrewmate: {fileID: 3120888666204313673, guid: 7d3cfc4d3b5715946b71bf68d26bfcff, type: 3}
 --- !u!4 &1768740005
 Transform:
   m_ObjectHideFlags: 0

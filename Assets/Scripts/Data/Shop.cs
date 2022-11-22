@@ -13,7 +13,7 @@ namespace DLIFR.Data
         public class BuyShop
         {
             public int fuelBoxPrice = 10;
-            public int cargoBoxPrice = 10;
+            public int cargoBitPrice = 10;
             public int crewmateRecruitPrice = 30;
         }
 
