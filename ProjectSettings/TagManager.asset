@@ -18,9 +18,9 @@ TagManager:
   - Interactable
   - WorldPlane
   - Area
-  - 
-  - 
-  - 
+  - ShipModel
+  - ShipNavMesh
+  - Player
   - 
   - 
   - 

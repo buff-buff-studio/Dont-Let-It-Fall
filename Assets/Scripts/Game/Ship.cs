@@ -9,6 +9,8 @@ namespace DLIFR.Game
         public float balanceForce = 20f;
 
         public Transform targetRotation;
+        public Transform shipNavMesh;
+        public Transform shipCollider;
         #endregion
 
         #region Private Fields
@@ -38,6 +40,8 @@ namespace DLIFR.Game
         /// </summary>
         private void ApplyBalance()
         {
+            shipCollider.position = shipNavMesh.position;
+            shipCollider.rotation = shipNavMesh.rotation;
             
             float inverseBalanceForce = 1f / balanceForce;
             Quaternion deltaRotation = Quaternion.identity * Quaternion.Inverse(targetRotation == null ? transform.rotation : (transform.rotation * Quaternion.Inverse(targetRotation.rotation)));
@@ -55,6 +59,9 @@ namespace DLIFR.Game
             Vector3 angular = (0.9f * Mathf.Deg2Rad * angle / 1f) * axis.normalized;
 
             _rigidbody.angularVelocity = Vector3.Lerp(_rigidbody.angularVelocity, angular, Time.fixedDeltaTime * balanceForce);
+            
+            shipCollider.position = shipNavMesh.position;
+            shipCollider.rotation = shipNavMesh.rotation;
         }
         #endregion
     }
