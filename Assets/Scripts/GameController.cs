@@ -91,6 +91,7 @@ namespace DLIFR
         {
             _instance = this;
 
+            /*
             shipArea.onChange = () => {
                 int price = 0;
 
@@ -98,7 +99,7 @@ namespace DLIFR
                     price += cargo.sellValue;
                 
                 sellingValue.value = price;
-            };
+            };*/
 
             onInit?.Invoke();
         }
@@ -186,6 +187,7 @@ namespace DLIFR
         #region Inventory
         public void SellAllItems(Area area)
         {
+            /*
             List<Cargo> toRemove = new List<Cargo>();
             foreach(Cargo o in area.cargoes)
             {
@@ -201,6 +203,7 @@ namespace DLIFR
             }
 
             area.onChange?.Invoke();
+            */
         }
         #endregion
 

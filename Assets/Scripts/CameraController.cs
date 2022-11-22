@@ -16,9 +16,9 @@ namespace DLIFR
 
         private void Update() 
         {
-            velocity = Vector3.Lerp(velocity,  moveSpeed * new Vector3(Input.GetAxis("Horizontal"), Input.GetKey(KeyCode.LeftShift) ? -1 : (Input.GetKey(KeyCode.Space) ? 1 : 0), Input.GetAxis("Vertical")), Time.deltaTime * 10f);
+            velocity = Vector3.Lerp(velocity,  moveSpeed * new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetKey(KeyCode.LeftShift) ? -1 : (Input.GetKey(KeyCode.Space) ? 1 : 0), Input.GetAxisRaw("Vertical")), Time.unscaledDeltaTime * 10f);
 
-            transform.position += velocity * Time.deltaTime;
+            transform.position += velocity * Time.unscaledDeltaTime;
 
             Vector3 p = transform.position - pivot;
             p.x = Mathf.Clamp(Mathf.Abs(p.x), 0, bounds.x) * Mathf.Sign(p.x);

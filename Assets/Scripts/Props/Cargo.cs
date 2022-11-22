@@ -7,8 +7,9 @@ namespace DLIFR.Props
     {
         public const float VOID_HEIGHT = -15;
 
+        public int itemType = 0;
+
         public float fuelValue = 0;
-        public int sellValue = 0;
 
         private Rigidbody _rigidbody;
 
