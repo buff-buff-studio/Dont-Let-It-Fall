@@ -10,6 +10,9 @@ namespace DLIFR.Props
         public int itemType = 0;
 
         public float fuelValue = 0;
+        
+        public ParticleSystem explosionParticles;
+        public ParticleSystem lightningParticles;
 
         private Rigidbody _rigidbody;
 
@@ -45,6 +48,12 @@ namespace DLIFR.Props
             {
                 Destroy(gameObject);
             }
+        }
+
+        public void Fire()
+        {
+            Instantiate(lightningParticles, transform.position + new Vector3(0,10,0), Quaternion.identity, transform);
+            Destroy(gameObject, 5);
         }
 
         private void OnTriggerEnter(Collider other) 

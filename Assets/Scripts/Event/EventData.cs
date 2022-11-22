@@ -10,6 +10,7 @@ public class EventData : ScriptableObject
     public string eventName;
     [Tooltip("In Seconds")]
     public Vector2 eventDuration;
+    [SerializeField] [Range(0,25)]
     public float eventForce;
     [SerializeField] [Range(1,100)]
     private int eventChance;

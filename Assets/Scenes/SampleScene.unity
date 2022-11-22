@@ -1854,6 +1854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a1ed074a3f3a9542875cf0fd3ffddb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  instance: {fileID: 0}
   spawnEvents: 1
   events:
   - eventData: {fileID: 11400000, guid: 261b651665c2c3444b7ad68a2a40e1ff, type: 2}
@@ -1864,6 +1865,10 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   timeBetweenEvents: {x: 10, y: 20}
+  shipTargetRotation: {fileID: 1960799429}
+  boxParent: {fileID: 192148439}
+  targetRotation: {x: 0, y: 0, z: 0, w: 0}
+  v: {x: 0, y: 0, z: 0}
 --- !u!4 &862169671
 Transform:
   m_ObjectHideFlags: 0
