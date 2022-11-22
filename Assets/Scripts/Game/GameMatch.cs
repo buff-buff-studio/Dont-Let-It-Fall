@@ -24,6 +24,7 @@ namespace DLIFR.Game
         public Value<float> shipFuelMaxLevel;
 
         public Value<bool> isOnShop = false;
+        public Value<bool> isPaused = false;
 
         [Header("PREFABS")]
         public GameObject prefabBird;
@@ -37,6 +38,17 @@ namespace DLIFR.Game
             gameTicks.value = 0;
             coinCount.value = 0;
             shipFuelLevel.value = shipFuelMaxLevel.value;
+
+            isPaused.value = false;
+        }
+
+        private void OnEnable() 
+        {
+            isPaused.variable.onChange += () => 
+            {
+                Time.timeScale = isPaused ? 0 : 1f;
+                Time.fixedDeltaTime = isPaused ? 0 : 0.02f;
+            };
         }
 
         private void Update() 
@@ -44,6 +56,11 @@ namespace DLIFR.Game
             if(Input.GetKeyDown(KeyCode.B))
             {
                 SpawnBird(testCargo);
+            }
+
+            if(Input.GetKeyDown(KeyCode.P))
+            {
+                isPaused.value = !isPaused.value;
             }
 
             bool m0 = Input.GetMouseButtonUp(0);
@@ -76,7 +93,7 @@ namespace DLIFR.Game
 
         private void FixedUpdate() 
         {
-            if(isOnShop.value)
+            if(isOnShop.value || isPaused.value)
                 return;
 
             shipFuelLevel.value -= Time.fixedDeltaTime * fuelConsumptionRate;

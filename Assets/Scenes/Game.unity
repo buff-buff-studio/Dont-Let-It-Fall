@@ -1593,7 +1593,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 129
   fuelConsumptionRate:
-    variable: {fileID: 0}
+    variable: {fileID: 11400000, guid: e611c494e73bbb4458bd22c6e7a8d7c9, type: 2}
     _value: 1
   currentCrewmate: {fileID: 0}
   coinCount:
@@ -1610,6 +1610,9 @@ MonoBehaviour:
     _value: 0
   isOnShop:
     variable: {fileID: 0}
+    _value: 0
+  isPaused:
+    variable: {fileID: 11400000, guid: c524c9e3b63b1de49a25be9ecfaa5647, type: 2}
     _value: 0
   prefabBird: {fileID: 9074178575006121090, guid: e5e7e9191d4a1a84997446a7d41ae306, type: 3}
   testCargo: {fileID: 6564368218672256200, guid: fe4f787dbe8137b47880802cfa70602b, type: 3}
