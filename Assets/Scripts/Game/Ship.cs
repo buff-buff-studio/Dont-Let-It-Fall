@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DLIFR
+namespace DLIFR.Game
 {
     public class Ship : MonoBehaviour
     {

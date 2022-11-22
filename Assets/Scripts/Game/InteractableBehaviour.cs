@@ -1,8 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
-using DLIFR.Game;
 
-namespace DLIFR
+namespace DLIFR.Game
 {
     public abstract class InteractableBehaviour : MonoBehaviour, IInteractable
     {

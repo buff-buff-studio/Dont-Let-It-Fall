@@ -6,6 +6,7 @@ using DLIFR.Entities;
 using DLIFR.Props;
 using DLIFR.Data;
 using DLIFR.I18n;
+using DLIFR.Game;
 /*
 - Caixa que se movimenta - com carangueijo
 - caixa congelada - que desliza
