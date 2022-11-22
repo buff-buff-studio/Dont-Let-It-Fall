@@ -4813,7 +4813,7 @@ MonoBehaviour:
   prefabCargoBox:
   - chance: 1
     prefabs:
-    - {fileID: 3998082691673985333, guid: f0f9a053285a307429dff54617bb0973, type: 3}
+    - {fileID: 2751505599680732772, guid: 9a0e922cf5d7bde4b9eae4e13fc2bd6d, type: 3}
   - chance: 0.5
     prefabs:
     - {fileID: 1839058112608359303, guid: 17abd985b2a705044a5a9eb8180fad32, type: 3}

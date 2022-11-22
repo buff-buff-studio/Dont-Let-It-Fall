@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4682e90c91a63428c714b5ecab2122, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: 
-  entries: []
+  buy:
+    fuelBoxPrice: 10
+    cargoBitPrice: 10
+    crewmateRecruitPrice: 100

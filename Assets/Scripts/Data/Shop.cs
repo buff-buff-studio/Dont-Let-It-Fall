@@ -4,8 +4,6 @@ using DLIFR.Props;
 
 namespace DLIFR.Data
 {
-    
-
     [CreateAssetMenu(fileName = "Shop", menuName = "DLIFR/Shop", order = 0)]
     public class Shop : ScriptableObject 
     {
@@ -20,7 +18,7 @@ namespace DLIFR.Data
         [Serializable]
         public class SellShop
         {
-
+            
         }
 
         public BuyShop buy;
