@@ -50,7 +50,6 @@ namespace DLIFR
         [Header("REFERENCES")]
         public Ship ship;
         public Area shipArea;
-        public DLIFR.Interface.Shop shop;
 
         [Header("PREFABS")]
         public GameObject prefabBird;
@@ -163,25 +162,6 @@ namespace DLIFR
         public void OnCheckpointBegins()
         {
             SellAllItems(shipArea);
-            shop.gameObject.SetActive(true);
-        }
-
-        public void OnCheckpointEnds()
-        {
-            //Drop products
-            int index = 0;
-            foreach(ShopItemWidget widget in shop.widgets)
-            {
-                coinCount.value -= widget.count * widget.price;
-                for(int i = 0 ; i < widget.count; i ++)
-                {
-                    SpawnBird(shop.items[index].GetPrefab());
-                }
-
-                index ++;
-            }
-
-            shop.gameObject.SetActive(false);
         }
 
         #region Inventory

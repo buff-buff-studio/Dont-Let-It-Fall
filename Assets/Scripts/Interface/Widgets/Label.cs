@@ -13,7 +13,7 @@ using UnityEditor.SceneManagement;
 using UnityEditor.Experimental.SceneManagement;
 #endif
 
-namespace DLIFR.Interface
+namespace DLIFR.Interface.Widgets
 {
     public class Label : MonoBehaviour
     { 

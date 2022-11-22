@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using TMPro;
 using DLIFR.Data;
 
-namespace DLIFR.Interface
+namespace DLIFR.Interface.Widgets
 {
     public class BuySlider : MonoBehaviour
     {

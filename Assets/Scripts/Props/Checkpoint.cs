@@ -33,7 +33,6 @@ namespace DLIFR.Props
 
                 if(inCheckpoint)
                 {
-                    instance.OnCheckpointEnds();
                     inCheckpoint = false;
                 }
 
@@ -53,7 +52,6 @@ namespace DLIFR.Props
             {
                 if(inCheckpoint)
                 {
-                    instance.OnCheckpointEnds();
                     inCheckpoint = false;
                 }
 

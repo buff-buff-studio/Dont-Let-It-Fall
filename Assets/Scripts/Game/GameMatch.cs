@@ -1,15 +1,23 @@
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using DLIFR.Data;
 using DLIFR.Entities;
 using DLIFR.Props;
+using DLIFR.Interface.Widgets;
 
 namespace DLIFR.Game
 {
     public class GameMatch : MonoBehaviour
-    {
+    {   
+        //If a item is not valid for selling, the game just takes with and do not pays you
+        public const bool GAME_SELLS_EVERYTHING = true;
+        //If you do a wrong split on the shop, the game keeps  you the remainder
+        public const bool GAME_GIVES_BACK_MONEY = false;
+
         [Header("REFERENCES")]
         public Transform ship;
+        public Area sellArea;
+        public Canvas canvas;
 
         [Header("SETTINGS")]
         public Value<int> ticksPerDay = 50 * 24;
@@ -26,12 +34,12 @@ namespace DLIFR.Game
         public Value<bool> isOnShop = false;
         public Value<bool> isPaused = false;
 
+        public Shop nextShop;
+
         [Header("PREFABS")]
         public GameObject prefabBird;
         public GameObject testCargo;
-
-        [Header("HANDLERS")]
-        public UnityEvent onOpenShop;
+        public GameObject sellDisplay;
 
         private void Awake() 
         {
@@ -100,7 +108,7 @@ namespace DLIFR.Game
             if((++gameTicks.value) % ticksPerDay == 0)
             {
                 isOnShop = true;
-                onOpenShop?.Invoke();
+                OnOpenShop();
             }
         }
 
@@ -120,5 +128,41 @@ namespace DLIFR.Game
             return db;
         }
         #endregion
+
+        public void OnOpenShop()
+        {
+            List<Cargo> keep = new List<Cargo>();
+
+            int coins = 0;
+
+            foreach(Cargo cargo in sellArea.cargoes)
+            {
+                if(nextShop.Accepts(cargo, out int price) || GAME_SELLS_EVERYTHING)
+                {
+                    ShowSellDisplay(cargo.transform.position, price);
+                    GameObject.Destroy(cargo.gameObject);
+                    coins += price;
+                }
+                else
+                {
+                    keep.Add(cargo);
+                }
+            }
+
+            coinCount.value += coins;
+
+            sellArea.cargoes.Clear();
+            sellArea.cargoes.AddRange(keep);
+        }
+
+        public void ShowSellDisplay(Vector3 position, int price)
+        {
+            GameObject go = GameObject.Instantiate(sellDisplay);
+            go.transform.parent = canvas.transform;
+
+            SellDisplay display = go.GetComponent<SellDisplay>();
+            display.worldPosition = position;
+            display.SetPrice(price);
+        }
     }
 }
