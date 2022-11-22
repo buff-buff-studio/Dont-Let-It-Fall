@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 using DLIFR.Props;
 
@@ -15,19 +16,16 @@ namespace DLIFR.Data
             public int crewmateRecruitPrice = 30;
         }
 
-        [Serializable]
-        public class SellShop
-        {
-            
-        }
+        public string[] accepts;
 
         public BuyShop buy;
-        public SellShop sell;
 
         public bool Accepts(Cargo cargo, out int price)
         {
-            price = 15;
-            return true;
+            bool accepts = this.accepts.Contains(cargo.type);
+
+            price = accepts ? cargo.sellPrice : 0;
+            return accepts;
         }
     }
 }

@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using TMPro;
 using DLIFR.Data;
 using DLIFR.Interface.Widgets;
 

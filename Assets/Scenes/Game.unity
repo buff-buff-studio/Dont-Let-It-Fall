@@ -3906,14 +3906,14 @@ MonoBehaviour:
   currentPage:
     valid: 1
     text: test
-    shouldPauseGame: 1
-    shouldTimePass: 0
-    shouldFocusOnto: 0
+    shouldPauseGame: 0
+    shouldTimePass: 1
+    shouldFocusOnto: 1
     focusOnto: {fileID: 1251740461}
     useCustomFocusOffset: 0
     customFocusOffset: {x: 0, y: 0, z: 0}
     shouldSwipe: 0
-    swipeTarget: {fileID: 0}
+    swipeTarget: {fileID: 1251740461}
   focusOffset: {x: 0, y: 3, z: -8}
 --- !u!222 &1369049394
 CanvasRenderer:
