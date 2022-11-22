@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4249961492627776137}
   m_Layer: 0
   m_Name: Small Cargo
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,3 +128,5 @@ MonoBehaviour:
   beingGrabbed: 0
   fuelValue: 0
   sellValue: 25
+  explosionParticles: {fileID: 0}
+  lightningParticles: {fileID: 4255970444599916459, guid: e9e56cbe1bccc294483a283f3c30e626, type: 3}

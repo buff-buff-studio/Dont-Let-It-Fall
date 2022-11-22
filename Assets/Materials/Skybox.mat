@@ -57,8 +57,8 @@ Material:
     - _CloudsShadow: 0.5
     - _CloudsSharpness: 8
     - _CloudsSpeed: 0.005
-    - _MoonExponent: 13.73
-    - _MoonIntensity: 1.27
+    - _MoonExponent: 27.8
+    - _MoonIntensity: 45.8
     - _MoonRadiusA: 0
     - _MoonRadiusB: 0.05
     - _SkyGradientLevel: 1
@@ -75,7 +75,7 @@ Material:
     m_Colors:
     - _CloudsDarkColor: {r: 0.4217248, g: 0.7157037, b: 0.764151, a: 0}
     - _CloudsLightColor: {r: 0.25941363, g: 0.21404415, b: 0.6981132, a: 0}
-    - _MoonColor: {r: 0.43698224, g: 1.1743897, b: 2.6082377, a: 0}
+    - _MoonColor: {r: 0.009693532, g: 0.013906059, b: 0.022097087, a: 1}
     - _NightSkyColor: {r: 0.2781239, g: 0.3426909, b: 0.4716981, a: 0}
     - _SkyGradientColorA: {r: 0.1589609, g: 0.4793202, b: 0.5520116, a: 1}
     - _SkyGradientColorB: {r: 0.8235295, g: 0.9294118, b: 0.9294118, a: 1}
