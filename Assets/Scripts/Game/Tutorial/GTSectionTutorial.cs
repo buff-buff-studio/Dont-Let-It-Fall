@@ -8,6 +8,8 @@ namespace DLIFR.Game.Tutorial
 {
     public class GTSectionTutorial : GameTutorialSection 
     {
+        public const int REAL_START = 6;
+
         public Transform hudFuel;
         public Transform hudCoins;
         public Transform hudClock;
@@ -93,6 +95,17 @@ namespace DLIFR.Game.Tutorial
             switch(page)
             {
                 case 0:
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                tutorial.Display(new TutorialPage{
+                    text = $"tutorial.greetings.{page}"
+                });
+                return true;
+
+                case REAL_START + 0:
                 {
                     Crewmate crewmate = GameObject.FindObjectOfType<Crewmate>();
 
@@ -110,7 +123,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 1:
+                case REAL_START + 1:
                 {
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.boxes.1"
@@ -121,7 +134,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 2:
+                case REAL_START + 2:
                 {
                     DeliveryBird bird = match.SpawnBird(match.GetRandom(match.prefabFuelBox));
                 
@@ -136,7 +149,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;   
 
-                case 3:
+                case REAL_START + 3:
                 {
                     CanGrab = false;
 
@@ -147,7 +160,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 4:
+                case REAL_START + 4:
                 {
                     match.shipFuelLevel.value = match.shipFuelMaxLevel - 10f;
 
@@ -160,7 +173,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 5:
+                case REAL_START + 5:
                 {
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.boxes.fuelbox.2",
@@ -169,7 +182,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 6:
+                case REAL_START + 6:
                 {
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.boxes.fuelbox.3",
@@ -181,7 +194,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 7:
+                case REAL_START + 7:
                 {
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.boxes.fuelbox.4",
@@ -192,7 +205,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 8:
+                case REAL_START + 8:
                 {
                     DeliveryBird bird = match.SpawnBird(match.GetRandom(match.prefabCargoBox[0].prefabs));
                     
@@ -206,7 +219,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 9:
+                case REAL_START + 9:
                 {
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.boxes.cargobox.1",
@@ -217,7 +230,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 10:
+                case REAL_START + 10:
                 {
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.boxes.cargobox.2",
@@ -226,7 +239,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 11:
+                case REAL_START + 11:
                 {
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.boxes.cargobox.3",
@@ -235,7 +248,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 12:
+                case REAL_START + 12:
                 {
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.boxes.cargobox.4",
@@ -246,7 +259,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 13:
+                case REAL_START + 13:
                 {
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.boxes.shop.0",
@@ -255,7 +268,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 14:
+                case REAL_START + 14:
                 {
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.boxes.shop.1",
@@ -264,7 +277,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 15:
+                case REAL_START + 15:
                 {
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.boxes.shop.2",
@@ -275,7 +288,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 16:
+                case REAL_START + 16:
                 {
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.boxes.shop.3",
@@ -284,7 +297,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
                 
-                case 17:
+                case REAL_START + 17:
                 {
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.boxes.shop.4",
@@ -293,8 +306,9 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 18:
+                case REAL_START + 18:
                 {
+                    CanWalkTo = true;
                     match.useOnlyAreas = true;
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.boxes.shop.5",
@@ -305,7 +319,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 19:
+                case REAL_START + 19:
                 {
                     CanWalkTo = false;
                     match.useOnlyAreas = false;
@@ -323,7 +337,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 20:
+                case REAL_START + 20:
                 {
                     match.gameTicks.value = match.ticksPerDay;
                     match.OpenShop();
@@ -335,7 +349,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 21:
+                case REAL_START + 21:
                 {
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.shop.1",
@@ -344,7 +358,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 22:
+                case REAL_START + 22:
                 {
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.shop.2",
@@ -355,7 +369,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 23:
+                case REAL_START + 23:
                 {
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.shop.3",
@@ -366,7 +380,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 24:
+                case REAL_START + 24:
                 {
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.shop.4",
@@ -377,7 +391,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 25:
+                case REAL_START + 25:
                 {
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.shop.5",
@@ -388,7 +402,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 26:
+                case REAL_START + 26:
                 {
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.shop.6",
@@ -397,7 +411,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 27:
+                case REAL_START + 27:
                 {
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.shop.7",
@@ -408,7 +422,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 28:
+                case REAL_START + 28:
                 {
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.shop.8"
@@ -418,7 +432,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 29:
+                case REAL_START + 29:
                 {
                     CanCloseShop = false;
 
@@ -428,7 +442,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 30:
+                case REAL_START + 30:
                 {
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.salary.0",
@@ -437,7 +451,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 31:
+                case REAL_START + 31:
                 {
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.salary.1",
@@ -446,11 +460,11 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 32:
-                case 33:
-                case 34:
-                case 35:
-                case 36:
+                case REAL_START + 32:
+                case REAL_START + 33:
+                case REAL_START + 34:
+                case REAL_START + 35:
+                case REAL_START + 36:
                 {
                     Crewmate crewmate = GameObject.FindObjectOfType<Crewmate>();
 
@@ -469,7 +483,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
                 
-                case 37:
+                case REAL_START + 37:
                 {
                     match.coinCount.value += 25;
 
@@ -488,7 +502,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 38:
+                case REAL_START + 38:
                 {
                     CanGrab = false;
 
@@ -499,7 +513,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 39:
+                case REAL_START + 39:
                 {
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.salary.9",
@@ -508,7 +522,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 40:
+                case REAL_START + 40:
                 {
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.end.0",
@@ -519,7 +533,7 @@ namespace DLIFR.Game.Tutorial
                 }
                 return true;
 
-                case 41:
+                case REAL_START + 41:
                 {
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.end.1",
@@ -531,10 +545,9 @@ namespace DLIFR.Game.Tutorial
                 return true;
 
 
-                case 42:
+                case REAL_START + 42:
                 {
-                    match.StartGame(false);
-                    Destroy(GetComponentInParent<GameTutorial>().gameObject);
+                    EndTutorial();
                 }
                 return true;
             }
@@ -555,7 +568,7 @@ namespace DLIFR.Game.Tutorial
 
         public override int GetStartingIndex()
         {
-            return 18;
+            return 0;
         }
     }
 }

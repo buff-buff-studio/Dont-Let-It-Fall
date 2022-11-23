@@ -142,11 +142,6 @@ namespace DLIFR.Entities
                 if (UnityEngine.Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 1.1f, groundLayerMask))
                 {
                     groundNormal = hit.normal;
-
-                    if(salaryTime.value == 0)
-                    {
-                        velocity.y = 2f;
-                    }
                 }
                 #endregion
             }

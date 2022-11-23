@@ -41,6 +41,7 @@ namespace DLIFR.Game.Tutorial
         public GameObject swipe;
         public GameObject subtitle;
         public TMP_Text textLabel;
+        public GameObject tutorialNext;
 
         [Header("STATE")]
         public TutorialPage currentPage;
@@ -145,6 +146,8 @@ namespace DLIFR.Game.Tutorial
             
             _page = GetStartingIndex();
             OnOpenPage(_page);
+
+            tutorial.tutorialNext.SetActive(CanSkipPage());
         }
 
         public virtual bool OnOpenPage(int page)
@@ -161,6 +164,8 @@ namespace DLIFR.Game.Tutorial
         {
             _page ++;
             OnOpenPage(_page);
+
+            tutorial.tutorialNext.SetActive(CanSkipPage());
         }
 
         public void Update()
@@ -169,7 +174,18 @@ namespace DLIFR.Game.Tutorial
             {
                 if(CanSkipPage())
                     NextPage();
-            }
+            } 
+
+            if(Input.GetKeyDown(KeyCode.Escape))
+            {
+                EndTutorial();
+            }        
+        }
+
+        public void EndTutorial()
+        {
+            match.StartGame(false);
+            Destroy(GetComponentInParent<GameTutorial>().gameObject);
         }
 
         public virtual int GetStartingIndex()

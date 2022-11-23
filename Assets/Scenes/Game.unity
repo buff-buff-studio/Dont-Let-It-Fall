@@ -3210,6 +3210,7 @@ MonoBehaviour:
   CanWalkTo: 0
   CanGrab: 0
   CanDrop: 0
+  CanCloseShop: 0
 --- !u!1 &1218758172
 GameObject:
   m_ObjectHideFlags: 0
@@ -3825,6 +3826,7 @@ MonoBehaviour:
   swipe: {fileID: 1140912564}
   subtitle: {fileID: 435200887}
   textLabel: {fileID: 434167733}
+  tutorialNext: {fileID: 1645360252}
   currentPage:
     valid: 1
     hasText: 0
@@ -4406,6 +4408,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629216602}
   m_CullTransparentMesh: 1
+--- !u!1 &1645360252 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1794647622755394, guid: d102ec057f3a9c44a89f7b06ba68f7e2, type: 3}
+  m_PrefabInstance: {fileID: 974066026}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1648922090
 GameObject:
   m_ObjectHideFlags: 0
