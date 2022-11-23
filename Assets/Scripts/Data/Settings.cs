@@ -15,6 +15,7 @@ namespace DLIFR.Data
 
         public Value<float> volumeVfx;
         public Value<float> volumeMusic;
+        public Value<bool> showTutorial;
 
         public Language language;
 
@@ -28,6 +29,7 @@ namespace DLIFR.Data
             public float volumeVfx;
             public float volumeMusic;
             public int languageIndex;
+            public bool showTutorial;
         }
 
         public void Load()
@@ -44,11 +46,13 @@ namespace DLIFR.Data
                 volumeVfx.value = values.volumeVfx;
                 volumeMusic.value = values.volumeMusic;
                 language = languages[values.languageIndex];
+                showTutorial.value = values.showTutorial;
             }
             else
             {
                 volumeVfx.value = 0.5f;
                 volumeMusic.value = 0.5f;
+                showTutorial.value = true;
 
                 Save();
             }
@@ -62,6 +66,7 @@ namespace DLIFR.Data
             values.volumeVfx = volumeVfx.value;
             values.volumeMusic = volumeMusic.value;
             values.languageIndex = languageIndex;
+            values.showTutorial = showTutorial.value;
 
             File.WriteAllText(filePath, JsonUtility.ToJson(values, true));
 

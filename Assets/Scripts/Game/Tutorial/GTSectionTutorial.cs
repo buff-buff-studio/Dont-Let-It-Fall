@@ -453,6 +453,9 @@ namespace DLIFR.Game.Tutorial
 
                 case REAL_START + 30:
                 {
+                    Crewmate crewmate = GameObject.FindObjectOfType<Crewmate>();
+                    crewmate.salaryTime.value = 10f;
+                    
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.salary.0",
                         shouldPauseGame = true
@@ -476,6 +479,7 @@ namespace DLIFR.Game.Tutorial
                 case REAL_START + 36:
                 {
                     Crewmate crewmate = GameObject.FindObjectOfType<Crewmate>();
+                    crewmate.salaryTime.value = 10f;
 
                     tutorial.Display(new TutorialPage{
                         text = $"tutorial.salary.{2 + page - 32 - REAL_START}",

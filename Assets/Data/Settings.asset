@@ -18,6 +18,9 @@ MonoBehaviour:
   volumeMusic:
     variable: {fileID: 11400000, guid: 3b11901c786e24649b7755dc47de6928, type: 2}
     _value: 0
+  showTutorial:
+    variable: {fileID: 0}
+    _value: 0
   language: {fileID: 11400000, guid: fc9d1452716a79145a995e6e8303a3f0, type: 2}
   languages:
   - {fileID: 11400000, guid: fc9d1452716a79145a995e6e8303a3f0, type: 2}

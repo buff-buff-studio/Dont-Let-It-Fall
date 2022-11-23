@@ -17,6 +17,8 @@ namespace DLIFR.Entities
         [HideInInspector, SerializeField]
         public Transform targetHolder;
         public GameMatch match;
+        public Canvas paymentCanvas;
+        public RectTransform paymentDisplay;
 
         [Header("COLOR")]
         public GameObject shellColor;
@@ -50,6 +52,7 @@ namespace DLIFR.Entities
         public Value<float> salaryTime;
         public Value<int> salaryRechargePrice;
         public Value<float> salaryRechargeTime;
+        public Value<bool> shouldTimePass;
         
 
         [Header("GRAVITY")]
@@ -71,8 +74,10 @@ namespace DLIFR.Entities
         private float _lastPathCheck = 0;
         #endregion
 
-        private void OnEnable() 
+        public override void OnEnable() 
         {
+            base.OnEnable();
+
             shellColor.GetComponent<Renderer>().material.color = characterColor;
 
             _rigidbody = GetComponent<Rigidbody>();
@@ -92,7 +97,6 @@ namespace DLIFR.Entities
                 targetColor.a = 0.5f;
                 targetHolder.GetChild(0).GetComponent<Renderer>().material.color = targetColor;
 
-
                 GameObject agentHolder = new GameObject();
                 agentHolder.name = $"{name}:Agent";
                 agent = agentHolder.AddComponent<NavMeshAgent>();
@@ -110,25 +114,55 @@ namespace DLIFR.Entities
         private void Start() 
         {
             state = new CrewmateIdleState();
+            salaryTime.value = salaryRechargeTime.value;
         }
 
-        private void OnDisable() 
+        public override void OnDisable() 
         {
-            /*
+            base.OnDisable();
+        }
+
+        private void OnDestroy() 
+        {
+            state.OnLeave();
+
+            if(match.currentCrewmate != null && match.currentCrewmate == this)
+            {
+                match.SetSelectedCrewmate(null);
+            }
+
             Destroy(targetHolder.gameObject);
             GameObject temp = transform.parent.gameObject;
-            transform.parent = null;
-            
+
             Destroy(temp);
             Destroy(agent.gameObject);
 
             targetHolder = null;
             agent = null;
-            */
         }
         
         private void FixedUpdate()
         {
+            #region Update Payment Display
+            paymentCanvas.transform.LookAt(Camera.main.transform);
+
+            if(shouldTimePass.value)
+            {
+                salaryTime.value -= Time.fixedDeltaTime;
+
+                if(salaryTime.value <= 0f)
+                {
+                    Destroy(gameObject);
+                    return;
+                }
+            }
+
+            paymentDisplay.sizeDelta = new Vector2(100 * salaryTime.value/salaryRechargeTime.value, 25f);
+            
+            
+            
+            #endregion
+
             #region Update Grounded
             Debug.DrawLine(transform.position - new Vector3(0, groundCheckDistance, 0), transform.position - new Vector3(0, groundCheckDistance + 0.25f, 0), Color.red);
             isGrounded = UnityEngine.Physics.CheckSphere(transform.position - new Vector3(0, groundCheckDistance, 0), 0.05f, groundLayerMask);

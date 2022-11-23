@@ -6,6 +6,7 @@ using DLIFR.Entities;
 using DLIFR.Props;
 using DLIFR.Interface;
 using DLIFR.Interface.Widgets;
+using DLIFR.Game.Tutorial;
 
 namespace DLIFR.Game
 {
@@ -37,7 +38,9 @@ namespace DLIFR.Game
         public Canvas canvas;
         public GameShop gameShop;
         public GameHUD gameHud;
+        public GameTutorial gameTutorial;
         public GameObject pauseMenu;
+        public Settings settings;
 
         [Header("SETTINGS")]
         public Value<int> ticksPerDay = 50 * 24;
@@ -56,6 +59,7 @@ namespace DLIFR.Game
 
         public Value<bool> isOnShop = false;
         public Value<bool> isPaused = false;
+        public Value<bool> showingTutorial = false;
 
         public Value<bool> shouldTimePass;
 
@@ -72,7 +76,9 @@ namespace DLIFR.Game
 
         private void Awake() 
         {
-            StartGame(true);
+            StartGame(settings.showTutorial);
+            settings.showTutorial = false;
+            settings.Save();
         }
 
         public void StartGame(bool tutorial)
@@ -84,11 +90,20 @@ namespace DLIFR.Game
             gameHud.dayNumber.value = 1;
             gameHud.dayTime.value = 0;
 
+            isOnShop.value = false;
+            gameShop.gameObject.SetActive(false);
+            gameHud.gameObject.SetActive(true);
+
+            showingTutorial.value = false;
+
             if(tutorial)
             {
+                showingTutorial.value = true;
                 useOnlyAreas = false;
                 isPaused.value = true;
                 shouldTimePass.value = false;
+
+                gameTutorial.gameObject.SetActive(true);
             }
             else
             {
@@ -129,7 +144,7 @@ namespace DLIFR.Game
             bool m0 = Input.GetMouseButtonUp(0);
             bool m1 = Input.GetMouseButtonUp(1);
 
-            if(m0 || m1)
+            if((m0 || m1) && !isOnShop.value)
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 LayerMask selectableMask = useOnlyAreas ? this.areaSelectableMask : this.selectableMask;
@@ -229,6 +244,8 @@ namespace DLIFR.Game
             gameShop.gameObject.SetActive(true);
             gameHud.gameObject.SetActive(false);
 
+            shouldTimePass.value = false;
+
             isOnShop = true;  
         }
 
@@ -236,6 +253,8 @@ namespace DLIFR.Game
         {
             if(!CanDoAction("close_shop", gameObject))
                 return;
+
+            shouldTimePass.value = !showingTutorial.value;
 
             #region Input Data
             int fuelValue = gameShop.slider.GetValue(0);

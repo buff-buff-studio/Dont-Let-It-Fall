@@ -15,4 +15,4 @@ MonoBehaviour:
   onChangeUE:
     m_PersistentCalls:
       m_Calls: []
-  _value: 5000
+  _value: 500
