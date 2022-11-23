@@ -540,7 +540,7 @@ namespace DLIFR.Game.Tutorial
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.end.0",
                         shouldPauseGame = true,
-                        focusOnto = match.ship,
+                        focusOnto = match.ship.transform,
                         shouldFocusOnto = true
                     });
                 }
@@ -551,7 +551,7 @@ namespace DLIFR.Game.Tutorial
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.end.1",
                         shouldPauseGame = true,
-                        focusOnto = match.ship,
+                        focusOnto = match.ship.transform,
                         shouldFocusOnto = true
                     });
                 }

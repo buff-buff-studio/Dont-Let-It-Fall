@@ -33,7 +33,7 @@ namespace DLIFR.Game
         public const bool GAME_GIVES_BACK_MONEY = true;
 
         [Header("REFERENCES")]
-        public Transform ship;
+        public Ship ship;
         public Area sellArea;
         public Canvas canvas;
         public GameShop gameShop;
@@ -83,6 +83,8 @@ namespace DLIFR.Game
 
         public void StartGame(bool tutorial)
         {
+            Rigidbody rb = ship.GetComponent<Rigidbody>();
+
             gameTicks.value = 0;
             coinCount.value = 0;
             shipFuelLevel.value = shipFuelMaxLevel.value;
@@ -98,6 +100,8 @@ namespace DLIFR.Game
 
             if(tutorial)
             {
+                rb.isKinematic = true;
+
                 showingTutorial.value = true;
                 useOnlyAreas = false;
                 isPaused.value = true;
@@ -107,6 +111,9 @@ namespace DLIFR.Game
             }
             else
             {
+                rb.isKinematic = false;
+                rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+
                 useOnlyAreas = false;
                 isPaused.value = false;
                 shouldTimePass.value = true;
@@ -119,6 +126,11 @@ namespace DLIFR.Game
             {
                 Time.timeScale = isPaused ? 0 : 1f;
                 Time.fixedDeltaTime = isPaused ? 0 : 0.02f;
+            };
+
+            shipFuelLevel.variable.onChange += () =>
+            {
+                ship.enabled = shipFuelLevel.value > 0;
             };
         }
 
@@ -210,7 +222,7 @@ namespace DLIFR.Game
             db.RefreshCarrying();
 
             Cargo cargo = carrying.GetComponent<Cargo>();
-            cargo.transform.parent = ship;
+            cargo.transform.parent = ship.transform;
 
             return db;
         }

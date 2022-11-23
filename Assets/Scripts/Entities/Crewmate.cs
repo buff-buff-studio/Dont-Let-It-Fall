@@ -131,7 +131,9 @@ namespace DLIFR.Entities
                 match.SetSelectedCrewmate(null);
             }
 
-            Destroy(targetHolder.gameObject);
+            if(targetHolder != null)
+                Destroy(targetHolder.gameObject);
+                
             GameObject temp = transform.parent.gameObject;
 
             Destroy(temp);

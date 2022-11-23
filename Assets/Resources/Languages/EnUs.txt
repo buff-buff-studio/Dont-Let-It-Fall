@@ -91,6 +91,9 @@ tutorial.salary.7=Let's pay him, click on the <§Vault§> and he'll will grab hi
 tutorial.salary.8=Oh it was close. He was so angry... If we took a little more time to pay him he would <§Quit His Job§>!
 tutorial.salary.9=So, never forget to pay your <§Crew§>! If you lose your crew, you will not be able to maintain your ship!
 
-
 tutorial.end.0=I guess we are really done by now, so, good luck my friend!
 tutorial.end.1=As you use to say: Arggggg! Goodbye Mate!
+
+bindings.interact=interact
+bindings.move_camera=Move Camera
+bindings.pause=Pause
