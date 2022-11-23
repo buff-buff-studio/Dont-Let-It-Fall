@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.46621275, g: 0.52780706, b: 0.6213565, a: 1}
+  m_IndirectSpecularColor: {r: 0.4712301, g: 0.5334803, b: 0.6260271, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6372,6 +6372,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5744215068331847731, guid: 798f5c77d528b5f41a25b5b7d0f28c0d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7125585507554377318, guid: 798f5c77d528b5f41a25b5b7d0f28c0d, type: 3}
       propertyPath: m_Name
       value: Ship
@@ -6419,6 +6423,46 @@ PrefabInstance:
     - target: {fileID: 7613611047508993244, guid: 798f5c77d528b5f41a25b5b7d0f28c0d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935979803247155103, guid: 798f5c77d528b5f41a25b5b7d0f28c0d, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[0].m_Value
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935979803247155103, guid: 798f5c77d528b5f41a25b5b7d0f28c0d, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[2].m_Value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935979803247155103, guid: 798f5c77d528b5f41a25b5b7d0f28c0d, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[3].m_Value
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935979803247155103, guid: 798f5c77d528b5f41a25b5b7d0f28c0d, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[5].m_Value
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935979803247155103, guid: 798f5c77d528b5f41a25b5b7d0f28c0d, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[0].m_Overridden
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935979803313881550, guid: 798f5c77d528b5f41a25b5b7d0f28c0d, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[0].m_Value
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935979803313881550, guid: 798f5c77d528b5f41a25b5b7d0f28c0d, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[2].m_Value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935979803313881550, guid: 798f5c77d528b5f41a25b5b7d0f28c0d, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[3].m_Value
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935979803313881550, guid: 798f5c77d528b5f41a25b5b7d0f28c0d, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[5].m_Value
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935979803313881550, guid: 798f5c77d528b5f41a25b5b7d0f28c0d, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[0].m_Overridden
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 798f5c77d528b5f41a25b5b7d0f28c0d, type: 3}

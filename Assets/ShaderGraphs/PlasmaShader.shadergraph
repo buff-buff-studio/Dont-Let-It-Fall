@@ -1,5 +1,5 @@
 {
-    "m_SGVersion": 3,
+    "m_SGVersion": 2,
     "m_Type": "UnityEditor.ShaderGraph.GraphData",
     "m_ObjectId": "6d1c043f340649f088eac03a425a6582",
     "m_Properties": [
@@ -29,12 +29,6 @@
         }
     ],
     "m_Keywords": [],
-    "m_Dropdowns": [],
-    "m_CategoryData": [
-        {
-            "m_Id": "7e3968c56d6845289bfdfc23f51af9c6"
-        }
-    ],
     "m_Nodes": [
         {
             "m_Id": "bfd4bf068fb24c04a5a10a6544d016f2"
@@ -662,11 +656,10 @@
         "serializedMesh": {
             "m_SerializedMesh": "{\"mesh\":{\"instanceID\":0}}",
             "m_Guid": ""
-        },
-        "preventRotation": false
+        }
     },
     "m_Path": "Shader Graphs",
-    "m_GraphPrecision": 1,
+    "m_ConcretePrecision": 0,
     "m_PreviewMode": 2,
     "m_OutputNode": {
         "m_Id": ""
@@ -1216,17 +1209,11 @@
     "m_ActiveSubTarget": {
         "m_Id": "508dc27a18c64e76a7465f4512b593b4"
     },
-    "m_AllowMaterialOverride": false,
     "m_SurfaceType": 1,
-    "m_ZTestMode": 4,
-    "m_ZWriteControl": 0,
     "m_AlphaMode": 0,
-    "m_RenderFace": 2,
+    "m_TwoSided": false,
     "m_AlphaClip": false,
-    "m_CastShadows": true,
-    "m_ReceiveShadows": true,
-    "m_CustomEditorGUI": "",
-    "m_SupportVFX": false
+    "m_CustomEditorGUI": ""
 }
 
 {
@@ -1469,13 +1456,9 @@
         "m_GuidSerialized": "c252f403-1a75-4a11-8570-8df55e6eca8a"
     },
     "m_Name": "BorderPower",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "BorderPower",
     "m_DefaultReferenceName": "_BorderPower",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
@@ -1868,13 +1851,9 @@
         "m_GuidSerialized": "954b5736-4e66-4680-b580-5b31052380f0"
     },
     "m_Name": "MovementNoiseScale",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "MovementNoiseScale",
     "m_DefaultReferenceName": "_MovementNoiseScale",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
@@ -2222,8 +2201,7 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     },
-    "m_Space": 0,
-    "m_PositionSource": 0
+    "m_Space": 0
 }
 
 {
@@ -2234,13 +2212,9 @@
         "m_GuidSerialized": "f1246fb5-bbad-4893-8d86-2090b68d6f72"
     },
     "m_Name": "MovementSpeed",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "MovementSpeed",
     "m_DefaultReferenceName": "_MovementSpeed",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
@@ -2496,13 +2470,9 @@
         "m_GuidSerialized": "ee9e3259-0506-4334-b605-b44e22e64b7d"
     },
     "m_Name": "BorderSize",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "BorderSize",
     "m_DefaultReferenceName": "_BorderSize",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
@@ -2716,13 +2686,9 @@
         "m_GuidSerialized": "21b70429-a15b-408a-b696-b232b33b6d81"
     },
     "m_Name": "TwirlStrength",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "TwirlStrength",
     "m_DefaultReferenceName": "_TwirlStrength",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
@@ -3208,13 +3174,9 @@
         "m_GuidSerialized": "dc2757e8-a8e6-456b-8bd1-07ea8ecc726c"
     },
     "m_Name": "TwirlSpeed",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "TwirlSpeed",
     "m_DefaultReferenceName": "_TwirlSpeed",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
@@ -3390,13 +3352,9 @@
         "m_GuidSerialized": "def3b83b-4374-4511-9ef1-1f87b1c7afd5"
     },
     "m_Name": "EffectSpeed",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "EffectSpeed",
     "m_DefaultReferenceName": "_EffectSpeed",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
@@ -3926,8 +3884,7 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     },
-    "m_Space": 0,
-    "m_PositionSource": 0
+    "m_Space": 0
 }
 
 {
@@ -4160,13 +4117,9 @@
         "m_GuidSerialized": "83ba40bc-664a-4197-b88b-a17e89e0f963"
     },
     "m_Name": "BorderColor",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "BorderColor",
     "m_DefaultReferenceName": "_BorderColor",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
@@ -4177,7 +4130,6 @@
         "b": 0.4609017074108124,
         "a": 0.0
     },
-    "isMainColor": false,
     "m_ColorMode": 1
 }
 
@@ -4596,8 +4548,7 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     },
-    "m_Space": 0,
-    "m_PositionSource": 0
+    "m_Space": 0
 }
 
 {
