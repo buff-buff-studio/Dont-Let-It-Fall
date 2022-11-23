@@ -57,7 +57,7 @@ public class UIBinding : MonoBehaviour
 			}
 			if (!isButton)
 			{
-				base.transform.localScale = Vector3.Lerp(base.transform.localScale, scale * Vector3.one, Time.deltaTime * scaleSpeed);
+				base.transform.localScale = Vector3.Lerp(base.transform.localScale, scale * Vector3.one, Time.unscaledDeltaTime * scaleSpeed);
 			}
 			return;
 		}
@@ -82,6 +82,6 @@ public class UIBinding : MonoBehaviour
 				}
 			}
 		}
-		base.transform.localScale = Vector3.Lerp(base.transform.localScale, Vector3.one, Time.deltaTime * scaleSpeed);
+		base.transform.localScale = Vector3.Lerp(base.transform.localScale, Vector3.one, Time.unscaledDeltaTime * scaleSpeed);
 	}
 }

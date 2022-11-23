@@ -529,6 +529,7 @@ MonoBehaviour:
   ship: {fileID: 0}
   agent: {fileID: 0}
   targetHolder: {fileID: 0}
+  match: {fileID: 0}
   shellColor: {fileID: 6213022826394583919}
   characterColor: {r: 0, g: 0, b: 0, a: 0}
   walkSpeed: 3
@@ -537,6 +538,15 @@ MonoBehaviour:
   grabbedObject: {fileID: 0}
   walking: 0
   carrying: {fileID: 0}
+  salaryTime:
+    variable: {fileID: 0}
+    _value: 0
+  salaryRechargePrice:
+    variable: {fileID: 11400000, guid: b4989ed933b84a04d880a2ce64f2f26c, type: 2}
+    _value: 0
+  salaryRechargeTime:
+    variable: {fileID: 11400000, guid: cb979a6cdc425de41a2befd8a2d6bfad, type: 2}
+    _value: 0
   gravityForce: 10
   isGrounded: 0
   groundNormal: {x: 0, y: 1, z: 0}

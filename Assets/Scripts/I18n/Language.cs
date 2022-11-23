@@ -51,6 +51,9 @@ namespace DLIFR.I18n
 
             if(_entries.TryGetValue(text, out string value))
             {
+                value = value.Replace("<§","<b><color=red>");
+                value = value.Replace("§>","</color></b>");
+
                 return value;
             }
 

@@ -93,7 +93,21 @@ namespace DLIFR.Entities
 
         public override void OnEndWalking(bool done)
         {
-            crewmate.SetCarrying(grabbable.gameObject);
+            if(grabbable is Vault)
+            {
+                int salary = crewmate.salaryRechargePrice;
+
+                if(crewmate.match.coinCount.value >= salary)
+                {
+                    
+                    crewmate.match.coinCount.value -= salary;
+                    crewmate.salaryTime.value = crewmate.salaryRechargeTime.value;
+                }
+            }
+            else
+            {
+                crewmate.SetCarrying(grabbable.gameObject);
+            }
 
             crewmate.match.UpdateInteractionDisplay();
             crewmate.state = new CrewmateIdleState();

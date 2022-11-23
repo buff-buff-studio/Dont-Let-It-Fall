@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using DLIFR.Game;
+using DLIFR.Data;
 
 namespace DLIFR.Entities
 {
@@ -45,6 +46,11 @@ namespace DLIFR.Entities
         [Header("STATE")]
         public bool walking = false;
         public GameObject carrying;
+
+        public Value<float> salaryTime;
+        public Value<int> salaryRechargePrice;
+        public Value<float> salaryRechargeTime;
+        
 
         [Header("GRAVITY")]
         public float gravityForce = 10f;
@@ -136,6 +142,11 @@ namespace DLIFR.Entities
                 if (UnityEngine.Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 1.1f, groundLayerMask))
                 {
                     groundNormal = hit.normal;
+
+                    if(salaryTime.value == 0)
+                    {
+                        velocity.y = 2f;
+                    }
                 }
                 #endregion
             }
