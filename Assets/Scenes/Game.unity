@@ -2441,11 +2441,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: e647556553eb42b4c9dd27f12dad7ac4, type: 3}
     - target: {fileID: 114121859342889114, guid: d102ec057f3a9c44a89f7b06ba68f7e2, type: 3}
       propertyPath: m_text
-      value: Space
+      value: Enter
       objectReference: {fileID: 0}
     - target: {fileID: 114121859342889114, guid: d102ec057f3a9c44a89f7b06ba68f7e2, type: 3}
       propertyPath: m_fontSize
-      value: 19.35
+      value: 21.75
       objectReference: {fileID: 0}
     - target: {fileID: 114158740870606308, guid: d102ec057f3a9c44a89f7b06ba68f7e2, type: 3}
       propertyPath: m_text
@@ -2453,7 +2453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114905959271453896, guid: d102ec057f3a9c44a89f7b06ba68f7e2, type: 3}
       propertyPath: binding.Key
-      value: 32
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 224604426847080680, guid: d102ec057f3a9c44a89f7b06ba68f7e2, type: 3}
       propertyPath: m_Pivot.x
@@ -3902,6 +3902,7 @@ MonoBehaviour:
   subtitle: {fileID: 435200887}
   textLabel: {fileID: 434167733}
   tutorialNext: {fileID: 1645360252}
+  pauseMenu: {fileID: 1337866908}
   currentPage:
     valid: 1
     hasText: 0

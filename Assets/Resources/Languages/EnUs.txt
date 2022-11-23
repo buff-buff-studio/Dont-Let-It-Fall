@@ -77,7 +77,7 @@ tutorial.shop.6=But be smart. Each crew member receives a <§Salary§> from time
 tutorial.shop.7=The last slider is automatic, and it shows how many money you will keep.
 
 tutorial.shop.8=Choose all that you want, then click on the button <§Done§>
-tutorial.shop.9=Well done! Now <§Delivery§> birds will drop everything you bought on the shop!
+tutorial.shop.9=Well done! Now <§Delivery Birds§> will drop everything you bought on the shop!
 
 
 tutorial.salary.0=Now you know everything you need, so I'll leave you alone...

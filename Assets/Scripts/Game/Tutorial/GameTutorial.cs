@@ -42,6 +42,7 @@ namespace DLIFR.Game.Tutorial
         public GameObject subtitle;
         public TMP_Text textLabel;
         public GameObject tutorialNext;
+        public GameObject pauseMenu;
 
         [Header("STATE")]
         public TutorialPage currentPage;
@@ -109,8 +110,6 @@ namespace DLIFR.Game.Tutorial
                         }
                     }
 
-                    
-                    
                     swipeMaterial.SetVector("_Position", new Vector4(screenPos.x, Screen.height - screenPos.y, 0, 0));
                     swipeMaterial.SetFloat("_Radius", radius);
                 }
@@ -170,13 +169,13 @@ namespace DLIFR.Game.Tutorial
 
         public void Update()
         {
-            if(Input.GetKeyDown(KeyCode.Space))
+            if(Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
             {
                 if(CanSkipPage())
                     NextPage();
             } 
 
-            if(Input.GetKeyDown(KeyCode.Escape))
+            if(Input.GetKeyDown(KeyCode.Escape) && !tutorial.pauseMenu.activeInHierarchy)
             {
                 EndTutorial();
             }        

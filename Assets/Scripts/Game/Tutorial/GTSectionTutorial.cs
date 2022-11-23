@@ -142,6 +142,8 @@ namespace DLIFR.Game.Tutorial
                         text = "tutorial.boxes.2",
                         shouldSwipe = true,
                         swipeTarget = bird.carrying,
+                        shouldFocusOnto = true,
+                        focusOnto = bird.carrying
                     });
 
                     CanWalkTo = false;
@@ -184,10 +186,13 @@ namespace DLIFR.Game.Tutorial
 
                 case REAL_START + 6:
                 {
+                    Transform engine = GameObject.FindObjectOfType<Engine>().transform;
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.boxes.fuelbox.3",
                         shouldSwipe = true,
-                        swipeTarget = GameObject.FindObjectOfType<Engine>().transform,
+                        swipeTarget = engine,
+                        shouldFocusOnto = true,
+                        focusOnto = engine
                     });
 
                     CanDrop = true;
@@ -212,7 +217,9 @@ namespace DLIFR.Game.Tutorial
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.boxes.cargobox.0",
                         shouldSwipe = true,
-                        swipeTarget = bird.carrying
+                        swipeTarget = bird.carrying,
+                        shouldFocusOnto = true,
+                        focusOnto = bird.carrying
                     });
 
                     CanGrab = true;
@@ -314,7 +321,9 @@ namespace DLIFR.Game.Tutorial
                         text = "tutorial.boxes.shop.5",
                         shouldPauseGame = false,
                         shouldSwipe = true,
-                        swipeTarget = sellArea
+                        swipeTarget = sellArea,
+                        shouldFocusOnto = true,
+                        focusOnto = sellArea
                     });
                 }
                 return true;
@@ -469,7 +478,7 @@ namespace DLIFR.Game.Tutorial
                     Crewmate crewmate = GameObject.FindObjectOfType<Crewmate>();
 
                     tutorial.Display(new TutorialPage{
-                        text = $"tutorial.salary.{2 + page - 32}",
+                        text = $"tutorial.salary.{2 + page - 32 - REAL_START}",
                         shouldFocusOnto = true,
                         shouldSwipe = true,
                         swipeTarget = crewmate.transform,
@@ -568,7 +577,7 @@ namespace DLIFR.Game.Tutorial
 
         public override int GetStartingIndex()
         {
-            return 0;
+            return REAL_START + 29;
         }
     }
 }
