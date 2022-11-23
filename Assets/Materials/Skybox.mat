@@ -63,6 +63,8 @@ Material:
     - _MoonIntensity: 45.8
     - _MoonRadiusA: 0
     - _MoonRadiusB: 0.05
+    - _QueueControl: 0
+    - _QueueOffset: 0
     - _SkyGradientLevel: 1
     - _StarsDensity: 30
     - _StarsHorizonLine: 1
