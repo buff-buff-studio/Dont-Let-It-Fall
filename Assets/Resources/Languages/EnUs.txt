@@ -104,3 +104,8 @@ pause.back=Back
 game_over.title=Game Over
 game_over.play_again=Play Again
 game_over.main_menu=Main Menu
+
+game.shop.fuel=Fuel Box (10 for each fuel)
+game.shop.cargo=Cargo Parts (10 for each cargo)
+game.shop.crew=Crew Hire (100 to hire a new crewmate)
+game.shop.keep=Keep Share

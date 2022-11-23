@@ -308,10 +308,10 @@ namespace DLIFR.Game
             shouldTimePass.value = !showingTutorial.value;
 
             #region Input Data
-            int fuelValue = gameShop.slider.GetValue(0);
-            int cargoValue = gameShop.slider.GetValue(1);
-            int recruitValue = gameShop.slider.GetValue(2);
-            int keepValue = gameShop.slider.GetValue(3);
+            int fuelValue = gameShop.GetValue(0);
+            int cargoValue = gameShop.GetValue(1);
+            int recruitValue = gameShop.GetValue(2);
+            int keepValue = gameShop.GetValue(3);
             #endregion
 
             #region Calculation

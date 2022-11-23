@@ -8,22 +8,104 @@ hud.sellingvalue=Selling: {0}
 ######################################
 # MENUS
 ######################################
-ui.back= Voltar
+ui.back= Back
 
-mainmenu.play=Jogar
-mainmenu.settings=Ajustes
-mainmenu.credits=Creditos
-mainmenu.exit=Sair
+mainmenu.play=Play
+mainmenu.settings=Settings
+mainmenu.credits=Credits
+mainmenu.exit=Exit
 
-settings.fxvolume=Volume dos Efeitos
-settings.musicvolume=Volume da Música
+settings.fxvolume=FX Volume
+settings.musicvolume=Music Volume
 
 ######################################
 #GAME
 ######################################
 game.hud.daytime={0:HOUR}
-game.hud.daynumber=Dia {0}
-game.hud.coins=Coins=Moedas: {0}
-game.hud.fuel=Combustível
+game.hud.daynumber=Day {0}
+game.hud.coins=Coins: {0}
+game.hud.fuel=Fuel
 
-game.shop.shop=Loja
+game.shop.shop=Shop
+game.shop.done=Done
+game.shop.coins=Coins: {0}
+
+game.tutorial.tutorial=Tutorial
+game.tutorial.next=Next
+game.tutorial.exit=Exit Tutorial
+
+tutorial.greetings.0=Welcome to <§Don't Let It Fall§>!
+tutorial.greetings.1=You are a Floating-Boat Captain, who need to control a crew of crazy Jelly-Like workers!
+tutorial.greetings.2=Your goal is to earn money delivering cargo boxes, while keep this ship balanced!
+tutorial.greetings.3=To get started let me show you the basic controls
+tutorial.greetings.4=Use <§W§>, <§A§>, <§S§>, <§D§>, <§Left Shift§>, <§Space§> to control the camera!
+tutorial.greetings.5=And now, let me teach you how to control your crewmates!
+
+tutorial.boxes.0=Left click on a <§Crewmate§> to select it
+tutorial.boxes.1=Well done! Now click in a <§Place On The Ground§> to move to
+tutorial.boxes.2=You're good! OH, a bird is dropping a box! Click on a <§Box§> to grab it!
+
+tutorial.boxes.fuelbox.0=This is a <§Fuel Box§>. You need to use it to refuel your ship
+tutorial.boxes.fuelbox.1=You can see the fuel indicator on the top-right corner of the screen
+tutorial.boxes.fuelbox.2=If you run out of fuel your ship will not be able to self-balance anymore
+tutorial.boxes.fuelbox.3=Click on the <§Furnace§> to drop the box to refuel the ship
+tutorial.boxes.fuelbox.4=Done! Now your ship is refueled!
+
+tutorial.boxes.cargobox.0=Oh wait... A bird is bringing other box, let's check it out! <§Grab it!§>
+tutorial.boxes.cargobox.1=This is a <§Cargo Box§>. You need to store them in your ship, while, hmm, trying to keep the ship balanced!
+tutorial.boxes.cargobox.2=I know maybe you're wondering: "Why i just don't drop it on the void?" ...
+tutorial.boxes.cargobox.3=... but the answer is very simple: You need money to buy fuel and to pay your workers, so, you need to sell them!
+tutorial.boxes.cargobox.4=Look at the top-left corner of your screen. This is your coin balance. Now you're a quite... poor.. but don't worry!
+
+tutorial.boxes.shop.0=It's not that hard to get money (at least, that's what I thought, hehehe...)
+tutorial.boxes.shop.1=On the end of each day you'll hit a <§Shop§>, where you can sell your <§Cargo§> and buy other stuff
+tutorial.boxes.shop.2=On the left side of your screen you can see what items the next shop can buy
+
+tutorial.boxes.shop.3=Move all the cargo you want to sell to the <§Sell Area§> until the end of the day
+tutorial.boxes.shop.4=But be carefully, ALL THE cargo you put there will be sold. Is the shop does not buy an item, they'll just drop it into the void, so, you'll lose your cargo!
+tutorial.boxes.shop.5=Now, move the cargo to the <§Sell Area§>. Just click on it!
+
+tutorial.boxes.shop.6=Nice work! Now let's wait until the end of the day! You can see the clock on the top of the screen!
+
+tutorial.shop.0=It's midnight! Welcome to the <§Shop§>!
+tutorial.shop.1=All your items have been sold! Now it's time to buy new stuff!
+tutorial.shop.2=You can use the sliders on the middle of the screen to control what you want to do with your money!
+tutorial.shop.3=<§First Slider§>: Choose how many coins you want to spend with more <§Fuel Boxes§>. Each fuel box costs <§10§> coins!
+tutorial.shop.4=<§Second Slider§>: Choose how many coins you want to spend with new <§Cargo§>. Will will need to buy more cargo to sell it on the future, for more coins!
+tutorial.shop.5=<§Third Slider§>: If you need, you can hire more <§Crewmates§>. Each crewmate costs <§100§> coins
+tutorial.shop.6=But be smart. Each crew member receives a <§Salary§> from time to time, which can end up being too expensive for you!
+tutorial.shop.7=The last slider is automatic, and it shows how many money you will keep.
+
+tutorial.shop.8=Choose all that you want, then click on the button <§Done§>
+tutorial.shop.9=Well done! Now <§Delivery Birds§> will drop everything you bought on the shop!
+
+
+tutorial.salary.0=Now you know everything you need, so I'll leave you alone...
+tutorial.salary.1=Wait... did you hear something? Oh it's a crewmate! Let me hear him...
+tutorial.salary.2=Hmm.... hmm.... i understand my friend...
+tutorial.salary.3=HE SAID THAT YOU HAVEN'T PAID HIS SALARY!?!?
+tutorial.salary.4=HOW CAN YOU BE SO MEAN TO A POOR CREWM...
+tutorial.salary.5=Oh, wait, I haven't showed how to pay the crewmates right? Sorry, it was my fault!
+tutorial.salary.6=Don't worry little friend, he'll pay you right now!
+tutorial.salary.7=Let's pay him, click on the <§Vault§> and he'll will grab his pay!
+tutorial.salary.8=Oh it was close. He was so angry... If we took a little more time to pay him he would <§Quit His Job§>!
+tutorial.salary.9=So, never forget to pay your <§Crew§>! If you lose your crew, you will not be able to maintain your ship!
+
+tutorial.end.0=I guess we are really done by now, so, good luck my friend!
+tutorial.end.1=As you use to say: Arggggg! Goodbye Mate!
+
+bindings.interact=interact
+bindings.move_camera=Move Camera
+bindings.pause=Pause
+
+pause.title=Pause
+pause.back=Back
+
+game_over.title=Game Over
+game_over.play_again=Play Again
+game_over.main_menu=Main Menu
+
+game.shop.fuel=Fuel Box (10 for each fuel)
+game.shop.cargo=Cargo Parts (10 for each cargo)
+game.shop.crew=Crew Hire (100 to hire a new crewmate)
+game.shop.keep=Keep Share
