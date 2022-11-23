@@ -37,6 +37,7 @@ namespace DLIFR.Game
         public Canvas canvas;
         public GameShop gameShop;
         public GameHUD gameHud;
+        public GameObject pauseMenu;
 
         [Header("SETTINGS")]
         public Value<int> ticksPerDay = 50 * 24;
@@ -60,6 +61,7 @@ namespace DLIFR.Game
 
         public Shop nextShop;
         public Func<string, GameObject, bool> canDoAction;
+        public bool wasPausedOnOpenPause = false;
 
         [Header("PREFABS")]
         public GameObject prefabBird;
@@ -109,7 +111,19 @@ namespace DLIFR.Game
         {
             if(Input.GetKeyDown(KeyCode.P))
             {
-                isPaused.value = !isPaused.value;
+                //Pause
+                bool paused = !pauseMenu.activeInHierarchy;
+                pauseMenu.SetActive(paused);
+
+                if(paused)
+                {
+                    wasPausedOnOpenPause = isPaused.value;
+                    isPaused.value = true;
+                }
+                else
+                {
+                    isPaused.value = wasPausedOnOpenPause;
+                }
             }
 
             bool m0 = Input.GetMouseButtonUp(0);
