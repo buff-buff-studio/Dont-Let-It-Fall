@@ -52,7 +52,7 @@ Material:
     - _CloudsConvergence: 1
     - _CloudsHeight: 12
     - _CloudsMovementSpeed: 0.0001
-    - _CloudsPosition: -0.02
+    - _CloudsPosition: 0.19
     - _CloudsScale: 0.25
     - _CloudsShadow: 0.5
     - _CloudsSharpness: 8
