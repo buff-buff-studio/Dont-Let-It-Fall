@@ -41,6 +41,7 @@ namespace DLIFR.Game
         public GameTutorial gameTutorial;
         public GameObject pauseMenu;
         public Settings settings;
+        public GameObject hudBindings;
 
         [Header("SETTINGS")]
         public Value<int> ticksPerDay = 50 * 24;
@@ -83,6 +84,8 @@ namespace DLIFR.Game
 
         public void StartGame(bool tutorial)
         {
+            hudBindings.SetActive(!tutorial);
+            
             Rigidbody rb = ship.GetComponent<Rigidbody>();
 
             gameTicks.value = 0;
@@ -138,19 +141,7 @@ namespace DLIFR.Game
         {
             if(Input.GetKeyDown(KeyCode.P))
             {
-                //Pause
-                bool paused = !pauseMenu.activeInHierarchy;
-                pauseMenu.SetActive(paused);
-
-                if(paused)
-                {
-                    wasPausedOnOpenPause = isPaused.value;
-                    isPaused.value = true;
-                }
-                else
-                {
-                    isPaused.value = wasPausedOnOpenPause;
-                }
+                TogglePaused();
             }
 
             bool m0 = Input.GetMouseButtonUp(0);
@@ -190,6 +181,23 @@ namespace DLIFR.Game
             }
 
             UpdateInteractionDisplay();
+        }
+
+        public void TogglePaused()
+        {
+            //Pause
+            bool paused = !pauseMenu.activeInHierarchy;
+            pauseMenu.SetActive(paused);
+
+            if(paused)
+            {
+                wasPausedOnOpenPause = isPaused.value;
+                isPaused.value = true;
+            }
+            else
+            {
+                isPaused.value = wasPausedOnOpenPause;
+            }
         }
 
         public void UpdateInteractionDisplay()

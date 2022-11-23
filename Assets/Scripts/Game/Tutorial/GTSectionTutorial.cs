@@ -581,7 +581,7 @@ namespace DLIFR.Game.Tutorial
 
         public override int GetStartingIndex()
         {
-            return REAL_START + 29;
+            return 0;
         }
     }
 }

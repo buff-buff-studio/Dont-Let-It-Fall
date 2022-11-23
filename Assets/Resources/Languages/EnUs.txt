@@ -97,3 +97,6 @@ tutorial.end.1=As you use to say: Arggggg! Goodbye Mate!
 bindings.interact=interact
 bindings.move_camera=Move Camera
 bindings.pause=Pause
+
+pause.title=Pause
+pause.back=Back
