@@ -100,3 +100,7 @@ bindings.pause=Pause
 
 pause.title=Pause
 pause.back=Back
+
+game_over.title=Game Over
+game_over.play_again=Play Again
+game_over.main_menu=Main Menu

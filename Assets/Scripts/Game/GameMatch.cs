@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using DLIFR.Data;
 using DLIFR.Entities;
 using DLIFR.Props;
@@ -42,6 +43,7 @@ namespace DLIFR.Game
         public GameObject pauseMenu;
         public Settings settings;
         public GameObject hudBindings;
+        public CanvasGroup gameOverCanvas;
 
         [Header("SETTINGS")]
         public Value<int> ticksPerDay = 50 * 24;
@@ -137,11 +139,38 @@ namespace DLIFR.Game
             };
         }
 
+
+        private void OnDisable() 
+        {
+            shipFuelLevel.variable.onChange = null;
+            isPaused.variable.onChange = null;
+        }
+
         private void Update() 
         {
-            if(Input.GetKeyDown(KeyCode.P))
+            if(isOnShop)
             {
-                TogglePaused();
+                gameShop.canvasGroup.alpha = Mathf.Lerp(
+                    gameShop.canvasGroup.alpha,
+                    1f,
+                    Time.unscaledDeltaTime * 2f
+                );
+            }
+
+            if(gameOverCanvas.gameObject.activeInHierarchy)
+            {
+                gameOverCanvas.alpha = Mathf.Lerp(
+                    gameOverCanvas.alpha,
+                    1f,
+                    Time.unscaledDeltaTime
+                );
+            }
+            else 
+            {
+                if(Input.GetKeyDown(KeyCode.P))
+                {
+                    TogglePaused();
+                }
             }
 
             bool m0 = Input.GetMouseButtonUp(0);
@@ -238,6 +267,8 @@ namespace DLIFR.Game
 
         public void OpenShop()
         {
+            gameShop.canvasGroup.alpha = 0;
+
             List<Cargo> keep = new List<Cargo>();
 
             int coins = 0;
@@ -361,6 +392,23 @@ namespace DLIFR.Game
         public bool CanDoAction(string action, GameObject obj)
         {
             return canDoAction == null ? true : canDoAction.Invoke(action, obj);
+        }
+
+        public void OnGameOver()
+        {
+            isPaused.value = true;
+            shouldTimePass.value = true;
+            gameOverCanvas.gameObject.SetActive(true);
+        }
+
+        public void ResetGame()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        public void GoToMenu()
+        {
+            SceneManager.LoadScene("Scenes/Menu");
         }
     }
 }
