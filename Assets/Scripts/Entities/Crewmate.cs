@@ -254,26 +254,33 @@ namespace DLIFR.Entities
         #region Interaction
         public override void OnInteract(int click, GameMatch match)
         {
-            if(match.currentCrewmate != null)
+            if(match.CanDoAction("crewmate_select", gameObject))
             {
-                SetLayer(match.currentCrewmate.transform, 0);
-            
-                if(match.currentCrewmate == this)
+                if(match.currentCrewmate != null)
                 {
-                    match.currentCrewmate = null;
-                    return;
+                    SetLayer(match.currentCrewmate.transform, 0);
+                
+                    if(match.currentCrewmate == this)
+                    {
+                        match.currentCrewmate = null;
+                        return;
+                    }
                 }
-            }
 
-            SetLayer(transform, LayerMask.NameToLayer("Selected")); 
-            match.currentCrewmate = this;             
+                SetLayer(transform, LayerMask.NameToLayer("Selected")); 
+                match.currentCrewmate = this;             
+            }
         }
         
         public void OnClickOnGround(Vector3 position)
         {
             CrewmateWalkingToState state = new CrewmateWalkingToState();
             state.target = position;
-            this.state = state;
+
+            if(match.CanDoAction("crewmate_walk_to", gameObject))
+            {
+                this.state = state;
+            }
         }
         #endregion
 

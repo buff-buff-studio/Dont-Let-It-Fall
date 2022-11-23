@@ -37,7 +37,7 @@ game.tutorial.exit=Exit Tutorial
 
 tutorial.boxes.0=Left click on a <§Crewmate§> to select it
 tutorial.boxes.1=Well done! Now click in a <§Place On The Ground§> to move to
-tutorial.boxes.2=You're good! Now, click on a <§Box§> to grab it!
+tutorial.boxes.2=You're good! OH, a bird is dropping a box! Click on a <§Box§> to grab it!
 
 tutorial.boxes.fuelbox.0=This is a <§Fuel Box§>. You need to use it to refuel your ship
 tutorial.boxes.fuelbox.1=You can see the fuel indicator on the top-right corner of the screen
@@ -52,7 +52,7 @@ tutorial.boxes.cargobox.3=... but the answer is very simple: You need money to b
 tutorial.boxes.cargobox.4=Look at the top-left corner of your screen. This is your coin balance. Now you're a quite... poor.. but don't worry!
 
 tutorial.boxes.shop.0=It's not that hard to get money (at least, that's what I thought, hehehe...)
-tutorial.boxes.shop.1=On the end of each day you'll hit a <Shop§>, where you can sell your <§Cargo§> and buy other stuff
+tutorial.boxes.shop.1=On the end of each day you'll hit a <§Shop§>, where you can sell your <§Cargo§> and buy other stuff
 tutorial.boxes.shop.2=On the left side of your screen you can see what items the next shop can buy
 
 tutorial.boxes.shop.3=Move all the cargo you want to sell to the <§Sell Area§> until the end of the day

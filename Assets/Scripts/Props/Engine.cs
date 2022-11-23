@@ -9,8 +9,6 @@ namespace DLIFR.Props
         public Value<float> maxFuelLevel;
         public override bool OnDrop(GameObject go)
         {
-            Debug.Log("aa");
-            
             Cargo cargo = go.GetComponent<Cargo>();
 
             if(cargo == null)

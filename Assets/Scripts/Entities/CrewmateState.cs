@@ -93,6 +93,8 @@ namespace DLIFR.Entities
 
         public override void OnEndWalking(bool done)
         {
+            crewmate.match.CanDoAction("crewmate_walk_end", crewmate.gameObject);
+
             if(grabbable is Vault)
             {
                 int salary = crewmate.salaryRechargePrice;
@@ -132,6 +134,8 @@ namespace DLIFR.Entities
 
         public override void OnEndWalking(bool done)
         {
+            crewmate.match.CanDoAction("crewmate_walk_end", crewmate.gameObject);
+
             if(crewmate.carrying != null)
                 crewmate.DropCarrying();
 
@@ -157,6 +161,8 @@ namespace DLIFR.Entities
 
         public override void OnEndWalking(bool done)
         {
+            crewmate.match.CanDoAction("crewmate_walk_end", crewmate.gameObject);
+            
             if(droppable.OnDrop(crewmate.carrying))
             {
                 GameObject.Destroy(crewmate.carrying);

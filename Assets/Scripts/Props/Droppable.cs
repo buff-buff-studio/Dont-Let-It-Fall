@@ -8,7 +8,7 @@ namespace DLIFR.Props
     {
         public override void OnInteract(int click, GameMatch match)
         {
-            Debug.Log("wtf");
+            if(!match.CanDoAction("drop", gameObject)) return;
             
             Crewmate c = match.currentCrewmate;
             if(c != null && c.carrying != null)

@@ -57,7 +57,8 @@ namespace DLIFR.Game.Tutorial
             swipe.SetActive(currentPage.shouldSwipe);
             subtitle.SetActive(currentPage.hasText);
 
-            textLabel.text = settings.language.GetEntry(page.text);
+            if(currentPage.hasText)
+                textLabel.text = settings.language.GetEntry(page.text);
 
             gameIsPaused.value = page.shouldPauseGame;
             shouldTimePass.value = page.shouldTimePass;
@@ -86,6 +87,11 @@ namespace DLIFR.Game.Tutorial
                         radius = Vector2.Distance(colliderA, colliderB) + 20;
 
                         screenPos = camera.WorldToScreenPoint(currentPage.swipeTarget.position);
+                    
+                        if(screenPos.z < 0.5f)
+                        {
+                            radius = 0;
+                        }
                     }
                     else 
                     {

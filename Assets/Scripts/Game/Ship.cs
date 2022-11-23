@@ -40,9 +40,6 @@ namespace DLIFR.Game
         /// </summary>
         private void ApplyBalance()
         {
-            shipCollider.position = shipNavMesh.position;
-            shipCollider.rotation = shipNavMesh.rotation;
-            
             float inverseBalanceForce = 1f / balanceForce;
             Quaternion deltaRotation = Quaternion.identity * Quaternion.Inverse(targetRotation == null ? transform.rotation : (transform.rotation * Quaternion.Inverse(targetRotation.rotation)));
 
@@ -60,8 +57,11 @@ namespace DLIFR.Game
 
             _rigidbody.angularVelocity = Vector3.Lerp(_rigidbody.angularVelocity, angular, Time.fixedDeltaTime * balanceForce);
             
-            shipCollider.position = shipNavMesh.position;
-            shipCollider.rotation = shipNavMesh.rotation;
+            if(shipNavMesh != null)
+            {
+                shipCollider.position = shipNavMesh.position;
+                shipCollider.rotation = shipNavMesh.rotation;
+            }
         }
         #endregion
     }

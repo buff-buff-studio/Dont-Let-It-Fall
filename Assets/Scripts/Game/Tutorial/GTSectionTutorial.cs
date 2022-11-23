@@ -23,8 +23,73 @@ namespace DLIFR.Game.Tutorial
         public Transform shopSlider3;
         public Transform shopRemainder;
 
+        public bool CanSelectCrewmate = false;
+        public bool CanWalkTo = false;
+        public bool CanGrab = false;
+        public bool CanDrop = false;
+        public bool CanCloseShop = false;
+
+        private void OnDisable() 
+        {
+            match.canDoAction = null;
+        }
+        
+        public bool CanDoAction(string action, GameObject obj)
+        {
+            if(action == "crewmate_select" && CanSelectCrewmate)
+            {
+                NextPage();
+                return true;
+            }
+
+            if(action == "crewmate_walk_end")
+            {
+                NextPage();
+                return true;
+            }
+
+            if(action == "close_shop" && CanCloseShop)
+            {
+                NextPage();
+                CanCloseShop = false;
+                return true;
+            }
+
+            if(action == "crewmate_walk_to" && CanWalkTo)
+            {
+                tutorial.Display(new TutorialPage{ hasText = false });
+                CanWalkTo = false;
+                return true;
+            }
+
+            if(action == "grab" && CanGrab)
+            {
+                tutorial.Display(new TutorialPage{ hasText = false });
+                CanGrab = false;
+                return true;
+            }
+
+            if(action == "drop" && CanDrop)
+            {
+                tutorial.Display(new TutorialPage{ hasText = false });
+                CanDrop = false;
+                return true;
+            }
+
+            if(action == "next_day")
+            {
+                NextPage();
+            }
+
+            Debug.Log(action);
+
+            return false;
+        }
+        
         public override bool OnOpenPage(int page)
         {
+            match.canDoAction = CanDoAction;
+
             switch(page)
             {
                 case 0:
@@ -40,6 +105,8 @@ namespace DLIFR.Game.Tutorial
                         shouldFocusOnto = true,
                         focusOnto = crewmate.transform
                     });
+
+                    CanSelectCrewmate = true;
                 }
                 return true;
 
@@ -48,6 +115,9 @@ namespace DLIFR.Game.Tutorial
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.boxes.1"
                     });
+
+                    CanSelectCrewmate = false;
+                    CanWalkTo = true;
                 }
                 return true;
 
@@ -60,14 +130,19 @@ namespace DLIFR.Game.Tutorial
                         shouldSwipe = true,
                         swipeTarget = bird.carrying,
                     });
+
+                    CanWalkTo = false;
+                    CanGrab = true;
                 }
                 return true;   
 
                 case 3:
                 {
+                    CanGrab = false;
+
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.boxes.fuelbox.0",
-                        shouldPauseGame = true
+                        shouldPauseGame = false
                     });
                 }
                 return true;
@@ -80,7 +155,7 @@ namespace DLIFR.Game.Tutorial
                         text = "tutorial.boxes.fuelbox.1",
                         shouldSwipe = true,
                         swipeTarget = hudFuel,
-                        shouldPauseGame = true
+                        shouldPauseGame = false
                     });
                 }
                 return true;
@@ -89,7 +164,7 @@ namespace DLIFR.Game.Tutorial
                 {
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.boxes.fuelbox.2",
-                        shouldPauseGame = true
+                        shouldPauseGame = false
                     });
                 }
                 return true;
@@ -101,6 +176,8 @@ namespace DLIFR.Game.Tutorial
                         shouldSwipe = true,
                         swipeTarget = GameObject.FindObjectOfType<Engine>().transform,
                     });
+
+                    CanDrop = true;
                 }
                 return true;
 
@@ -110,6 +187,8 @@ namespace DLIFR.Game.Tutorial
                         text = "tutorial.boxes.fuelbox.4",
                         shouldPauseGame = true
                     });
+
+                    CanDrop = false;
                 }
                 return true;
 
@@ -122,6 +201,8 @@ namespace DLIFR.Game.Tutorial
                         shouldSwipe = true,
                         swipeTarget = bird.carrying
                     });
+
+                    CanGrab = true;
                 }
                 return true;
 
@@ -131,6 +212,8 @@ namespace DLIFR.Game.Tutorial
                         text = "tutorial.boxes.cargobox.1",
                         shouldPauseGame = true
                     });
+
+                    CanGrab = false;
                 }
                 return true;
 
@@ -212,6 +295,7 @@ namespace DLIFR.Game.Tutorial
 
                 case 18:
                 {
+                    match.useOnlyAreas = true;
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.boxes.shop.5",
                         shouldPauseGame = false,
@@ -223,6 +307,10 @@ namespace DLIFR.Game.Tutorial
 
                 case 19:
                 {
+                    CanWalkTo = false;
+                    match.useOnlyAreas = false;
+                    match.SetSelectedCrewmate(null);
+
                     match.gameTicks.value = match.ticksPerDay - 250;
 
                     tutorial.Display(new TutorialPage{
@@ -325,11 +413,15 @@ namespace DLIFR.Game.Tutorial
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.shop.8"
                     });
+                    
+                    CanCloseShop = true;
                 }
                 return true;
 
                 case 29:
                 {
+                    CanCloseShop = false;
+
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.shop.9"
                     });
@@ -372,12 +464,17 @@ namespace DLIFR.Game.Tutorial
                         customFocusOffset = new Vector3(0, 1, -3),
                         useCustomFocusOffset = true
                     });
+
+                    match.SetSelectedCrewmate(crewmate);
                 }
                 return true;
                 
                 case 37:
                 {
                     match.coinCount.value += 25;
+
+                    CanGrab = true;
+                    
 
                     tutorial.Display(new TutorialPage{
                         text = $"tutorial.salary.7",
@@ -393,6 +490,8 @@ namespace DLIFR.Game.Tutorial
 
                 case 38:
                 {
+                    CanGrab = false;
+
                     tutorial.Display(new TutorialPage{
                         text = "tutorial.salary.8",
                         shouldPauseGame = true
@@ -430,14 +529,33 @@ namespace DLIFR.Game.Tutorial
                     });
                 }
                 return true;
+
+
+                case 42:
+                {
+                    match.StartGame(false);
+                    Destroy(GetComponentInParent<GameTutorial>().gameObject);
+                }
+                return true;
             }
 
             return false;
         }
 
+        public override bool CanSkipPage()
+        {
+            if(CanDrop || CanGrab || CanSelectCrewmate || CanWalkTo || CanCloseShop)
+                return false;
+
+            if(!tutorial.currentPage.hasText)
+                return false;
+
+            return true;
+        }
+
         public override int GetStartingIndex()
         {
-            return 30;
+            return 18;
         }
     }
 }

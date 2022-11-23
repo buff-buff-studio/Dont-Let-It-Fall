@@ -12,12 +12,12 @@ namespace DLIFR.Entities
 
         private void Start() 
         {
-            transform.position = Quaternion.Euler(0, Random.Range(90f, 270f), 0) * transform.forward * 12 + new Vector3(0, 5, 0);
+            transform.position = Quaternion.Euler(0, Random.Range(90f, 270f), 0) * transform.forward * 12 + new Vector3(0, 5, 5);
 
             target = new Vector3(
-                Random.Range(-6f, 6f),
+                Random.Range(-4f, 4f),
                 2f,
-                Random.Range(1f, 4f)
+                Random.Range(-4f, 4f)
             );
 
             RefreshCarrying();

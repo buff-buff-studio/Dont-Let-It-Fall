@@ -1243,29 +1243,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 484127819}
   m_CullTransparentMesh: 1
---- !u!1 &506163405 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2516808940582296908, guid: 760154291ef1041408c16533e2f137b2, type: 3}
-  m_PrefabInstance: {fileID: 1026400142}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &506163409 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2516808940582296911, guid: 760154291ef1041408c16533e2f137b2, type: 3}
   m_PrefabInstance: {fileID: 1026400142}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &506163410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 506163405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8853b495179f3f04c9183d5cfdc0a7b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cargoes: []
 --- !u!1001 &532205073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2588,6 +2570,17 @@ MonoBehaviour:
   values: []
   settings: {fileID: 11400000, guid: 4768b1ec962dad149b1d92bcb4ae7c31, type: 2}
   _rawText: 
+--- !u!114 &1012852887 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2516808941230251604, guid: 760154291ef1041408c16533e2f137b2, type: 3}
+  m_PrefabInstance: {fileID: 1026400142}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8853b495179f3f04c9183d5cfdc0a7b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1026400142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2595,9 +2588,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2516808940582296908, guid: 760154291ef1041408c16533e2f137b2, type: 3}
+      propertyPath: m_Name
+      value: SellAreaGround
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516808940582296908, guid: 760154291ef1041408c16533e2f137b2, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516808940582296908, guid: 760154291ef1041408c16533e2f137b2, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 2516808940582296910, guid: 760154291ef1041408c16533e2f137b2, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516808941230251602, guid: 760154291ef1041408c16533e2f137b2, type: 3}
+      propertyPath: m_Name
+      value: SellArea
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516808941230251602, guid: 760154291ef1041408c16533e2f137b2, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 2516808941334718816, guid: 760154291ef1041408c16533e2f137b2, type: 3}
       propertyPath: m_Enabled
@@ -2625,7 +2638,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2516808941859669075, guid: 760154291ef1041408c16533e2f137b2, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2516808941859669086, guid: 760154291ef1041408c16533e2f137b2, type: 3}
       propertyPath: m_RootOrder
@@ -3193,6 +3206,10 @@ MonoBehaviour:
   shopSlider2: {fileID: 589377251}
   shopSlider3: {fileID: 287760008}
   shopRemainder: {fileID: 1789196297}
+  CanSelectCrewmate: 0
+  CanWalkTo: 0
+  CanGrab: 0
+  CanDrop: 0
 --- !u!1 &1218758172
 GameObject:
   m_ObjectHideFlags: 0
@@ -5127,7 +5144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ship: {fileID: 1332377288}
-  sellArea: {fileID: 506163410}
+  sellArea: {fileID: 1012852887}
   canvas: {fileID: 1952436410}
   gameShop: {fileID: 1050563078}
   gameHud: {fileID: 1942428257}
@@ -5137,6 +5154,10 @@ MonoBehaviour:
   selectableMask:
     serializedVersion: 2
     m_Bits: 129
+  areaSelectableMask:
+    serializedVersion: 2
+    m_Bits: 8192
+  useOnlyAreas: 0
   fuelConsumptionRate:
     variable: {fileID: 11400000, guid: e611c494e73bbb4458bd22c6e7a8d7c9, type: 2}
     _value: 1

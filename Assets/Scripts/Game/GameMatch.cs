@@ -41,6 +41,8 @@ namespace DLIFR.Game
         [Header("SETTINGS")]
         public Value<int> ticksPerDay = 50 * 24;
         public LayerMask selectableMask;
+        public LayerMask areaSelectableMask;
+        public bool useOnlyAreas = false;
         public Value<float> fuelConsumptionRate = 1;
         public CargoType[] types;
 
@@ -57,6 +59,7 @@ namespace DLIFR.Game
         public Value<bool> shouldTimePass;
 
         public Shop nextShop;
+        public Func<string, GameObject, bool> canDoAction;
 
         [Header("PREFABS")]
         public GameObject prefabBird;
@@ -67,12 +70,30 @@ namespace DLIFR.Game
 
         private void Awake() 
         {
+            StartGame(true);
+        }
+
+        public void StartGame(bool tutorial)
+        {
             gameTicks.value = 0;
             coinCount.value = 0;
             shipFuelLevel.value = shipFuelMaxLevel.value;
 
-            isPaused.value = false;
-            shouldTimePass.value = true;
+            gameHud.dayNumber.value = 1;
+            gameHud.dayTime.value = 0;
+
+            if(tutorial)
+            {
+                useOnlyAreas = false;
+                isPaused.value = true;
+                shouldTimePass.value = false;
+            }
+            else
+            {
+                useOnlyAreas = false;
+                isPaused.value = false;
+                shouldTimePass.value = true;
+            }
         }
 
         private void OnEnable() 
@@ -97,7 +118,7 @@ namespace DLIFR.Game
             if(m0 || m1)
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
+                LayerMask selectableMask = useOnlyAreas ? this.areaSelectableMask : this.selectableMask;
                 if(UnityEngine.Physics.Raycast(ray.origin, ray.direction, out RaycastHit hit, 30f, selectableMask))
                 {            
                     IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
@@ -111,6 +132,23 @@ namespace DLIFR.Game
 
                 UpdateInteractionDisplay();
             }  
+        }
+
+        public void SetSelectedCrewmate(Crewmate crewmate)
+        {
+            if(currentCrewmate != null)
+            {
+                Crewmate.SetLayer(currentCrewmate.transform, 0);
+            }
+
+            currentCrewmate = crewmate;
+
+            if(currentCrewmate != null)
+            {        
+                Crewmate.SetLayer(currentCrewmate.transform, LayerMask.NameToLayer("Selected"));
+            }
+
+            UpdateInteractionDisplay();
         }
 
         public void UpdateInteractionDisplay()
@@ -127,6 +165,7 @@ namespace DLIFR.Game
 
             if((++gameTicks.value) % ticksPerDay == 0)
             {
+                CanDoAction("next_day", gameObject);
                 OpenShop();
             }
         }
@@ -181,6 +220,9 @@ namespace DLIFR.Game
 
         public void CloseShop()
         {
+            if(!CanDoAction("close_shop", gameObject))
+                return;
+
             #region Input Data
             int fuelValue = gameShop.slider.GetValue(0);
             int cargoValue = gameShop.slider.GetValue(1);
@@ -261,6 +303,11 @@ namespace DLIFR.Game
         public GameObject GetRandom(GameObject[] array)
         {
             return array[UnityEngine.Random.Range(0, array.Length)];
+        }
+
+        public bool CanDoAction(string action, GameObject obj)
+        {
+            return canDoAction == null ? true : canDoAction.Invoke(action, obj);
         }
     }
 }

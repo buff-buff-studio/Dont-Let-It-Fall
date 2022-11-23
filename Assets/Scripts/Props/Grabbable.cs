@@ -12,6 +12,8 @@ namespace DLIFR.Props
         {
             if(beingGrabbed) return;
 
+            if(!match.CanDoAction("grab", gameObject)) return;
+
             Crewmate c = match.currentCrewmate;
             if(c != null && c.carrying == null)
             {
