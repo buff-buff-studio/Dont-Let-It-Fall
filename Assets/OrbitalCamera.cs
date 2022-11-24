@@ -70,6 +70,7 @@ public class OrbitalCamera : MonoBehaviour
 
     private void SelectTarget()
     {
+        /*
         if (Input.GetMouseButtonUp(0))
         {
             //Mouse raycast
@@ -85,6 +86,7 @@ public class OrbitalCamera : MonoBehaviour
                 }
             }
         }
+        */
     }
 
     private void ResetTarget()

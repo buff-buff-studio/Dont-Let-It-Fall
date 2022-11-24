@@ -101,7 +101,7 @@ namespace DLIFR.Game
         public void StartGame(bool tutorial)
         {
             AudioController.PlayMusic("music");
-            
+
             hudBindings.SetActive(!tutorial);
             
             Rigidbody rb = ship.GetComponent<Rigidbody>();
@@ -252,11 +252,8 @@ namespace DLIFR.Game
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 LayerMask selectableMask = useOnlyAreas ? this.areaSelectableMask : this.selectableMask;
                 
-                Debug.Log("clicando sua putinha");
-
                 if(UnityEngine.Physics.Raycast(ray.origin, ray.direction, out RaycastHit hit, 30f, selectableMask))
-                {    
-                    Debug.Log("gghfhg");        
+                {          
                     IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
                     interactable?.OnInteract(m0 ? 0 : 1, this);
                     

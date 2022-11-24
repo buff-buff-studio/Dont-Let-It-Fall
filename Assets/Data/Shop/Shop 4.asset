@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shop 4
   m_EditorClassIdentifier: 
   accepts:
-  - cage
+  - box
   - barrel
   buy:
     fuelBoxPrice: 10

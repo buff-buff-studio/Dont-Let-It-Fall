@@ -131,9 +131,9 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _MaxDistance: 12
+    - _MaxDistance: 3
     - _Metallic: 0
-    - _MinDistance: 9
+    - _MinDistance: 2
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0

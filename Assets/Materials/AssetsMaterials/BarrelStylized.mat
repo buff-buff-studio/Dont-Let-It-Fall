@@ -122,7 +122,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _Dissolve: 0
     - _DstBlend: 0
-    - _EdgeWidth: 0.066
+    - _EdgeWidth: 0.1
     - _EnvironmentReflections: 1
     - _FreezeLevel: 0
     - _FrostBorderSize: 1
