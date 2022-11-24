@@ -728,9 +728,10 @@ MonoBehaviour:
   paymentCanvas: {fileID: 3486082946280835711}
   paymentDisplay: {fileID: 6024417659868215810}
   animator: {fileID: 5553739863620897235}
+  material: {fileID: 0}
   shellColor: {fileID: 8263018022666119262}
   characterColor: {r: 0.009433985, g: 0.009433985, b: 0.009433985, a: 0}
-  walkSpeed: 3
+  walkSpeed: 4
   _state:
     crewmate: {fileID: 0}
   grabbedObject: {fileID: 0}
