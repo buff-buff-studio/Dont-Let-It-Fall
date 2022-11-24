@@ -154,14 +154,13 @@
       }
     },
     "com.unity.visualeffectgraph": {
-      "version": "10.8.1",
+      "version": "12.1.6",
       "depth": 0,
-      "source": "registry",
+      "source": "builtin",
       "dependencies": {
-        "com.unity.shadergraph": "10.8.1",
-        "com.unity.render-pipelines.core": "10.8.1"
-      },
-      "url": "https://packages.unity.com"
+        "com.unity.shadergraph": "12.1.6",
+        "com.unity.render-pipelines.core": "12.1.6"
+      }
     },
     "com.unityfx.outline": {
       "version": "0.8.3",

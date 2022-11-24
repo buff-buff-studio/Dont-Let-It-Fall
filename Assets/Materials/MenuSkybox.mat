@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3044824336171305520
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -7,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SkyboxCartoon
+  m_Name: MenuSkybox
   m_Shader: {fileID: -6465566751694194690, guid: 87b248f4e2395194ea1faee87894e7b6, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -39,23 +52,17 @@ Material:
     m_Ints: []
     m_Floats:
     - _CloudsConvergence: 1
-    - _CloudsHeight: 6.1
+    - _CloudsHeight: 12
     - _CloudsMovementSpeed: 0.0001
-    - _CloudsPosition: 0.28
+    - _CloudsPosition: -0.03
     - _CloudsScale: 0.25
     - _CloudsShadow: 0.5
     - _CloudsSharpness: 8
     - _CloudsSpeed: 0.005
-    - _CloudsTransparency: -5
     - _MoonExponent: 27.8
     - _MoonIntensity: 45.8
-    - _MoonPhase: -0.41
-    - _MoonPosition: 2.45
     - _MoonRadiusA: 0
     - _MoonRadiusB: 0.05
-    - _MoonSize: 0.35
-    - _MoonUvTiling: 10
-    - _PhaseRotation: -0.1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SkyGradientLevel: 1
@@ -69,34 +76,14 @@ Material:
     - _SunRadiusA: 0
     - _SunRadiusB: 0.0407
     - _SunsetGradientLevel: 1
-    - _UvTiling: 10
-    - _XOffset: 0
-    - _YOffset: 0
     m_Colors:
     - _CloudsDarkColor: {r: 0.4217248, g: 0.7157037, b: 0.764151, a: 0}
     - _CloudsLightColor: {r: 0.25941363, g: 0.21404415, b: 0.6981132, a: 0}
-    - _DarkColor: {r: 0.09757573, g: 0.40727258, b: 0.56, a: 0}
-    - _LightColor: {r: 0.43529412, g: 0.6039216, b: 0.6039216, a: 0}
     - _MoonColor: {r: 0.009693532, g: 0.013906059, b: 0.022097087, a: 1}
-    - _MoonPosition: {r: 1.5, g: 1.5, b: 0, a: 0}
     - _NightSkyColor: {r: 0.2781239, g: 0.3426909, b: 0.4716981, a: 0}
-    - _PhaseRotationCenter: {r: 0.25, g: 0.25, b: 0, a: 0}
     - _SkyGradientColorA: {r: 0.1589609, g: 0.4793202, b: 0.5520116, a: 1}
     - _SkyGradientColorB: {r: 0.8235295, g: 0.9294118, b: 0.9294118, a: 1}
     - _SkyGradientColorC: {r: 0.8196079, g: 0.5372549, b: 0.2588235, a: 1}
     - _StarsColor: {r: 46.329166, g: 45.580303, b: 27.316725, a: 0}
     - _SunColor: {r: 8.574187, g: 4.5392756, b: 0.60523677, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &4480987955975397609
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 5

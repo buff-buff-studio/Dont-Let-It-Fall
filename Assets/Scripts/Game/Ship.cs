@@ -11,6 +11,13 @@ namespace DLIFR.Game
         public Transform targetRotation;
         public Transform shipNavMesh;
         public Transform shipCollider;
+        
+        private bool haveFuel = true;
+        public bool HaveFuel
+        {
+            get { return haveFuel; }
+            set { haveFuel = value; }
+        }
         #endregion
 
         #region Private Fields
@@ -33,6 +40,10 @@ namespace DLIFR.Game
         {
             transform.position = Vector3.zero;
             ApplyBalance();
+            
+            if (shipNavMesh == null) return;
+            shipCollider.position = shipNavMesh.position;
+            shipCollider.rotation = shipNavMesh.rotation;
         }
 
         /// <summary>
@@ -40,6 +51,8 @@ namespace DLIFR.Game
         /// </summary>
         private void ApplyBalance()
         {
+            if (!HaveFuel) return;
+            
             float inverseBalanceForce = 1f / balanceForce;
             Quaternion deltaRotation = Quaternion.identity * Quaternion.Inverse(targetRotation == null ? transform.rotation : (transform.rotation * Quaternion.Inverse(targetRotation.rotation)));
 
@@ -57,11 +70,6 @@ namespace DLIFR.Game
 
             _rigidbody.angularVelocity = Vector3.Lerp(_rigidbody.angularVelocity, angular, Time.fixedDeltaTime * balanceForce);
             
-            if(shipNavMesh != null)
-            {
-                shipCollider.position = shipNavMesh.position;
-                shipCollider.rotation = shipNavMesh.rotation;
-            }
         }
         #endregion
     }

@@ -135,7 +135,7 @@ namespace DLIFR.Game
 
             shipFuelLevel.variable.onChange += () =>
             {
-                ship.enabled = shipFuelLevel.value > 0;
+                ship.HaveFuel = shipFuelLevel.value > 0;
             };
         }
 
