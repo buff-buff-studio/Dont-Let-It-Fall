@@ -16,6 +16,7 @@ namespace DLIFR.Interface
         public Slider sliderVolumeVfx;
         public Slider sliderVolumeMusic;
         public TMPro.TMP_Dropdown dropdownLanguage;
+        public Toggle toggleTutorial;
 
         private void OnEnable() 
         {
@@ -33,6 +34,8 @@ namespace DLIFR.Interface
             dropdownLanguage.ClearOptions();
             dropdownLanguage.AddOptions(m_DropOptions);
             dropdownLanguage.value = settings.languageIndex; 
+
+            toggleTutorial.isOn = settings.showTutorial;
         }
 
         private void OnDisable() 
@@ -44,6 +47,7 @@ namespace DLIFR.Interface
         {
             settings.volumeVfx.value = sliderVolumeVfx.value/10f;
             settings.volumeMusic.value = sliderVolumeMusic.value/10f;
+            settings.showTutorial = toggleTutorial.isOn;
         }
 
         public void UpdateLanguage()

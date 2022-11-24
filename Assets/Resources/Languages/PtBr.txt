@@ -1,111 +1,110 @@
 #HUD
 hud.daytime={0:HOUR}
-hud.daynumber=Day {0:DAY}
-hud.coincount=Coins: {0}
-hud.fuellevel=Fuel: {0:F1}
-hud.sellingvalue=Selling: {0}
+hud.daynumber=Dia {0:DAY}
+hud.coincount=Moedas: {0}
+hud.fuellevel=Combustível: {0:F1}
+hud.sellingvalue=Vendendo: {0}
 
 ######################################
 # MENUS
 ######################################
-ui.back= Back
+ui.back=Voltar
 
-mainmenu.play=Play
-mainmenu.settings=Settings
-mainmenu.credits=Credits
-mainmenu.exit=Exit
+mainmenu.play=Jogar
+mainmenu.settings=Ajustes
+mainmenu.credits=Créditos
+mainmenu.exit=Sair
 
-settings.fxvolume=FX Volume
-settings.musicvolume=Music Volume
+settings.fxvolume=Volume de Efeitos
+settings.musicvolume=Volume da Música
+settings.language=Idioma
+settings.show_tutorial=Mostrar tutorial no próximo jogo
 
 ######################################
 #GAME
 ######################################
 game.hud.daytime={0:HOUR}
-game.hud.daynumber=Day {0}
-game.hud.coins=Coins: {0}
-game.hud.fuel=Fuel
+game.hud.daynumber=Dia {0}
+game.hud.coins=Moedas: {0}
+game.hud.fuel=Combustível
 
-game.shop.shop=Shop
-game.shop.done=Done
-game.shop.coins=Coins: {0}
+game.shop.shop=Loja
+game.shop.done=Pronto
+game.shop.coins=Moedas: {0}
 
 game.tutorial.tutorial=Tutorial
-game.tutorial.next=Next
-game.tutorial.exit=Exit Tutorial
+game.tutorial.next=Próximo
+game.tutorial.exit=Sair do tutorial
 
-tutorial.greetings.0=Welcome to <§Don't Let It Fall§>!
-tutorial.greetings.1=You are a Floating-Boat Captain, who need to control a crew of crazy Jelly-Like workers!
-tutorial.greetings.2=Your goal is to earn money delivering cargo boxes, while keep this ship balanced!
-tutorial.greetings.3=To get started let me show you the basic controls
-tutorial.greetings.4=Use <§W§>, <§A§>, <§S§>, <§D§>, <§Left Shift§>, <§Space§> to control the camera!
-tutorial.greetings.5=And now, let me teach you how to control your crewmates!
+tutorial.greetings.0=Bem vindo ao <§Don't Let It Fall§>!
+tutorial.greetings.1=Você é <§capitão§> do navio flutuante que controla um grupo de <§tripulantes§> gelatinosos!
+tutorial.greetings.2=Seu objetivo é ganhar dinheiro fazendo entregas de <§mercadorias§> enquanto tenta manter o barco equilibrado!
+tutorial.greetings.3=Primeiramente, vamos ver os controles básicos.
+tutorial.greetings.4=Use <§W§>, <§A§>, <§S§>, <§D§>, <§Left Shift§>, <§Space§> para controlar a câmera!
+tutorial.greetings.5=Agora, vamos aprender a controlar os <§tripulantes§>.
 
-tutorial.boxes.0=Left click on a <§Crewmate§> to select it
-tutorial.boxes.1=Well done! Now click in a <§Place On The Ground§> to move to
-tutorial.boxes.2=You're good! OH, a bird is dropping a box! Click on a <§Box§> to grab it!
+tutorial.boxes.0=Clique com o <§botão esquerdo§> num tripulante para selecioná-lo.
+tutorial.boxes.1=Muito bem! Agora clique em algum <§lugar no chão§> para fazer ele se mover!
+tutorial.boxes.2=Boa! OH, um sapo trouxe uma caixa! Clique na <§caixa§> para pegá-la!
 
-tutorial.boxes.fuelbox.0=This is a <§Fuel Box§>. You need to use it to refuel your ship
-tutorial.boxes.fuelbox.1=You can see the fuel indicator on the top-right corner of the screen
-tutorial.boxes.fuelbox.2=If you run out of fuel your ship will not be able to self-balance anymore
-tutorial.boxes.fuelbox.3=Click on the <§Furnace§> to drop the box to refuel the ship
-tutorial.boxes.fuelbox.4=Done! Now your ship is refueled!
+tutorial.boxes.fuelbox.0=Essa é uma <§caixa de combustível§>. Você vai precisar delas para <§reabastecer§> o navio!
+tutorial.boxes.fuelbox.1=Você consegue ver o <§medidor de combustível§> no canto superior direito da tela.
+tutorial.boxes.fuelbox.2=Se seu combustível acabar, o navio não vai conseguir se <§equilibrar§>.
+tutorial.boxes.fuelbox.3=Clique na <§fornalha§> para levar a caixa e abastecer o navio
+tutorial.boxes.fuelbox.4=Pronto! O navio está abastecido!
 
-tutorial.boxes.cargobox.0=Oh wait... A bird is bringing other box, let's check it out! <§Grab it!§>
-tutorial.boxes.cargobox.1=This is a <§Cargo Box§>. You need to store them in your ship, while, hmm, trying to keep the ship balanced!
-tutorial.boxes.cargobox.2=I know maybe you're wondering: "Why i just don't drop it on the void?" ...
-tutorial.boxes.cargobox.3=... but the answer is very simple: You need money to buy fuel and to pay your workers, so, you need to sell them!
-tutorial.boxes.cargobox.4=Look at the top-left corner of your screen. This is your coin balance. Now you're a quite... poor.. but don't worry!
+tutorial.boxes.cargobox.0=Ah espera... o sapo está trazendo outra caixa, vamos ver o que é! <§Pegue a caixa!§>
+tutorial.boxes.cargobox.1=Essa é uma <§caixa de mercadorias§>. Guarde elas no navio, enquanto tenta equilibrá-lo!
+tutorial.boxes.cargobox.2=Você deve estar pensando: "Porque eu só não jogo essa caixa pra fora do navio?" ...
+tutorial.boxes.cargobox.3=... mas a resposta é simples: Você precisa de <§moedas§> pra comprar combustível e <§pagar seus tripulantes§>, então, precisa <§vender§> elas!
+tutorial.boxes.cargobox.4=Olhe no canto superior esquerdo da tela. Essa é sua <§carteira§>. Por enquanto focê está bem pobre... mas não se preocupe!
 
-tutorial.boxes.shop.0=It's not that hard to get money (at least, that's what I thought, hehehe...)
-tutorial.boxes.shop.1=On the end of each day you'll hit a <§Shop§>, where you can sell your <§Cargo§> and buy other stuff
-tutorial.boxes.shop.2=On the left side of your screen you can see what items the next shop can buy
+tutorial.boxes.shop.0=Não é difícil ganhar dinheiro (é o que eu pensava, hehehe...)
+tutorial.boxes.shop.1=No fim de cada dia você para em uma <§loja§>, onde você pode <§vender§> suas <§mercadorias§> e comprar umas coisas.
+tutorial.boxes.shop.2=No lado esquerdo da tela você consegue ver quais itens a próxima loja vai comprar.
+tutorial.boxes.shop.3=Leve todas as mercadorias que quer vender até a <§área de vendas§> até o final do dia.
+tutorial.boxes.shop.4=Mas tome cuidado, <§TODAS§> as mercadorias lá dentro vão ser vendidas. Se a loja não comprar um dos itens, eles vão joga-lo fora, e você não vai dar pra recuperar.
+tutorial.boxes.shop.5=Agora, leve a mercadoria para a <§área de vendas§>!
+tutorial.boxes.shop.6=Bom trabalho! Agora vamos esperar até o fim do dia! Você pode ver a hora no relógio no topo da tela.
 
-tutorial.boxes.shop.3=Move all the cargo you want to sell to the <§Sell Area§> until the end of the day
-tutorial.boxes.shop.4=But be carefully, ALL THE cargo you put there will be sold. Is the shop does not buy an item, they'll just drop it into the void, so, you'll lose your cargo!
-tutorial.boxes.shop.5=Now, move the cargo to the <§Sell Area§>. Just click on it!
+tutorial.shop.0=É meia noite! Bem vindo a <§loja§>!
+tutorial.shop.1=Todos seus itens foram vendidos! Agora é hora de comprar mais coisas!
+tutorial.shop.2=Você pode usar os <§sliders§> no meio da tela para controlar o que quer fazer com seu dinheiro!
+tutorial.shop.3=<§Primeiro slider§>: Separe quantas moedas quer gastar com mais <§combustível§>. Cada caixa custa <§10§> moedas!
+tutorial.shop.4=<§Segundo slider§>: Separe quantas moedas quer gastar para comprar mais <§mercadorias§>. Você vai precisar comprar mais mercadorias para poder vender no futuro!
+tutorial.shop.5=<§Terceiro slider§>: Se precisar, você pode contratar mais <§tripulantes§>. Cada um cobra <§100§> moedas.
+tutorial.shop.6=Mas fica esperto, cada um deles vai cobrar um <§salário§> de vez em quando, que pode acabar ficando muito caro pra você!
+tutorial.shop.7=O último slider é <§automático§>, e mostra quantas moedas você vai manter.
 
-tutorial.boxes.shop.6=Nice work! Now let's wait until the end of the day! You can see the clock on the top of the screen!
+tutorial.shop.8=Escolha o que quiser, e então clique no botão <§pronto§>
+tutorial.shop.9=Boa! Agora os <§sapos entregadores§> vão trazer suas compras para o navio!
 
-tutorial.shop.0=It's midnight! Welcome to the <§Shop§>!
-tutorial.shop.1=All your items have been sold! Now it's time to buy new stuff!
-tutorial.shop.2=You can use the sliders on the middle of the screen to control what you want to do with your money!
-tutorial.shop.3=<§First Slider§>: Choose how many coins you want to spend with more <§Fuel Boxes§>. Each fuel box costs <§10§> coins!
-tutorial.shop.4=<§Second Slider§>: Choose how many coins you want to spend with new <§Cargo§>. Will will need to buy more cargo to sell it on the future, for more coins!
-tutorial.shop.5=<§Third Slider§>: If you need, you can hire more <§Crewmates§>. Each crewmate costs <§100§> coins
-tutorial.shop.6=But be smart. Each crew member receives a <§Salary§> from time to time, which can end up being too expensive for you!
-tutorial.shop.7=The last slider is automatic, and it shows how many money you will keep.
+tutorial.salary.0=Agora você sabe de tudo que precisa saber, então vou te deixar em paz..
+tutorial.salary.1=Calma lá... você escutou algo? Ah! É um tripulante! Vamos escutá-lo...
+tutorial.salary.2=Hmm... hmm... sim, sim... entendi...
+tutorial.salary.3=ELE DISSE QUE VOCÊ NÃO PAGOU O <§SALÁRIO§> DELE!?!?
+tutorial.salary.4=COMO VOCÊ PODE SER TÃO CRUEL COM SUA TRIPULA-
+tutorial.salary.5=Ah, calma, eu não te mostrei como <§pagar§> tripulantes né? Foi mal!
+tutorial.salary.6=Não se preocupa parceiro, ele vai te pagar agora!
+tutorial.salary.7=Vamos pagá-lo. Clique no <§cofre§> e ele vai ir buscar seu pagamento!
+tutorial.salary.8=Essa foi por pouco. Ele estava furioso... Se a gente tivesse demorado só mais um pouco, ele teria <§pedido demissão§>!
+tutorial.salary.9=Então, lembre-se de pagar os <§tripulantes§>! Se perder um deles, vai ser difícil manter esse navio de pé!
 
-tutorial.shop.8=Choose all that you want, then click on the button <§Done§>
-tutorial.shop.9=Well done! Now <§Delivery Birds§> will drop everything you bought on the shop!
+tutorial.end.0=Acho que agora terminamos. Então, boa sorte amigo!
+tutorial.end.1=Como a gente costumava dizer: Arggggg! Boa sorte marujo!
 
+bindings.interact=Interagir
+bindings.move_camera=Mover Câmera
+bindings.pause=Pausar
 
-tutorial.salary.0=Now you know everything you need, so I'll leave you alone...
-tutorial.salary.1=Wait... did you hear something? Oh it's a crewmate! Let me hear him...
-tutorial.salary.2=Hmm.... hmm.... i understand my friend...
-tutorial.salary.3=HE SAID THAT YOU HAVEN'T PAID HIS SALARY!?!?
-tutorial.salary.4=HOW CAN YOU BE SO MEAN TO A POOR CREWM...
-tutorial.salary.5=Oh, wait, I haven't showed how to pay the crewmates right? Sorry, it was my fault!
-tutorial.salary.6=Don't worry little friend, he'll pay you right now!
-tutorial.salary.7=Let's pay him, click on the <§Vault§> and he'll will grab his pay!
-tutorial.salary.8=Oh it was close. He was so angry... If we took a little more time to pay him he would <§Quit His Job§>!
-tutorial.salary.9=So, never forget to pay your <§Crew§>! If you lose your crew, you will not be able to maintain your ship!
-
-tutorial.end.0=I guess we are really done by now, so, good luck my friend!
-tutorial.end.1=As you use to say: Arggggg! Goodbye Mate!
-
-bindings.interact=interact
-bindings.move_camera=Move Camera
-bindings.pause=Pause
-
-pause.title=Pause
-pause.back=Back
+pause.title=Pausado
+pause.back=Voltar
 
 game_over.title=Game Over
-game_over.play_again=Play Again
-game_over.main_menu=Main Menu
+game_over.play_again=Jogar Novamente
+game_over.main_menu=Menu Principal
 
-game.shop.fuel=Fuel Box (10 for each fuel)
-game.shop.cargo=Cargo Parts (10 for each cargo)
-game.shop.crew=Crew Hire (100 to hire a new crewmate)
-game.shop.keep=Keep Share
+game.shop.fuel=Combustível (10 por caixa)
+game.shop.cargo=Mercadorias (10 por mercadoria)
+game.shop.crew=Contrato de Tripulante (100 por tripulante)
+game.shop.keep=Dinheiro Mantido
