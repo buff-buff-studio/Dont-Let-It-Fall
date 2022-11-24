@@ -204,6 +204,7 @@ MonoBehaviour:
   sunsetPower: 16
   dayColor: {r: 1, g: 0.9681467, b: 0.6650944, a: 1}
   nightColor: {r: 0.13725491, g: 0.25882354, b: 0.49019608, a: 1}
+  rainingColor: {r: 0.19215687, g: 0.22352941, b: 0.30980393, a: 0}
   coordinates:
     latitude: -3
     longitude: 0
@@ -213,7 +214,7 @@ MonoBehaviour:
     _value: 0
   timeSpeed: 0
   latitudeAngle: -30
-  timeAngle: -90
+  timeAngle: -66.672
 --- !u!224 &23218821 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5625879366876349534, guid: 3bceb20be44f467449ee724d6eec2c9d, type: 3}
@@ -3544,6 +3545,7 @@ GameObject:
   - component: {fileID: 506990014}
   - component: {fileID: 506990013}
   - component: {fileID: 506990012}
+  - component: {fileID: 506990015}
   m_Layer: 10
   m_Name: Vela_Superior_Frontal
   m_TagString: Untagged
@@ -4274,6 +4276,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 506990010}
   m_Mesh: {fileID: -4980301004590245490, guid: 78103a13069418044896b98d1c40eff3, type: 3}
+--- !u!64 &506990015
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506990010}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4980301004590245490, guid: 78103a13069418044896b98d1c40eff3, type: 3}
 --- !u!1 &510060527
 GameObject:
   m_ObjectHideFlags: 0
@@ -4861,7 +4877,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 598643719}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: -0.54954785, y: 0, z: 0, w: 0.8354623}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10024,6 +10040,7 @@ GameObject:
   - component: {fileID: 1364974539}
   - component: {fileID: 1364974538}
   - component: {fileID: 1364974537}
+  - component: {fileID: 1364974540}
   m_Layer: 10
   m_Name: Vela_Superior_Traseira
   m_TagString: Untagged
@@ -10754,6 +10771,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1364974535}
   m_Mesh: {fileID: -5604107992242984790, guid: 78103a13069418044896b98d1c40eff3, type: 3}
+--- !u!64 &1364974540
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364974535}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5604107992242984790, guid: 78103a13069418044896b98d1c40eff3, type: 3}
 --- !u!1 &1366069959
 GameObject:
   m_ObjectHideFlags: 0
@@ -11213,6 +11244,7 @@ GameObject:
   - component: {fileID: 1374988797}
   - component: {fileID: 1374988796}
   - component: {fileID: 1374988795}
+  - component: {fileID: 1374988798}
   m_Layer: 10
   m_Name: Vela_Inferior_Frontal
   m_TagString: Untagged
@@ -11942,6 +11974,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1374988793}
+  m_Mesh: {fileID: 1012627472938027071, guid: 78103a13069418044896b98d1c40eff3, type: 3}
+--- !u!64 &1374988798
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374988793}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
   m_Mesh: {fileID: 1012627472938027071, guid: 78103a13069418044896b98d1c40eff3, type: 3}
 --- !u!1 &1400332125
 GameObject:
@@ -13647,6 +13693,7 @@ GameObject:
   - component: {fileID: 1626112615}
   - component: {fileID: 1626112614}
   - component: {fileID: 1626112613}
+  - component: {fileID: 1626112616}
   m_Layer: 10
   m_Name: Vela_Inferior_Traseira
   m_TagString: Untagged
@@ -14376,6 +14423,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626112611}
+  m_Mesh: {fileID: 2933210199465985483, guid: 78103a13069418044896b98d1c40eff3, type: 3}
+--- !u!64 &1626112616
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626112611}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
   m_Mesh: {fileID: 2933210199465985483, guid: 78103a13069418044896b98d1c40eff3, type: 3}
 --- !u!1 &1645360252 stripped
 GameObject:
@@ -15629,6 +15690,7 @@ GameObject:
   - component: {fileID: 1869019567}
   - component: {fileID: 1869019566}
   - component: {fileID: 1869019565}
+  - component: {fileID: 1869019568}
   m_Layer: 10
   m_Name: Vela_Principal
   m_TagString: Untagged
@@ -15989,6 +16051,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869019563}
+  m_Mesh: {fileID: 2274912483753563661, guid: 78103a13069418044896b98d1c40eff3, type: 3}
+--- !u!64 &1869019568
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869019563}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
   m_Mesh: {fileID: 2274912483753563661, guid: 78103a13069418044896b98d1c40eff3, type: 3}
 --- !u!1 &1897556110
 GameObject:
@@ -17107,12 +17183,13 @@ MonoBehaviour:
   eventTimeRange: {x: 5, y: 10}
   eventsVFX:
     Fire: {fileID: 0}
-    Lightning: {fileID: 4255970444599916459, guid: e9e56cbe1bccc294483a283f3c30e626, type: 3}
+    Lightning: {fileID: 1395599502265838885, guid: 94542315efcf4cb4db3bb80025c92b14, type: 3}
     Explosion: {fileID: 0}
     Wind: {fileID: 0}
     ShipTopMaterials:
     - {fileID: 2100000, guid: 96d210d5f825d7f44af9e65e720eca2a, type: 2}
     - {fileID: 2100000, guid: 817207454f8fdaa4d9e8effb2edba31a, type: 2}
+    SkyboxMaterial: {fileID: 2100000, guid: 04b22bd95d3cb024bb81afbac4a5dfb3, type: 2}
     FirePrefab: {fileID: 8614275732106168316, guid: 877b4e98b586b0148b9d96731fff9ee3, type: 3}
 --- !u!114 &2051713811
 MonoBehaviour:

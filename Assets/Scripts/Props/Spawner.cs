@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace DLIFR.Props
 {   
@@ -64,6 +65,7 @@ namespace DLIFR.Props
         public void Spawn(bool spawnOnTop = true)
         {
             List<Vector3> buffer = new List<Vector3>();
+            Debug.Log("Spawning");
             Transform[] spawnPoints = spawnOnTop ? topSpawnPoints : sideSpawnPoints;
 
             foreach(LootTable.LootTableEntry entry in lootTable.entries)
@@ -86,9 +88,31 @@ namespace DLIFR.Props
                     GameObject go = GameObject.Instantiate(entry.prefab, position, transform.rotation, spawnParent);
                     buffer.Add(position);
                     
-                    if(!spawnOnTop) go.GetComponent<Rigidbody>().AddForce(new Vector3(-1, UnityEngine.Random.Range(0,1), 0), ForceMode.Impulse);
+                    if(!spawnOnTop) go.GetComponent<Rigidbody>().AddForce(new Vector3(25, UnityEngine.Random.Range(0,10), 0), ForceMode.Impulse);
                 }
             }
+        }
+
+        public void SpawnSide()
+        {
+            List<Vector3> buffer = new List<Vector3>();
+            Debug.Log("Spawning");
+
+            Vector3 position = Vector3.zero;
+
+            bool keep = true;
+
+            while(keep)
+            {
+                position = GetRandomPointInBounds(sideSpawnPoints[UnityEngine.Random.Range(0, sideSpawnPoints.Length)].localPosition);
+
+                keep = buffer.Any(v => Vector3.Distance(v, position) < 1f);
+            }
+                    
+            GameObject go = GameObject.Instantiate(lootTable.entries[Random.Range(0,lootTable.entries.Length)].prefab, position, transform.rotation, spawnParent);
+            buffer.Add(position);
+                    
+            go.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(10,25), Random.Range(0,10), 0), ForceMode.Impulse);
         }
         
         public Vector3 GetRandomPointInBounds(Vector3 pos) 

@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccffd5b8957ebde499cadd35f546d269, type: 3}
   m_Name: Rain
   m_EditorClassIdentifier: 
-  weatherName: 
-  weatherDuration: {x: 10, y: 30}
+  weatherName: Rain
+  weatherDuration: {x: 10, y: 10}
   weatherWiggle: 0
   weatherChance: 20
   weatherEvents:
     spawnLightning: 0
-    spawnWindedBox: 0
+    spawnWindedBox: 1
     increaseSnow: 0
     increaseRain: 1
   weatherParticles: {fileID: 2973029190369957602, guid: 13c7f647e50f8a343bd23dcc56b8fdbe, type: 3}

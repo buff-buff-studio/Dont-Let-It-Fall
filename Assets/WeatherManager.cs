@@ -50,7 +50,7 @@ public class WeatherManager : MonoBehaviour
     {
         if(transform.childCount > 0) Destroy(transform.GetChild(0).gameObject);
         if(currentWeather.weatherParticles != null) Instantiate(currentWeather.weatherParticles, transform);
-        
+        Debug.Log(currentWeather.name);
         StartCoroutine(wiggle);
         eventsManager.Events = currentWeather.weatherEvents;
         weatherTime = Time.time + Random.Range(currentWeather.weatherDuration.x, currentWeather.weatherDuration.y);

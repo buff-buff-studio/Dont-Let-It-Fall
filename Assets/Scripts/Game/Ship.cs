@@ -53,6 +53,7 @@ namespace DLIFR.Game
         {
             if (!HaveFuel) return;
             
+
             float inverseBalanceForce = 1f / balanceForce;
             Quaternion deltaRotation = Quaternion.identity * Quaternion.Inverse(targetRotation == null ? transform.rotation : (transform.rotation * Quaternion.Inverse(targetRotation.rotation)));
 

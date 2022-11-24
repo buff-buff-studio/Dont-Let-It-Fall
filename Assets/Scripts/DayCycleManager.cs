@@ -18,6 +18,7 @@ public class DayCycleManager : MonoBehaviour
     [Header("Colors")] 
     public Color dayColor;
     public Color nightColor;
+    public Color rainingColor;
     
     [Header("Position")] 
     private Coordinates maxCoordinates = new Coordinates(5,10);
@@ -53,16 +54,19 @@ public class DayCycleManager : MonoBehaviour
 
     private void SkyboxChange()
     {
+        var rain = skyboxMaterial.GetFloat("_Rain");
+        if (rain > 0) sunLight.color = Color.Lerp(sunLight.color, rainingColor, rain);
+        
         switch (timeOfDay.value)
         {
             case >= 5.25f and <= 6.25f:
                 sunsetLevel = Mathf.Clamp01(GetSunsetLevel(5.25f));
-                sunLight.color = Color.Lerp(dayColor, nightColor, sunsetLevel);
+                //sunLight.color = Color.Lerp(dayColor, nightColor, sunsetLevel);
                 break;
             
             case >= 17.8f and <= 18.8f:
                 sunsetLevel = Mathf.Clamp01(GetSunsetLevel(17.5f));
-                sunLight.color = Color.Lerp(nightColor, dayColor, sunsetLevel);
+                //sunLight.color = Color.Lerp(nightColor, dayColor, sunsetLevel);
                 break;
             
             default:
@@ -71,7 +75,7 @@ public class DayCycleManager : MonoBehaviour
                 sunLight.shadows = isDay ? LightShadows.Soft : LightShadows.None;
                 break;
         }
-
+        
         //skyboxMaterial.SetFloat("_SunsetGradientLevel", sunsetLevel);
     }
 
