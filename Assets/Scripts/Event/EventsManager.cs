@@ -61,9 +61,10 @@ public class EventsManager : MonoBehaviour
 
     private void SpawnEvent(int e)
     {
-        if(!events.spawnLightning && !events.spawnLightning) return;
+        if(!events.spawnLightning && !events.spawnWindedBox) return;
         
         eventTime = Time.time + Random.Range(eventTimeRange.x, eventTimeRange.y);
+        Debug.Log("Event: " + e);
         switch (e)
         {
             case 0:
@@ -74,7 +75,7 @@ public class EventsManager : MonoBehaviour
                 break;
             
             case 1:
-                if (!events.spawnLightning)
+                if (!events.spawnWindedBox)
                     SelectEvent();
                 else
                     WindedBox();
@@ -91,14 +92,19 @@ public class EventsManager : MonoBehaviour
         var boxs = boxParent.GetComponentsInChildren<Cargo>();
         var box = boxs[Random.Range(0, boxs.Length)];
         
-        Instantiate(eventsVFX.Lightning, box.transform.position, Quaternion.identity, box.transform);
+        var light = Instantiate(eventsVFX.Lightning, box.transform.position + new Vector3(0,35,0), Quaternion.identity, box.transform);
+        light.transform.localScale = new Vector3(5,15,5);
+        Destroy(light, 2f);
+        
         box.Fire();
-        Instantiate(eventsVFX.FirePrefab, box.transform.position, Quaternion.identity, box.transform);
+        var fire = Instantiate(eventsVFX.FirePrefab, box.transform.position, Quaternion.identity, box.transform);
+        fire.transform.localScale *= 2;
+        Destroy(fire, 5f);
     }
 
     private void WindedBox()
     {
-        _spawner.Spawn(false);
+        _spawner.SpawnSide();
     }
 
     private void UpdateMaterials()
@@ -108,6 +114,7 @@ public class EventsManager : MonoBehaviour
             mat.SetFloat("_SnowOpacity", snowValue);
             mat.SetFloat("_FreezeLevel", iceValue);
         }
+        eventsVFX.SkyboxMaterial.SetFloat("_Rain", rainValue);
     }
 }
 
@@ -116,12 +123,13 @@ public class EventVFX
 {
     [Header("Particles")]
     public ParticleSystem Fire;
-    public ParticleSystem Lightning;
+    public GameObject Lightning;
     public ParticleSystem Explosion;
     public ParticleSystem Wind;
 
     [Header("Materials")] 
     public Material[] ShipTopMaterials = new Material[2];
+    public Material SkyboxMaterial;
 
     [Header("Prefabs")] 
     public GameObject FirePrefab;

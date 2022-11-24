@@ -42,7 +42,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _CloudsConvergence: 1
-    - _CloudsHeight: 6.1
+    - _CloudsHeight: 6.27
     - _CloudsMovementSpeed: 0.0001
     - _CloudsPosition: 0.28
     - _CloudsScale: 0.25
@@ -61,6 +61,7 @@ Material:
     - _PhaseRotation: -0.1
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _Rain: 1
     - _SkyGradientLevel: 1
     - _StarsDensity: 30
     - _StarsHorizonLine: 1
@@ -84,6 +85,10 @@ Material:
     - _MoonPosition: {r: 1.5, g: 1.5, b: 0, a: 0}
     - _NightSkyColor: {r: 0.2781239, g: 0.3426909, b: 0.4716981, a: 0}
     - _PhaseRotationCenter: {r: 0.25, g: 0.25, b: 0, a: 0}
+    - _RainyDarkCloudColor: {r: 0.1923728, g: 0.224959, b: 0.3113208, a: 0}
+    - _RainyLightCloudColor: {r: 0.3157263, g: 0.3426327, b: 0.4056604, a: 0}
+    - _RainySkyGradientColorA: {r: 0.1262905, g: 0.1921084, b: 0.2075472, a: 1}
+    - _RainySkyGradientColorB: {r: 0.3046903, g: 0.3867925, b: 0.3867925, a: 1}
     - _SkyGradientColorA: {r: 0.1589609, g: 0.4793202, b: 0.5520116, a: 1}
     - _SkyGradientColorB: {r: 0.8235295, g: 0.9294118, b: 0.9294118, a: 1}
     - _SkyGradientColorC: {r: 0.8196079, g: 0.5372549, b: 0.2588235, a: 1}

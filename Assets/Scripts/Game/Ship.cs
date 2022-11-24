@@ -54,7 +54,6 @@ namespace DLIFR.Game
             if (!HaveFuel) return;
             
 
-            Debug.Log("mano pufavo nao me dirige a palavra n");
             float inverseBalanceForce = 1f / balanceForce;
             Quaternion deltaRotation = Quaternion.identity * Quaternion.Inverse(targetRotation == null ? transform.rotation : (transform.rotation * Quaternion.Inverse(targetRotation.rotation)));
 

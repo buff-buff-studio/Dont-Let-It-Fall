@@ -308,6 +308,14 @@ MonoBehaviour:
     prefabs:
     - {fileID: 3998082691673985333, guid: f0f9a053285a307429dff54617bb0973, type: 3}
   prefabCrewmate: {fileID: 3120888666204313673, guid: 7d3cfc4d3b5715946b71bf68d26bfcff, type: 3}
+  allShops: []
+  crewmateSpawn: []
+  tutorialPreset:
+    crewmateSpawner: []
+    boxSpawner: []
+  gamePreset:
+    crewmateSpawner: []
+    boxSpawner: []
 --- !u!1 &8817859707018516420
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,10 +376,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a1ed074a3f3a9542875cf0fd3ffddb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instance: {fileID: 0}
+  _spawner: {fileID: 0}
   spawnEvents: 1
-  timeBetweenEvents: {x: 10, y: 20}
   boxParent: {fileID: 0}
+  eventTimeRange: {x: 5, y: 10}
   eventsVFX:
     Fire: {fileID: 0}
     Lightning: {fileID: 4255970444599916459, guid: e9e56cbe1bccc294483a283f3c30e626, type: 3}
@@ -380,6 +388,7 @@ MonoBehaviour:
     ShipTopMaterials:
     - {fileID: 2100000, guid: 96d210d5f825d7f44af9e65e720eca2a, type: 2}
     - {fileID: 2100000, guid: 817207454f8fdaa4d9e8effb2edba31a, type: 2}
+    SkyboxMaterial: {fileID: 0}
     FirePrefab: {fileID: 8614275732106168316, guid: 877b4e98b586b0148b9d96731fff9ee3, type: 3}
 --- !u!1 &8817859707029172285
 GameObject:
@@ -493,6 +502,7 @@ MonoBehaviour:
   sunsetPower: 16
   dayColor: {r: 1, g: 0.9681467, b: 0.6650944, a: 1}
   nightColor: {r: 0.13725491, g: 0.25882354, b: 0.49019608, a: 1}
+  rainingColor: {r: 0, g: 0, b: 0, a: 0}
   coordinates:
     latitude: -3
     longitude: 0
@@ -502,7 +512,7 @@ MonoBehaviour:
     _value: 0
   timeSpeed: 0
   latitudeAngle: -30
-  timeAngle: 125.99999
+  timeAngle: -42.768
 --- !u!1 &8817859707303026629
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,6 +559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad3de0ccbdfc50d46b386d6ad1cba924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnParent: {fileID: 0}
   topSpawnPoints:
   - {fileID: 8817859706660948503}
   - {fileID: 8817859707360337932}
@@ -696,7 +707,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8817859707721328851}
-  m_LocalRotation: {x: 0.8910065, y: 0, z: 0, w: 0.45399052}
+  m_LocalRotation: {x: -0.36461678, y: 0, z: 0, w: 0.93115765}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -715,14 +726,14 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.9681467, b: 0.6650944, a: 1}
+  m_Color: {r: 0.13725491, g: 0.25882354, b: 0.49019608, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1

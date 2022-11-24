@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Normal
   m_EditorClassIdentifier: 
   weatherName: Normal
-  weatherDuration: {x: 0, y: 0}
+  weatherDuration: {x: 20, y: 60}
   weatherWiggle: 0
   weatherChance: 1
   weatherEvents:
     spawnLightning: 0
     spawnWindedBox: 0
-    increaseSnow: 1
+    increaseSnow: 0
     increaseRain: 0
   weatherParticles: {fileID: 0}
   weatherAudio: {fileID: 0}
