@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using DLIFR.Game;
 using DLIFR.Data;
+using DLIFR.Audio;
 
 namespace DLIFR.Entities
 {
@@ -276,6 +277,8 @@ namespace DLIFR.Entities
             if(this.carrying != null) 
                 DropCarrying();
 
+            AudioController.PlayAudio("box_pick");
+            
             Rigidbody rb = carrying.GetComponent<Rigidbody>();
             rb.isKinematic = true;
             rb.detectCollisions = false;
@@ -289,6 +292,8 @@ namespace DLIFR.Entities
 
         public void DropCarrying()
         {
+            AudioController.PlayAudio("box_drop");
+
             Rigidbody rb = carrying.GetComponent<Rigidbody>();
             rb.isKinematic = false;
             rb.detectCollisions = true;
@@ -314,6 +319,8 @@ namespace DLIFR.Entities
                         return;
                     }
                 }
+
+                AudioController.PlayAudio("crewmate_select");
 
                 SetLayer(transform, LayerMask.NameToLayer("Selected")); 
                 match.currentCrewmate = this;             

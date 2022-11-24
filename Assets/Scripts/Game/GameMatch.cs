@@ -252,6 +252,7 @@ namespace DLIFR.Game
                     
                     if(currentCrewmate != null && hit.collider.gameObject.tag == "Ground")
                     {
+                        AudioController.PlayAudio("ground_target");
                         currentCrewmate.OnClickOnGround(hit.point);
                     }
                 }

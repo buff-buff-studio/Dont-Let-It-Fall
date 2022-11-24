@@ -31,3 +31,15 @@ MonoBehaviour:
   - id: game_over
     clip: {fileID: 8300000, guid: 65015db465909c54880bd225580a2e26, type: 3}
     volumeModifier: 0.5
+  - id: ground_target
+    clip: {fileID: 8300000, guid: 840af79fd6c2a5a4e834bff2e02b6b18, type: 3}
+    volumeModifier: 0.5
+  - id: crewmate_select
+    clip: {fileID: 8300000, guid: 4b3a4b17c47d70945bcfcedf44f501b4, type: 3}
+    volumeModifier: 1
+  - id: box_drop
+    clip: {fileID: 8300000, guid: a1a8f20a9c486db4a863f302b9f0bb13, type: 3}
+    volumeModifier: 0.5
+  - id: box_pick
+    clip: {fileID: 8300000, guid: a1a8f20a9c486db4a863f302b9f0bb13, type: 3}
+    volumeModifier: 0.5
