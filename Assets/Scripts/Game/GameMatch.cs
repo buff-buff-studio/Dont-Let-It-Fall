@@ -28,6 +28,13 @@ namespace DLIFR.Game
             public int value;
         }
 
+        [Serializable]
+        public class Preset
+        {
+            public Transform[] crewmateSpawner;
+            public Spawner[] boxSpawner;
+        }
+
         //If a item is not valid for selling, the game just takes with and do not pays you
         public const bool GAME_SELLS_EVERYTHING = true;
         //If you do a wrong split on the shop, the game keeps  you the remainder
@@ -76,6 +83,12 @@ namespace DLIFR.Game
         public GameObject[] prefabFuelBox;
         public CargoBitEntry[] prefabCargoBox;
         public GameObject prefabCrewmate;
+        public Shop[] allShops;
+
+        [Header("PRESETS")]
+        public Transform[] crewmateSpawn;
+        public Preset tutorialPreset;
+        public Preset gamePreset;
 
         private void Awake() 
         {
@@ -113,6 +126,8 @@ namespace DLIFR.Game
                 shouldTimePass.value = false;
 
                 gameTutorial.gameObject.SetActive(true);
+
+                LoadPreset(tutorialPreset);
             }
             else
             {
@@ -122,11 +137,54 @@ namespace DLIFR.Game
                 useOnlyAreas = false;
                 isPaused.value = false;
                 shouldTimePass.value = true;
+
+                LoadPreset(gamePreset);
             }
+
+            ChoseNewShop(!tutorial);
+        }
+
+        public void LoadPreset(Preset preset)
+        {
+            List<InteractableBehaviour> behaviours = new List<InteractableBehaviour>();
+
+            foreach(var interactable in InteractableBehaviour.behaviours)
+            {
+                if(interactable is Crewmate || interactable is Cargo)
+                {
+                    behaviours.Add(interactable);
+                }
+            }
+
+            foreach(var o in behaviours)
+            {
+                Destroy(o.gameObject);
+            }
+
+            foreach(Transform spawn in preset.crewmateSpawner)
+            {
+                GameObject.Instantiate(prefabCrewmate, spawn.transform.position, Quaternion.identity);
+            }
+
+            foreach(Spawner spawner in preset.boxSpawner)
+                spawner.Spawn();
+        }
+
+        public void ChoseNewShop(bool random)
+        {
+            if(random)
+                nextShop = allShops[UnityEngine.Random.Range(0, allShops.Length)];
+            else
+                nextShop = allShops[0];
+
+            gameHud.UpdateShopWishlist();
         }
 
         private void OnEnable() 
         {
+            Time.timeScale = 1f;
+            Time.fixedDeltaTime = 0.02f;
+
             isPaused.variable.onChange += () => 
             {
                 Time.timeScale = isPaused ? 0 : 1f;
@@ -176,11 +234,6 @@ namespace DLIFR.Game
                 if(Input.GetKeyDown(KeyCode.P))
                 {
                     TogglePaused();
-                }
-
-                if(Input.GetKeyDown(KeyCode.K))
-                {
-                    SpawnBird(prefabCrewmate);
                 }
             }
 
@@ -384,6 +437,8 @@ namespace DLIFR.Game
             gameHud.gameObject.SetActive(true);
 
             isOnShop = false;
+
+            ChoseNewShop(!showingTutorial);
         }
 
         public void ShowSellDisplay(Vector3 position, int price)

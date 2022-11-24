@@ -9,10 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85dda02fea05f1a4e815ba1bcc2fc33c, type: 3}
-  m_Name: TicksPerDay
+  m_Script: {fileID: 11500000, guid: 6e4682e90c91a63428c714b5ecab2122, type: 3}
+  m_Name: Shop 5
   m_EditorClassIdentifier: 
-  onChangeUE:
-    m_PersistentCalls:
-      m_Calls: []
-  _value: 250
+  accepts:
+  - cage
+  - chest
+  - barrel
+  - box
+  buy:
+    fuelBoxPrice: 10
+    cargoBitPrice: 10
+    crewmateRecruitPrice: 100
