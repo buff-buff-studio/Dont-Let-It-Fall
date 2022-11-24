@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Skybox
+  m_Name: MenuSkybox
   m_Shader: {fileID: -6465566751694194690, guid: 87b248f4e2395194ea1faee87894e7b6, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -54,7 +54,7 @@ Material:
     - _CloudsConvergence: 1
     - _CloudsHeight: 12
     - _CloudsMovementSpeed: 0.0001
-    - _CloudsPosition: 0.19
+    - _CloudsPosition: -0.03
     - _CloudsScale: 0.25
     - _CloudsShadow: 0.5
     - _CloudsSharpness: 8

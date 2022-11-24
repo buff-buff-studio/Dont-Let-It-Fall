@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace DLIFR.Props
@@ -22,6 +23,9 @@ namespace DLIFR.Props
 
     public class Spawner : MonoBehaviour
     {
+        public Transform[] topSpawnPoints;
+        public Transform[] sideSpawnPoints;
+        
         public const float SIZE = 0.5F;
 
         public LootTable lootTable;
@@ -33,18 +37,32 @@ namespace DLIFR.Props
                 Spawn();
         }
 
+        /*
         private void OnDrawGizmos() 
         {
-            Matrix4x4 preMatrix = Gizmos.matrix;
-            Gizmos.color = Color.blue;
-            Gizmos.matrix = transform.localToWorldMatrix;
-            Gizmos.DrawWireCube(Vector3.zero, Vector3.one);
-            Gizmos.matrix = preMatrix;
+            foreach (var top in topSpawnPoints)
+            {
+                Matrix4x4 preMatrix = Gizmos.matrix;
+                Gizmos.color = Color.blue;
+                Gizmos.matrix = top.worldToLocalMatrix;
+                Gizmos.DrawWireCube(top.position, Vector3.one);
+                Gizmos.matrix = preMatrix;
+            }
+            foreach (var side in sideSpawnPoints)
+            {
+                Matrix4x4 preMatrix = Gizmos.matrix;
+                Gizmos.color = Color.green;
+                Gizmos.matrix = side.worldToLocalMatrix;
+                Gizmos.DrawWireCube(side.position, Vector3.one);
+                Gizmos.matrix = preMatrix;
+            }
         }
+        */
 
-        public void Spawn()
+        public void Spawn(bool spawnOnTop = true)
         {
             List<Vector3> buffer = new List<Vector3>();
+            Transform[] spawnPoints = spawnOnTop ? topSpawnPoints : sideSpawnPoints;
 
             foreach(LootTable.LootTableEntry entry in lootTable.entries)
             {
@@ -58,30 +76,25 @@ namespace DLIFR.Props
 
                     while(keep)
                     {
-                        position = GetRandomPointInBounds();
-                        keep = false;
+                        position = GetRandomPointInBounds(spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)].localPosition);
 
-                        foreach(Vector3 v in buffer)
-                        {
-                            if(Vector3.Distance(v, position) < 1f)
-                            {
-                                keep = true;
-                                break;
-                            }
-                        }
+                        keep = buffer.Any(v => Vector3.Distance(v, position) < 1f);
                     }
                     
                     GameObject go = GameObject.Instantiate(entry.prefab, position, transform.rotation);
                     buffer.Add(position);
+                    
+                    if(!spawnOnTop) go.GetComponent<Rigidbody>().AddForce(new Vector3(-1, UnityEngine.Random.Range(0,1), 0), ForceMode.Impulse);
                 }
             }
         }
         
-        public Vector3 GetRandomPointInBounds() 
+        public Vector3 GetRandomPointInBounds(Vector3 pos) 
         {      
-            Vector3 point = new Vector3(
+            Vector3 point = pos;
+            point += new Vector3(
                 UnityEngine.Random.Range(-SIZE, SIZE),
-                UnityEngine.Random.Range(-SIZE, SIZE),
+                0,
                 UnityEngine.Random.Range(-SIZE, SIZE)
             );
         
