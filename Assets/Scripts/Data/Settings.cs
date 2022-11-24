@@ -54,6 +54,8 @@ namespace DLIFR.Data
                 volumeMusic.value = 0.5f;
                 showTutorial.value = true;
 
+                language = languages[0];
+
                 Save();
             }
             
