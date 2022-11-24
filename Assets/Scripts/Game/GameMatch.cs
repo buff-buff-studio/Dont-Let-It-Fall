@@ -119,6 +119,7 @@ namespace DLIFR.Game
 
             if(tutorial)
             {
+                ship.HaveFuel = false;
                 rb.isKinematic = true;
 
                 showingTutorial.value = true;
@@ -132,6 +133,7 @@ namespace DLIFR.Game
             }
             else
             {
+                ship.HaveFuel = true;
                 rb.isKinematic = false;
                 rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
 
@@ -194,6 +196,8 @@ namespace DLIFR.Game
 
             shipFuelLevel.variable.onChange += () =>
             {
+                if(showingTutorial) return;
+
                 bool b = ship.HaveFuel = shipFuelLevel.value > 0;
 
                 if(!b)
@@ -245,8 +249,12 @@ namespace DLIFR.Game
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 LayerMask selectableMask = useOnlyAreas ? this.areaSelectableMask : this.selectableMask;
+                
+                Debug.Log("clicando sua putinha");
+
                 if(UnityEngine.Physics.Raycast(ray.origin, ray.direction, out RaycastHit hit, 30f, selectableMask))
-                {            
+                {    
+                    Debug.Log("gghfhg");        
                     IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
                     interactable?.OnInteract(m0 ? 0 : 1, this);
                     
