@@ -18,6 +18,11 @@ namespace DLIFR.Interface
             goToGame = true;
         }
 
+        public void CloseGame()
+        {
+            Application.Quit();
+        }
+
         private void FixedUpdate() 
         {
             if(goToGame)
