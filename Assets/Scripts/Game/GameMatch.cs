@@ -100,6 +100,8 @@ namespace DLIFR.Game
 
         public void StartGame(bool tutorial)
         {
+            AudioController.PlayMusic("music");
+            
             hudBindings.SetActive(!tutorial);
             
             Rigidbody rb = ship.GetComponent<Rigidbody>();
