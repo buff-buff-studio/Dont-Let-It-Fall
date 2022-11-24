@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using DLIFR.Data;
+using DLIFR.Audio;
 
 namespace DLIFR.Game.Tutorial
 {
@@ -161,6 +162,8 @@ namespace DLIFR.Game.Tutorial
 
         public void NextPage()
         {
+            AudioController.PlayAudio("tutorial_next");
+
             _page ++;
             OnOpenPage(_page);
 

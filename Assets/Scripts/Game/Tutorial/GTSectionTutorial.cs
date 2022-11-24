@@ -509,6 +509,8 @@ namespace DLIFR.Game.Tutorial
                         shouldSwipe = true,
                         swipeTarget = vault,
                         focusOnto = vault,
+                        customFocusOffset = new Vector3(0, 0, -6f),
+                        useCustomFocusOffset = true,
 
                         shouldPauseGame = false
                     });
