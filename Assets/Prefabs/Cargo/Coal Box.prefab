@@ -130,6 +130,4 @@ MonoBehaviour:
   beingGrabbed: 0
   type: coal
   bitCount: 1
-  fuelValue: 10
-  explosionParticles: {fileID: 0}
-  lightningParticles: {fileID: 4255970444599916459, guid: e9e56cbe1bccc294483a283f3c30e626, type: 3}
+  fuelValue: 25

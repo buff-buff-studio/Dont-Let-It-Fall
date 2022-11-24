@@ -43,3 +43,6 @@ MonoBehaviour:
   - id: box_pick
     clip: {fileID: 8300000, guid: a1a8f20a9c486db4a863f302b9f0bb13, type: 3}
     volumeModifier: 0.5
+  - id: fired
+    clip: {fileID: 8300000, guid: b5b451fff0dfb954a8feb91f241e828f, type: 3}
+    volumeModifier: 1

@@ -170,6 +170,7 @@ namespace DLIFR.Entities
 
                 if(salaryTime.value <= 0f)
                 {
+                    AudioController.PlayAudio("fired");
                     Destroy(gameObject);
                     return;
                 }
