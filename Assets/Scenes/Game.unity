@@ -213,7 +213,7 @@ MonoBehaviour:
     _value: 0
   timeSpeed: 0
   latitudeAngle: -30
-  timeAngle: 164.87994
+  timeAngle: -77.04
 --- !u!224 &23218821 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5625879366876349534, guid: 3bceb20be44f467449ee724d6eec2c9d, type: 3}
@@ -4456,8 +4456,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2308, y: 0.90604883, z: 2.4855776}
-  m_Center: {x: 0.000003921511, y: 0.96843505, z: 1.72}
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &567631211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4505,14 +4505,14 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.9681467, b: 0.6650944, a: 1}
+  m_Color: {r: 0.13725491, g: 0.25882354, b: 0.49019608, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -4563,7 +4563,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 598643719}
-  m_LocalRotation: {x: 0.99130756, y: 0, z: 0, w: 0.13156481}
+  m_LocalRotation: {x: -0.6227878, y: 0, z: 0, w: 0.78239083}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8231,7 +8231,7 @@ MonoBehaviour:
   hudCoins: {fileID: 1726876387}
   hudClock: {fileID: 177030058}
   shopWishList: {fileID: 170445188}
-  sellArea: {fileID: 0}
+  sellArea: {fileID: 516537713}
   vault: {fileID: 1652988888}
   shopSliders: {fileID: 729955175}
   shopSlider1: {fileID: 23218821}
