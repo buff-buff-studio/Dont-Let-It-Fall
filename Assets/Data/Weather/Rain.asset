@@ -10,11 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ccffd5b8957ebde499cadd35f546d269, type: 3}
-  m_Name: Normal
+  m_Name: Rain
   m_EditorClassIdentifier: 
-  weatherName: Normal
-  weatherDuration: {x: 0, y: 0}
+  weatherName: 
+  weatherDuration: {x: 10, y: 30}
   weatherWiggle: 0
-  weatherChance: 0
-  weatherParticles: {fileID: 0}
+  weatherChance: 20
+  weatherEvents:
+    spawnLightning: 0
+    spawnWindedBox: 0
+    increaseSnow: 0
+    increaseRain: 1
+  weatherParticles: {fileID: 2973029190369957602, guid: 13c7f647e50f8a343bd23dcc56b8fdbe, type: 3}
   weatherAudio: {fileID: 0}

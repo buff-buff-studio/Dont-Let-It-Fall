@@ -23,6 +23,8 @@ namespace DLIFR.Props
 
     public class Spawner : MonoBehaviour
     {
+        public Transform spawnParent;
+        
         public Transform[] topSpawnPoints;
         public Transform[] sideSpawnPoints;
         
@@ -81,7 +83,7 @@ namespace DLIFR.Props
                         keep = buffer.Any(v => Vector3.Distance(v, position) < 1f);
                     }
                     
-                    GameObject go = GameObject.Instantiate(entry.prefab, position, transform.rotation);
+                    GameObject go = GameObject.Instantiate(entry.prefab, position, transform.rotation, spawnParent);
                     buffer.Add(position);
                     
                     if(!spawnOnTop) go.GetComponent<Rigidbody>().AddForce(new Vector3(-1, UnityEngine.Random.Range(0,1), 0), ForceMode.Impulse);

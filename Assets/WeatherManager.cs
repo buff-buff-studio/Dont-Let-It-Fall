@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -15,19 +16,44 @@ public class WeatherManager : MonoBehaviour
     private int weatherIndex = 0;
     private Quaternion targetRotation;
     private IEnumerator wiggle;
+    private EventsManager eventsManager;
     
     private WeatherData currentWeather => weatherData[weatherIndex];
 
     private void Awake()
     {
+        TryGetComponent(out eventsManager);
         wiggle = WiggleShip();
+        InitializeWeather();
     }
-    
+
+    private void FixedUpdate()
+    {
+        if (!weatherEnabled) return;
+        
+        if (weatherTime <= Time.time)
+        {
+            ChangeWeather();
+        }
+    }
+
     private void ChangeWeather()
     {
         if (!weatherEnabled) return;
-        targetRotation = shipTargetRotation.rotation;
+        
+        weatherIndex = Random.Range(0, weatherData.Count);
+        StopCoroutine(wiggle);
+        InitializeWeather();
+    }
+    
+    private void InitializeWeather()
+    {
+        if(transform.childCount > 0) Destroy(transform.GetChild(0).gameObject);
+        if(currentWeather.weatherParticles != null) Instantiate(currentWeather.weatherParticles, transform);
+        
         StartCoroutine(wiggle);
+        eventsManager.Events = currentWeather.weatherEvents;
+        weatherTime = Time.time + Random.Range(currentWeather.weatherDuration.x, currentWeather.weatherDuration.y);
     }
 
     private IEnumerator WiggleShip()

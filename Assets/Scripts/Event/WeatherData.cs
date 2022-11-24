@@ -14,8 +14,10 @@ public class WeatherData : ScriptableObject
     public float weatherWiggle;
     [SerializeField] [Range(1,100)]
     public int weatherChance = 20;
+
+    public EventSpawn weatherEvents;
     
     [Header("Event Style")]
-    public ParticleSystem weatherParticles;
+    public GameObject weatherParticles;
     public AudioClip weatherAudio;
 }

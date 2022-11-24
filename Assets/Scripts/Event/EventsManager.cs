@@ -1,39 +1,89 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DLIFR.Props;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 public class EventsManager : MonoBehaviour
 {
-    [HideInInspector]
-    public EventsManager instance;
+    [SerializeField] private Spawner _spawner;
     
     [SerializeField]
     private bool spawnEvents = true;
-    [SerializeField]
-    private Vector2 timeBetweenEvents = new Vector2(10,20);
     [SerializeField] 
     private Transform boxParent;
+    
+    [SerializeField]
+    private Vector2 eventTimeRange = new Vector2(5, 10);
+    private float eventTime = 2;
     
     [Header("VFX")]
     public EventVFX eventsVFX;
 
-    private float snowValue;
-    private float rainValue;
-    private float iceValue;
-    
-    private void Awake()
-    {
-        if (instance == null) instance = this;
-        else Destroy(gameObject);
+    private EventSpawn events = new EventSpawn(false,false,false,false);
+    public EventSpawn Events { set => events = value; }
 
-        if (spawnEvents) SpawnEvent();
+    private float snowValue = 0;
+    private float rainValue = 0;
+    private float iceValue = 0;
+
+    private void FixedUpdate()
+    {
+        if(!spawnEvents) return;
+        
+        if(Time.time > eventTime)
+        {
+            SelectEvent();
+        }
+        else
+        {
+            rainValue = events.increaseRain
+                ? Mathf.Clamp01(rainValue + Time.fixedDeltaTime)
+                : Mathf.Clamp01(rainValue - Time.fixedDeltaTime);
+            
+            snowValue = events.increaseSnow
+                ? Mathf.Clamp01(snowValue + Time.fixedDeltaTime)
+                : Mathf.Clamp01(snowValue - Time.fixedDeltaTime);
+            
+            if(snowValue > 0 && rainValue > 0) iceValue = Mathf.Clamp01(snowValue + rainValue);
+            
+            UpdateMaterials();
+        }
     }
 
-    public void SpawnEvent()
+    private void SelectEvent()
     {
+        var eventSelect = Random.Range(0, 2);
+        SpawnEvent(eventSelect);
+    }
 
+    private void SpawnEvent(int e)
+    {
+        if(!events.spawnLightning && !events.spawnLightning) return;
+        
+        eventTime = Time.time + Random.Range(eventTimeRange.x, eventTimeRange.y);
+        switch (e)
+        {
+            case 0:
+                if (!events.spawnLightning)
+                    SelectEvent();
+                else
+                    LightningBox();
+                break;
+            
+            case 1:
+                if (!events.spawnLightning)
+                    SelectEvent();
+                else
+                    WindedBox();
+                break;
+            
+            default:
+                SelectEvent();
+                break;
+        }
     }
 
     private void LightningBox()
@@ -41,9 +91,14 @@ public class EventsManager : MonoBehaviour
         var boxs = boxParent.GetComponentsInChildren<Cargo>();
         var box = boxs[Random.Range(0, boxs.Length)];
         
-        Instantiate(eventsVFX.Lightning, box.transform.position + new Vector3(0,10,0), Quaternion.identity);
+        Instantiate(eventsVFX.Lightning, box.transform.position, Quaternion.identity, box.transform);
         box.Fire();
-        Instantiate(eventsVFX.Fire, box.transform.position, Quaternion.identity, box.transform);
+        Instantiate(eventsVFX.FirePrefab, box.transform.position, Quaternion.identity, box.transform);
+    }
+
+    private void WindedBox()
+    {
+        _spawner.Spawn(false);
     }
 
     private void UpdateMaterials()
@@ -70,4 +125,21 @@ public class EventVFX
 
     [Header("Prefabs")] 
     public GameObject FirePrefab;
+}
+
+[System.Serializable]
+public class EventSpawn
+{
+    public bool spawnLightning;
+    public bool spawnWindedBox;
+    public bool increaseSnow;
+    public bool increaseRain;
+    
+    public EventSpawn (bool lightning, bool windedBox, bool snow, bool rain)
+    {
+        spawnLightning = lightning;
+        spawnWindedBox = windedBox;
+        increaseSnow = snow;
+        increaseRain = rain;
+    }
 }
