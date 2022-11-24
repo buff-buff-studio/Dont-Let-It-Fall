@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accepts:
   - box
-  - chest
+  - barrel
   buy:
     fuelBoxPrice: 10
     cargoBitPrice: 10
