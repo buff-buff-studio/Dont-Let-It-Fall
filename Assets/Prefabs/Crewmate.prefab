@@ -154,6 +154,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -726,6 +727,7 @@ MonoBehaviour:
   match: {fileID: 0}
   paymentCanvas: {fileID: 3486082946280835711}
   paymentDisplay: {fileID: 6024417659868215810}
+  animator: {fileID: 5553739863620897235}
   shellColor: {fileID: 8263018022666119262}
   characterColor: {r: 0, g: 0, b: 0, a: 0}
   walkSpeed: 3
@@ -1916,6 +1918,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 3120888666204313677}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d8937f58f83276241ac6a6789ce18a12, type: 3}
@@ -1928,11 +1931,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d8937f58f83276241ac6a6789ce18a12, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.699
+      value: -0.67
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d8937f58f83276241ac6a6789ce18a12, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.084
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d8937f58f83276241ac6a6789ce18a12, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1966,11 +1969,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: d8937f58f83276241ac6a6789ce18a12, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e639ac381ff10184aa63ba000e781adc, type: 2}
+    - target: {fileID: 5866666021909216657, guid: d8937f58f83276241ac6a6789ce18a12, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: d8937f58f83276241ac6a6789ce18a12, type: 3}
 --- !u!4 &2013940468897878953 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d8937f58f83276241ac6a6789ce18a12, type: 3}
+  m_PrefabInstance: {fileID: 2051474648503972930}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5553739863620897235 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: d8937f58f83276241ac6a6789ce18a12, type: 3}
   m_PrefabInstance: {fileID: 2051474648503972930}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8263018022666119262 stripped

@@ -19,6 +19,7 @@ namespace DLIFR.Entities
         public GameMatch match;
         public Canvas paymentCanvas;
         public RectTransform paymentDisplay;
+        public Animator animator;
 
         [Header("COLOR")]
         public GameObject shellColor;
@@ -151,6 +152,8 @@ namespace DLIFR.Entities
         
         private void FixedUpdate()
         {
+            animator.SetLayerWeight(1, carrying != null ? 1f : 0f);
+
             #region Update Payment Display
             paymentCanvas.transform.LookAt(Camera.main.transform);
 
@@ -209,6 +212,8 @@ namespace DLIFR.Entities
                 velocity.x = deltaPos.normalized.x * walkSpeed;
                 velocity.z = deltaPos.normalized.z * walkSpeed;
 
+                animator.SetBool("walking", agent.remainingDistance > 0.3f);
+
                 if(agent.remainingDistance < 0.25f && Time.time > _lastWalkStart + 0.5f)
                 {
                     walking = false;
@@ -229,6 +234,7 @@ namespace DLIFR.Entities
             {
                 velocity.x = 0f;
                 velocity.z = 0f;
+                animator.SetBool("walking", false);
             }
             #endregion
 

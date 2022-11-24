@@ -182,6 +182,9 @@ namespace DLIFR.Game
 
         private void OnEnable() 
         {
+            Time.timeScale = 1f;
+            Time.fixedDeltaTime = 0.02f;
+
             isPaused.variable.onChange += () => 
             {
                 Time.timeScale = isPaused ? 0 : 1f;
