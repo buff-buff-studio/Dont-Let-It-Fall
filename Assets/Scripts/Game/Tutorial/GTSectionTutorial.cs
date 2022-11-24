@@ -60,6 +60,9 @@ namespace DLIFR.Game.Tutorial
             if(action == "crewmate_walk_to" && CanWalkTo)
             {
                 tutorial.Display(new TutorialPage{ hasText = false });
+                tutorial.currentPage.focusOnto = match.currentCrewmate.transform;
+                tutorial.currentPage.shouldFocusOnto = true;
+                
                 CanWalkTo = false;
                 return true;
             }
@@ -67,6 +70,9 @@ namespace DLIFR.Game.Tutorial
             if(action == "grab" && CanGrab)
             {
                 tutorial.Display(new TutorialPage{ hasText = false });
+                tutorial.currentPage.focusOnto = match.currentCrewmate.transform;
+                tutorial.currentPage.shouldFocusOnto = true;
+
                 CanGrab = false;
                 return true;
             }
@@ -74,6 +80,9 @@ namespace DLIFR.Game.Tutorial
             if(action == "drop" && CanDrop)
             {
                 tutorial.Display(new TutorialPage{ hasText = false });
+                tutorial.currentPage.focusOnto = match.currentCrewmate.transform;
+                tutorial.currentPage.shouldFocusOnto = true;
+
                 CanDrop = false;
                 return true;
             }
@@ -144,7 +153,7 @@ namespace DLIFR.Game.Tutorial
                         swipeTarget = bird.carrying,
                         shouldFocusOnto = true,
                         focusOnto = bird.carrying,
-                        customFocusOffset = new Vector3(0, 0, -6f),
+                        customFocusOffset = new Vector3(0, 2f, -6f),
                         useCustomFocusOffset = true
                     });
 
@@ -222,8 +231,8 @@ namespace DLIFR.Game.Tutorial
                         swipeTarget = bird.carrying,
                         shouldFocusOnto = true,
                         focusOnto = bird.carrying,
-                        customFocusOffset = new Vector3(0, 0, -6f),
-                        useCustomFocusOffset = true
+                        customFocusOffset = new Vector3(0, 2f, -6f),
+                        useCustomFocusOffset = true,
                     });
 
                     CanGrab = true;
@@ -448,9 +457,13 @@ namespace DLIFR.Game.Tutorial
                 case REAL_START + 29:
                 {
                     CanCloseShop = false;
+                    
+                    
 
                     tutorial.Display(new TutorialPage{
-                        text = "tutorial.shop.9"
+                        text = "tutorial.shop.9",
+                        focusOnto = match.ship.transform,
+                        shouldFocusOnto = true
                     });
                 }
                 return true;
@@ -513,7 +526,7 @@ namespace DLIFR.Game.Tutorial
                         shouldSwipe = true,
                         swipeTarget = vault,
                         focusOnto = vault,
-                        customFocusOffset = new Vector3(0, 0, -6f),
+                        customFocusOffset = new Vector3(0, 1, -6f),
                         useCustomFocusOffset = true,
 
                         shouldPauseGame = false

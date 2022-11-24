@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 3998082691673985336}
   - component: {fileID: 3146223593667472856}
   m_Layer: 0
-  m_Name: Large Cargo
+  m_Name: Box
   m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
