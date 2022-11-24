@@ -76,6 +76,7 @@ namespace DLIFR.Game
         public GameObject[] prefabFuelBox;
         public CargoBitEntry[] prefabCargoBox;
         public GameObject prefabCrewmate;
+        public Shop[] allShops;
 
         private void Awake() 
         {
@@ -123,6 +124,18 @@ namespace DLIFR.Game
                 isPaused.value = false;
                 shouldTimePass.value = true;
             }
+
+            ChoseNewShop(!tutorial);
+        }
+
+        public void ChoseNewShop(bool random)
+        {
+            if(random)
+                nextShop = allShops[UnityEngine.Random.Range(0, allShops.Length)];
+            else
+                nextShop = allShops[0];
+
+            gameHud.UpdateShopWishlist();
         }
 
         private void OnEnable() 
@@ -384,6 +397,8 @@ namespace DLIFR.Game
             gameHud.gameObject.SetActive(true);
 
             isOnShop = false;
+
+            ChoseNewShop(!showingTutorial);
         }
 
         public void ShowSellDisplay(Vector3 position, int price)

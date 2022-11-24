@@ -39,8 +39,6 @@ namespace DLIFR.Game
             {
                 fuelFill.sizeDelta = new Vector2(100f * shipFuelLevel.value/shipFuelMaxLevel.value, 25f);  
             };
-
-            UpdateShopWishlist();
         }
 
         public void UpdateShopWishlist()
@@ -56,6 +54,7 @@ namespace DLIFR.Game
                 {
                     GameObject widget = GameObject.Instantiate(prefabSellItem);
                     widget.transform.parent = sellItems;
+                    widget.transform.localScale = Vector3.one;
                     
                     SellItem sellItem = widget.GetComponent<SellItem>();
                     sellItem.sprite.sprite = type.sprite;
