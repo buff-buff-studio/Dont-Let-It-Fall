@@ -101,6 +101,7 @@ pause.title=Pausado
 pause.back=Voltar
 
 game_over.title=Game Over
+game_over.subtitle=O Navio Ficou Sem Combustível
 game_over.play_again=Jogar Novamente
 game_over.main_menu=Menu Principal
 

@@ -79,6 +79,8 @@ namespace DLIFR.Entities
         {
             base.OnEnable();
 
+            characterColor = Random.ColorHSV(0, 1, 1f, 1f, 1f, 1f);
+
             shellColor.GetComponent<Renderer>().material.color = characterColor;
 
             _rigidbody = GetComponent<Rigidbody>();
