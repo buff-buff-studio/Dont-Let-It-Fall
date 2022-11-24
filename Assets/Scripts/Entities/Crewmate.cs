@@ -103,7 +103,7 @@ namespace DLIFR.Entities
                 agentHolder.transform.parent = empty.transform;
 
                 CapsuleCollider collider = GetComponent<CapsuleCollider>();
-                agent.radius = collider.radius;
+                agent.radius = collider.radius + 0.2f;
                 agent.height = collider.height;
             } 
 
