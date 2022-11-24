@@ -337,6 +337,8 @@ namespace DLIFR.Game
 
             gameShop.canvasGroup.alpha = 0;
 
+            SetSelectedCrewmate(null);
+
             List<Cargo> keep = new List<Cargo>();
 
             int coins = 0;
