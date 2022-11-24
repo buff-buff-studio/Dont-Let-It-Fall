@@ -1,7 +1,7 @@
 #HUD
 hud.daytime={0:HOUR}
 hud.daynumber=Dia {0:DAY}
-hud.coincount=Moedas: {0}
+hud.coincount={0}
 hud.fuellevel=Combustível: {0:F1}
 hud.sellingvalue=Vendendo: {0}
 
@@ -25,12 +25,12 @@ settings.show_tutorial=Mostrar tutorial no próximo jogo
 ######################################
 game.hud.daytime={0:HOUR}
 game.hud.daynumber=Dia {0}
-game.hud.coins=Moedas: {0}
+game.hud.coins={0}
 game.hud.fuel=Combustível
 
 game.shop.shop=Loja
 game.shop.done=Pronto
-game.shop.coins=Moedas: {0}
+game.shop.coins={0}
 
 game.tutorial.tutorial=Tutorial
 game.tutorial.next=Próximo

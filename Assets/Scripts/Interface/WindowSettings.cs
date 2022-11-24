@@ -35,7 +35,8 @@ namespace DLIFR.Interface
             dropdownLanguage.AddOptions(m_DropOptions);
             dropdownLanguage.value = settings.languageIndex; 
 
-            toggleTutorial.isOn = settings.showTutorial;
+            if(toggleTutorial != null)
+                toggleTutorial.isOn = settings.showTutorial;
         }
 
         private void OnDisable() 
@@ -47,7 +48,9 @@ namespace DLIFR.Interface
         {
             settings.volumeVfx.value = sliderVolumeVfx.value/10f;
             settings.volumeMusic.value = sliderVolumeMusic.value/10f;
-            settings.showTutorial = toggleTutorial.isOn;
+
+            if(toggleTutorial != null)
+                settings.showTutorial = toggleTutorial.isOn;
         }
 
         public void UpdateLanguage()
