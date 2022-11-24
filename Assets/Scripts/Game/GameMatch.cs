@@ -8,6 +8,7 @@ using DLIFR.Props;
 using DLIFR.Interface;
 using DLIFR.Interface.Widgets;
 using DLIFR.Game.Tutorial;
+using DLIFR.Audio;
 
 namespace DLIFR.Game
 {
@@ -332,6 +333,8 @@ namespace DLIFR.Game
 
         public void OpenShop()
         {
+            AudioController.PlayAudio("shop");
+
             gameShop.canvasGroup.alpha = 0;
 
             List<Cargo> keep = new List<Cargo>();
@@ -369,6 +372,8 @@ namespace DLIFR.Game
         {
             if(!CanDoAction("close_shop", gameObject))
                 return;
+
+            AudioController.PlayAudio("cash");
 
             shouldTimePass.value = !showingTutorial.value;
 
@@ -466,6 +471,8 @@ namespace DLIFR.Game
             isPaused.value = true;
             shouldTimePass.value = true;
             gameOverCanvas.gameObject.SetActive(true);
+
+            AudioController.PlayAudio("game_over");
         }
 
         public void ResetGame()

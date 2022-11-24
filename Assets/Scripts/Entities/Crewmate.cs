@@ -20,6 +20,7 @@ namespace DLIFR.Entities
         public Canvas paymentCanvas;
         public RectTransform paymentDisplay;
         public Animator animator;
+        public Material material;
 
         [Header("COLOR")]
         public GameObject shellColor;
@@ -81,7 +82,8 @@ namespace DLIFR.Entities
 
             characterColor = Random.ColorHSV(0, 1, 1f, 1f, 1f, 1f);
 
-            shellColor.GetComponent<Renderer>().material.color = characterColor;
+            material = shellColor.GetComponent<Renderer>().material;
+            material.SetColor("_BaseColor", characterColor);           
 
             _rigidbody = GetComponent<Rigidbody>();
 
@@ -155,6 +157,8 @@ namespace DLIFR.Entities
         private void FixedUpdate()
         {
             animator.SetLayerWeight(1, carrying != null ? 1f : 0f);
+            float pay = salaryTime;
+            material.SetFloat("_Dissolve", pay > 1f ? 0f : (1f - pay));
 
             #region Update Payment Display
             paymentCanvas.transform.LookAt(Camera.main.transform);
@@ -171,8 +175,7 @@ namespace DLIFR.Entities
             }
 
             paymentDisplay.sizeDelta = new Vector2(100 * salaryTime.value/salaryRechargeTime.value, 25f);
-            
-            
+    
             
             #endregion
 

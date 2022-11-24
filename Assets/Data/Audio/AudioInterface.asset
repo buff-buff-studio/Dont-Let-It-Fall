@@ -22,3 +22,12 @@ MonoBehaviour:
   - id: back
     clip: {fileID: 8300000, guid: f68f9ce46b73eec43a620fa8cd3fb325, type: 3}
     volumeModifier: 1
+  - id: cash
+    clip: {fileID: 8300000, guid: fab3292c281a3e64bbdb7c9868fac286, type: 3}
+    volumeModifier: 1
+  - id: shop
+    clip: {fileID: 8300000, guid: 188f57993dfe5d442971dd632906d319, type: 3}
+    volumeModifier: 0.5
+  - id: game_over
+    clip: {fileID: 8300000, guid: 65015db465909c54880bd225580a2e26, type: 3}
+    volumeModifier: 0.5
