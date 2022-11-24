@@ -7872,9 +7872,25 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 851728015991763843, guid: 798f5c77d528b5f41a25b5b7d0f28c0d, type: 3}
+      propertyPath: m_TagString
+      value: Vela
+      objectReference: {fileID: 0}
+    - target: {fileID: 1737072877859524277, guid: 798f5c77d528b5f41a25b5b7d0f28c0d, type: 3}
+      propertyPath: m_TagString
+      value: Vela
+      objectReference: {fileID: 0}
+    - target: {fileID: 3046715649452863122, guid: 798f5c77d528b5f41a25b5b7d0f28c0d, type: 3}
+      propertyPath: m_TagString
+      value: Vela
+      objectReference: {fileID: 0}
     - target: {fileID: 5744215068331847731, guid: 798f5c77d528b5f41a25b5b7d0f28c0d, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6724300846704136024, guid: 798f5c77d528b5f41a25b5b7d0f28c0d, type: 3}
+      propertyPath: m_TagString
+      value: Vela
       objectReference: {fileID: 0}
     - target: {fileID: 7125585507554377318, guid: 798f5c77d528b5f41a25b5b7d0f28c0d, type: 3}
       propertyPath: m_Name
@@ -7924,6 +7940,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7935979803163441962, guid: 798f5c77d528b5f41a25b5b7d0f28c0d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7935979803247155103, guid: 798f5c77d528b5f41a25b5b7d0f28c0d, type: 3}
       propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[0].m_Value
       value: 20
@@ -7942,6 +7962,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7935979803247155103, guid: 798f5c77d528b5f41a25b5b7d0f28c0d, type: 3}
       propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[0].m_Overridden
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935979803280858543, guid: 798f5c77d528b5f41a25b5b7d0f28c0d, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7935979803313881550, guid: 798f5c77d528b5f41a25b5b7d0f28c0d, type: 3}
@@ -7963,6 +7987,22 @@ PrefabInstance:
     - target: {fileID: 7935979803313881550, guid: 798f5c77d528b5f41a25b5b7d0f28c0d, type: 3}
       propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[0].m_Overridden
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935979803779640524, guid: 798f5c77d528b5f41a25b5b7d0f28c0d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935979804221496195, guid: 798f5c77d528b5f41a25b5b7d0f28c0d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935979804452604078, guid: 798f5c77d528b5f41a25b5b7d0f28c0d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560785745103528428, guid: 798f5c77d528b5f41a25b5b7d0f28c0d, type: 3}
+      propertyPath: m_TagString
+      value: Vela
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
