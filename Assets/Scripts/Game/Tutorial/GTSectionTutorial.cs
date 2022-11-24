@@ -143,7 +143,9 @@ namespace DLIFR.Game.Tutorial
                         shouldSwipe = true,
                         swipeTarget = bird.carrying,
                         shouldFocusOnto = true,
-                        focusOnto = bird.carrying
+                        focusOnto = bird.carrying,
+                        customFocusOffset = new Vector3(0, 0, -6f),
+                        useCustomFocusOffset = true
                     });
 
                     CanWalkTo = false;
@@ -219,7 +221,9 @@ namespace DLIFR.Game.Tutorial
                         shouldSwipe = true,
                         swipeTarget = bird.carrying,
                         shouldFocusOnto = true,
-                        focusOnto = bird.carrying
+                        focusOnto = bird.carrying,
+                        customFocusOffset = new Vector3(0, 0, -6f),
+                        useCustomFocusOffset = true
                     });
 
                     CanGrab = true;
