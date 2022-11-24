@@ -177,6 +177,11 @@ namespace DLIFR.Game
                 {
                     TogglePaused();
                 }
+
+                if(Input.GetKeyDown(KeyCode.K))
+                {
+                    SpawnBird(prefabCrewmate);
+                }
             }
 
             bool m0 = Input.GetMouseButtonUp(0);
@@ -265,6 +270,7 @@ namespace DLIFR.Game
             db.RefreshCarrying();
 
             Cargo cargo = carrying.GetComponent<Cargo>();
+            if(cargo != null)
             cargo.transform.parent = ship.transform;
 
             return db;

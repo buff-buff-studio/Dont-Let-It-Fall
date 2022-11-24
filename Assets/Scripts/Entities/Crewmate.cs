@@ -81,7 +81,13 @@ namespace DLIFR.Entities
             shellColor.GetComponent<Renderer>().material.color = characterColor;
 
             _rigidbody = GetComponent<Rigidbody>();
-      
+
+            if(ship == null)
+                ship = GameObject.FindObjectOfType<Ship>().transform;
+
+            if(match == null)
+                match = GameObject.FindObjectOfType<GameMatch>();
+
             if(targetHolder == null)
             {
                 GameObject empty = new GameObject();      
