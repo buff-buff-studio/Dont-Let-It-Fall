@@ -11,9 +11,6 @@ namespace DLIFR.Props
         public int bitCount = 1;
 
         public float fuelValue = 0;
-        
-        public ParticleSystem explosionParticles;
-        public ParticleSystem lightningParticles;
 
         private Rigidbody _rigidbody;
 
@@ -51,10 +48,9 @@ namespace DLIFR.Props
             }
         }
 
-        public void Fire()
+        public void Fire(float time = 5)
         {
-            Instantiate(lightningParticles, transform.position + new Vector3(0,10,0), Quaternion.identity, transform);
-            Destroy(gameObject, 5);
+            Destroy(gameObject, time);
         }
 
         private void OnTriggerEnter(Collider other) 
