@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.5037069, g: 0.589991, b: 0.6789583, a: 1}
+  m_IndirectSpecularColor: {r: 0.46768117, g: 0.5657159, b: 0.6295734, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1135,7 +1135,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1133522937, guid: 28cf3d86e6d09b34c9420a12efb7027e, type: 3}
+  m_Sprite: {fileID: -453606077, guid: 28cf3d86e6d09b34c9420a12efb7027e, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1382,9 +1382,11 @@ MonoBehaviour:
   sunsetPower: 16
   dayColor: {r: 1, g: 0.9681467, b: 0.6650944, a: 1}
   nightColor: {r: 0.13725491, g: 0.25882354, b: 0.49019608, a: 1}
+  rainingColor: {r: 0, g: 0, b: 0, a: 0}
   coordinates:
     latitude: -3
     longitude: 0
+  updateTime: 1
   timeOfDay:
     variable: {fileID: 0}
     _value: 0
@@ -4576,7 +4578,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1133522937, guid: 28cf3d86e6d09b34c9420a12efb7027e, type: 3}
+  m_Sprite: {fileID: -453606077, guid: 28cf3d86e6d09b34c9420a12efb7027e, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
