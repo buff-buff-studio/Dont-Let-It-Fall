@@ -78,7 +78,7 @@ Material:
     - _SunIntensity: 5.64
     - _SunRadiusA: 0
     - _SunRadiusB: 0.0407
-    - _SunsetGradientLevel: 1
+    - _SunsetGradientLevel: 4
     m_Colors:
     - _CloudsDarkColor: {r: 0.4217248, g: 0.7157037, b: 0.764151, a: 0}
     - _CloudsLightColor: {r: 0.25941363, g: 0.21404415, b: 0.6981132, a: 0}

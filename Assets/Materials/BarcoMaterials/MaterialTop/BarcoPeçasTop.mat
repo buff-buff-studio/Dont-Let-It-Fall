@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BigRockMaterial
+  m_Name: "BarcoPe\xE7asTop"
   m_Shader: {fileID: -6465566751694194690, guid: 019cdd608f1fae94da389df28e2f151c, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -45,7 +45,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ColorMap:
-        m_Texture: {fileID: 2800000, guid: fa08f73355ab8eb4eb279f06919750e4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6d4010aa51ecf7c4da0eb0e1077f8c94, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -73,11 +73,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 0a5e4234e75e44941b895aea6f2af62a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 2800000, guid: 7e790030e6288ee45823dea730c9edac, type: 3}
+        m_Texture: {fileID: 2800000, guid: 576093a97a72dcd40a03d17ebdea7586, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -89,7 +89,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RoughnessMap:
-        m_Texture: {fileID: 2800000, guid: 938cadc54a5d7344fa5dac5058a4fd79, type: 3}
+        m_Texture: {fileID: 2800000, guid: 19a07facffd70574eb97050bb1c159b1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -122,18 +122,18 @@ Material:
     - _DetailNormalMapScale: 1
     - _Dissolve: 0
     - _DstBlend: 0
-    - _EdgeWidth: 0.01
+    - _EdgeWidth: 0
     - _EnvironmentReflections: 1
     - _FreezeLevel: 0
     - _FrostBorderSize: 1
     - _FrostNormalStrength: 0.015
-    - _FrostScale: 173.6
+    - _FrostScale: 100
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _MaxDistance: 12
+    - _MaxDistance: 3
     - _Metallic: 0
-    - _MinDistance: 9
+    - _MinDistance: 2
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
@@ -147,12 +147,12 @@ Material:
     - _SnowNormalStrength: 0.1
     - _SnowOpacity: 0
     - _SnowScatterBorders: 0.53
-    - _SnowScatterNoise: 20.8
+    - _SnowScatterNoise: 3.77
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
     - _UseColorMap: 1
-    - _UseMetallicMap: 0
+    - _UseMetallicMap: 1
     - _UseNormalMap: 1
     - _UseRoughnessMap: 1
     - _WorkflowMode: 1

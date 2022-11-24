@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SkyboxCartoon
+  m_Name: SkyboxGame
   m_Shader: {fileID: -6465566751694194690, guid: 87b248f4e2395194ea1faee87894e7b6, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -48,7 +48,7 @@ Material:
     - _CloudsScale: 0.25
     - _CloudsShadow: 0.5
     - _CloudsSharpness: 8
-    - _CloudsSpeed: 0.005
+    - _CloudsSpeed: 0.02
     - _CloudsTransparency: -5
     - _MoonExponent: 27.8
     - _MoonIntensity: 45.8

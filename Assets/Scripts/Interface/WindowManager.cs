@@ -50,7 +50,7 @@ namespace DLIFR.Interface
         [SerializeField, HideInInspector]
         public List<Window> _open = new List<Window>();
 
-        private void Start()
+        protected virtual void Start()
         {
             foreach(Window window in windows)
             {
@@ -58,7 +58,7 @@ namespace DLIFR.Interface
             }
         }
 
-        private void SetOpen(Window window, bool open, bool instantly = false)
+        public void SetOpen(Window window, bool open, bool instantly = false)
         {
             if(window is null)
                 return;

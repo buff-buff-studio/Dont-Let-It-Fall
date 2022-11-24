@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,6 +12,26 @@ namespace DLIFR.Interface
         public bool goToGame = false;
 
         public float loadGame = 2f;
+
+        protected override void Start()
+        {
+            var open = windows[0].openSpeed;
+            windows[0].openSpeed = .5f;
+            SetOpen(windows[0], false, true);
+            
+            foreach(Window window in windows)
+            {
+                SetOpen(window, window.startOpen, !window.startOpen);
+            }
+
+            StartCoroutine(ResetMainMenuSpeed(open));
+        }
+
+        private IEnumerator ResetMainMenuSpeed(float open)
+        {
+            yield return new WaitForSeconds(2f);
+            windows[0].openSpeed = open;
+        }
 
         public void PlayGame()
         {
