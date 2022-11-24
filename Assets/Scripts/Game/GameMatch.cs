@@ -8,6 +8,7 @@ using DLIFR.Props;
 using DLIFR.Interface;
 using DLIFR.Interface.Widgets;
 using DLIFR.Game.Tutorial;
+using DLIFR.Audio;
 
 namespace DLIFR.Game
 {
@@ -99,6 +100,8 @@ namespace DLIFR.Game
 
         public void StartGame(bool tutorial)
         {
+            AudioController.PlayMusic("music");
+            
             hudBindings.SetActive(!tutorial);
             
             Rigidbody rb = ship.GetComponent<Rigidbody>();
@@ -118,6 +121,7 @@ namespace DLIFR.Game
 
             if(tutorial)
             {
+                ship.HaveFuel = false;
                 rb.isKinematic = true;
 
                 showingTutorial.value = true;
@@ -131,6 +135,7 @@ namespace DLIFR.Game
             }
             else
             {
+                ship.HaveFuel = true;
                 rb.isKinematic = false;
                 rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
 
@@ -193,6 +198,8 @@ namespace DLIFR.Game
 
             shipFuelLevel.variable.onChange += () =>
             {
+                if(showingTutorial) return;
+
                 bool b = ship.HaveFuel = shipFuelLevel.value > 0;
 
                 if(!b)
@@ -244,13 +251,18 @@ namespace DLIFR.Game
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 LayerMask selectableMask = useOnlyAreas ? this.areaSelectableMask : this.selectableMask;
+                
+                Debug.Log("clicando sua putinha");
+
                 if(UnityEngine.Physics.Raycast(ray.origin, ray.direction, out RaycastHit hit, 30f, selectableMask))
-                {            
+                {    
+                    Debug.Log("gghfhg");        
                     IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
                     interactable?.OnInteract(m0 ? 0 : 1, this);
                     
                     if(currentCrewmate != null && hit.collider.gameObject.tag == "Ground")
                     {
+                        AudioController.PlayAudio("ground_target");
                         currentCrewmate.OnClickOnGround(hit.point);
                     }
                 }
@@ -332,7 +344,11 @@ namespace DLIFR.Game
 
         public void OpenShop()
         {
+            AudioController.PlayAudio("shop");
+
             gameShop.canvasGroup.alpha = 0;
+
+            SetSelectedCrewmate(null);
 
             List<Cargo> keep = new List<Cargo>();
 
@@ -369,6 +385,8 @@ namespace DLIFR.Game
         {
             if(!CanDoAction("close_shop", gameObject))
                 return;
+
+            AudioController.PlayAudio("cash");
 
             shouldTimePass.value = !showingTutorial.value;
 
@@ -466,6 +484,8 @@ namespace DLIFR.Game
             isPaused.value = true;
             shouldTimePass.value = true;
             gameOverCanvas.gameObject.SetActive(true);
+
+            AudioController.PlayAudio("game_over");
         }
 
         public void ResetGame()

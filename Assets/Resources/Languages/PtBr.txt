@@ -40,7 +40,7 @@ tutorial.greetings.0=Bem vindo ao <§Don't Let It Fall§>!
 tutorial.greetings.1=Você é <§capitão§> do navio flutuante que controla um grupo de <§tripulantes§> gelatinosos!
 tutorial.greetings.2=Seu objetivo é ganhar dinheiro fazendo entregas de <§mercadorias§> enquanto tenta manter o barco equilibrado!
 tutorial.greetings.3=Primeiramente, vamos ver os controles básicos.
-tutorial.greetings.4=Use <§W§>, <§A§>, <§S§>, <§D§>, <§Left Shift§>, <§Space§> para controlar a câmera!
+tutorial.greetings.4=Use <§W§>, <§A§>, <§S§>, <§D§>, <§Mouse§>, <§Mouse Scroll§> para controlar a câmera!
 tutorial.greetings.5=Agora, vamos aprender a controlar os <§tripulantes§>.
 
 tutorial.boxes.0=Clique com o <§botão esquerdo§> num tripulante para selecioná-lo.

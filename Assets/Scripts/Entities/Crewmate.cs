@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using DLIFR.Game;
 using DLIFR.Data;
+using DLIFR.Audio;
 
 namespace DLIFR.Entities
 {
@@ -20,6 +21,7 @@ namespace DLIFR.Entities
         public Canvas paymentCanvas;
         public RectTransform paymentDisplay;
         public Animator animator;
+        public Material material;
 
         [Header("COLOR")]
         public GameObject shellColor;
@@ -81,7 +83,8 @@ namespace DLIFR.Entities
 
             characterColor = Random.ColorHSV(0, 1, 1f, 1f, 1f, 1f);
 
-            shellColor.GetComponent<Renderer>().material.color = characterColor;
+            material = shellColor.GetComponent<Renderer>().material;
+            material.SetColor("_BaseColor", characterColor);           
 
             _rigidbody = GetComponent<Rigidbody>();
 
@@ -155,6 +158,8 @@ namespace DLIFR.Entities
         private void FixedUpdate()
         {
             animator.SetLayerWeight(1, carrying != null ? 1f : 0f);
+            float pay = salaryTime;
+            material.SetFloat("_Dissolve", pay > 1f ? 0f : (1f - pay));
 
             #region Update Payment Display
             paymentCanvas.transform.LookAt(Camera.main.transform);
@@ -165,14 +170,14 @@ namespace DLIFR.Entities
 
                 if(salaryTime.value <= 0f)
                 {
+                    AudioController.PlayAudio("fired");
                     Destroy(gameObject);
                     return;
                 }
             }
 
             paymentDisplay.sizeDelta = new Vector2(100 * salaryTime.value/salaryRechargeTime.value, 25f);
-            
-            
+    
             
             #endregion
 
@@ -273,6 +278,8 @@ namespace DLIFR.Entities
             if(this.carrying != null) 
                 DropCarrying();
 
+            AudioController.PlayAudio("box_pick");
+            
             Rigidbody rb = carrying.GetComponent<Rigidbody>();
             rb.isKinematic = true;
             rb.detectCollisions = false;
@@ -286,6 +293,8 @@ namespace DLIFR.Entities
 
         public void DropCarrying()
         {
+            AudioController.PlayAudio("box_drop");
+
             Rigidbody rb = carrying.GetComponent<Rigidbody>();
             rb.isKinematic = false;
             rb.detectCollisions = true;
@@ -311,6 +320,8 @@ namespace DLIFR.Entities
                         return;
                     }
                 }
+
+                AudioController.PlayAudio("crewmate_select");
 
                 SetLayer(transform, LayerMask.NameToLayer("Selected")); 
                 match.currentCrewmate = this;             

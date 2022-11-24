@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using DLIFR.Data;
+using DLIFR.Audio;
 
 namespace DLIFR.Game.Tutorial
 {
@@ -43,6 +44,7 @@ namespace DLIFR.Game.Tutorial
         public TMP_Text textLabel;
         public GameObject tutorialNext;
         public GameObject pauseMenu;
+        public Transform cameraHolder;
 
         [Header("STATE")]
         public TutorialPage currentPage;
@@ -116,6 +118,8 @@ namespace DLIFR.Game.Tutorial
                
                 if(currentPage.shouldFocusOnto)
     	        {                
+                    cameraHolder.rotation = Quaternion.Lerp(cameraHolder.rotation, Quaternion.Euler(25, 0, 0), deltaTime * 2f);
+
                     Vector3 offset = currentPage.useCustomFocusOffset ? currentPage.customFocusOffset : focusOffset;
 
                     camera.transform.position = Vector3.Lerp(
@@ -161,6 +165,8 @@ namespace DLIFR.Game.Tutorial
 
         public void NextPage()
         {
+            AudioController.PlayAudio("tutorial_next");
+
             _page ++;
             OnOpenPage(_page);
 
