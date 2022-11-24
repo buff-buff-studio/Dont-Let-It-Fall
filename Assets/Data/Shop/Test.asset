@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: 
   accepts:
-  - test
-  - cachorro
+  - box
+  - barrel
+  - cage
   buy:
     fuelBoxPrice: 10
     cargoBitPrice: 10

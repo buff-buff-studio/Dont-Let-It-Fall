@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beingGrabbed: 0
-  type: Coin Box
+  type: box
   bitCount: 1
   fuelValue: 0
   explosionParticles: {fileID: 0}
