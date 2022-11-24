@@ -826,6 +826,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 331910353}
+        m_TargetAssemblyTypeName: DLIFR.Audio.AudioController, Assembly-CSharp
+        m_MethodName: PlayAudio
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: click
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &169924175
 GameObject:
   m_ObjectHideFlags: 0
@@ -2196,6 +2208,7 @@ GameObject:
   - component: {fileID: 331910350}
   - component: {fileID: 331910349}
   - component: {fileID: 331910348}
+  - component: {fileID: 331910353}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2337,6 +2350,34 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &331910353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331910346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2413df843af7a5840b3bafad413ebb9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSourceCount: 5
+  volumeVfx:
+    variable: {fileID: 11400000, guid: 16db127701af20e49b57a07e583b0ca1, type: 2}
+    _value: 0
+  volumeMusic:
+    variable: {fileID: 11400000, guid: 3b11901c786e24649b7755dc47de6928, type: 2}
+    _value: 0
+  startPlayingMusic: 0
+  startPlayingMusicId: 
+  audioInterface: {fileID: 11400000, guid: 7ccb805f272f92c4db567e027ce425c6, type: 2}
+  musicVolumeMultiplier: 1
+  currentMusicSource:
+    source: {fileID: 0}
+    volumeModifier: 0
+  freeAudioSources: []
+  busyAudioSources: []
 --- !u!1001 &356705861
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5410,6 +5451,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 331910353}
+        m_TargetAssemblyTypeName: DLIFR.Audio.AudioController, Assembly-CSharp
+        m_MethodName: PlayAudio
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: click
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &687545813
@@ -17323,6 +17376,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 331910353}
+        m_TargetAssemblyTypeName: DLIFR.Audio.AudioController, Assembly-CSharp
+        m_MethodName: PlayAudio
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: click
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &2191671841109201272
 MonoBehaviour:
@@ -18124,6 +18189,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 331910353}
+        m_TargetAssemblyTypeName: DLIFR.Audio.AudioController, Assembly-CSharp
+        m_MethodName: PlayAudio
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: click
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1563820306}
         m_TargetAssemblyTypeName: DLIFR.Interface.WindowSettings, Assembly-CSharp
         m_MethodName: UpdateValues

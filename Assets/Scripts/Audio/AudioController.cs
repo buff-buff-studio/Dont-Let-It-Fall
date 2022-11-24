@@ -204,7 +204,7 @@ namespace DLIFR.Audio
             Debug.LogWarning($"[AudioController] Failed to play '{audio}': No available audio sources!");
         }
 
-        private void FixedUpdate() 
+        private void Update() 
         {
             for(int i = 0; i < busyAudioSources.Count; i ++)
             {
