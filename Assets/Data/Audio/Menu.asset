@@ -17,5 +17,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 35a17e4e8322a5440b82d85024ee8ef7, type: 3}
     volumeModifier: 0.25
   - id: click
-    clip: {fileID: 8300000, guid: 28b32c9b410a4d343b38087491af9f16, type: 3}
+    clip: {fileID: 8300000, guid: b5ad764f0f09a504bb1ef2aed42b073e, type: 3}
+    volumeModifier: 1
+  - id: back
+    clip: {fileID: 8300000, guid: f68f9ce46b73eec43a620fa8cd3fb325, type: 3}
     volumeModifier: 1
