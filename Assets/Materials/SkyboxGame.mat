@@ -61,7 +61,7 @@ Material:
     - _PhaseRotation: -0.1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Rain: 1
+    - _Rain: 0
     - _SkyGradientLevel: 1
     - _StarsDensity: 30
     - _StarsHorizonLine: 1

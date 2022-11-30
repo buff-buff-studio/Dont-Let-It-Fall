@@ -99,7 +99,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _Blend: 0
-    - _BlendDistance: 12.47
+    - _BlendDistance: 18
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -110,7 +110,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _Dissolve: 0
     - _DstBlend: 0
-    - _EdgeTransparency: -1.27
+    - _EdgeTransparency: -1.25
     - _EdgeWidth: 5.01
     - _EnvironmentReflections: 1
     - _FalloffSize: 0.2
