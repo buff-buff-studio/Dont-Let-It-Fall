@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weatherName: Rain
   weatherDuration: {x: 10, y: 10}
-  weatherWiggle: 0
+  weatherWiggle: 10
   weatherChance: 20
   weatherEvents:
     spawnLightning: 0

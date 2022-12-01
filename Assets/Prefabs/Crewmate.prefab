@@ -731,7 +731,7 @@ MonoBehaviour:
   material: {fileID: 0}
   shellColor: {fileID: 8263018022666119262}
   characterColor: {r: 0.009433985, g: 0.009433985, b: 0.009433985, a: 0}
-  walkSpeed: 4
+  walkSpeed: 6
   _state:
     crewmate: {fileID: 0}
   grabbedObject: {fileID: 0}

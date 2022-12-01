@@ -15,6 +15,7 @@ namespace DLIFR.Interface
 
         protected override void Start()
         {
+            Time.timeScale = 1f;
             var open = windows[0].openSpeed;
             windows[0].openSpeed = .5f;
             SetOpen(windows[0], false, true);
