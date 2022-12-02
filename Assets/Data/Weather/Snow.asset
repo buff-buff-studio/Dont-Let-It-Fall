@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Snow
   m_EditorClassIdentifier: 
   weatherName: Snow
-  weatherDuration: {x: 10, y: 10}
+  weatherDuration: {x: 30, y: 120}
   weatherWiggle: 5
   weatherChance: 20
   weatherEvents:

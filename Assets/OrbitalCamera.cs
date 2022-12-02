@@ -28,14 +28,22 @@ public class OrbitalCamera : MonoBehaviour
     private Transform ParentTransform => transform.parent;
     private Camera _camera => GetComponent<Camera>();
 
-    private float AxisX => Input.GetAxis("Vertical");
-    private float AxisY => Input.GetAxis("Horizontal");
+    private float AxisX;
+    private float AxisY;
     private float AxisZ => Input.GetAxis("Mouse ScrollWheel");
     private Vector2 CameraAxis => new Vector3(AxisX * cameraSensitivity, -AxisY * cameraSensitivity);
     private float ZoomAxis => (AxisZ * zoomSensitivity);
 
     private void Update()
     {
+        AxisX = Input.GetAxis("Vertical");
+        AxisY = Input.GetAxis("Horizontal");
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            AxisX = -Input.GetAxis("Mouse Y");
+            AxisY = -Input.GetAxis("Mouse X");
+        }
+        
         TargetFunction();
 
         ViewSide();
@@ -119,15 +127,20 @@ public class OrbitalCamera : MonoBehaviour
         ParentTransform.Rotate(new Vector3(CameraAxis.x,0,0), Space.Self);
         ParentTransform.Rotate(new Vector3(0,CameraAxis.y,0), Space.World);
 
-        if (AxisZ < 0)
+        switch (AxisZ)
         {
-            if (CameraZoomNext > -zoomLimit.y)
-                transform.localPosition += new Vector3(0, 0, ZoomAxis);
-        }
-        else if (AxisZ > 0)
-        {
-            if (CameraZoomNext < -zoomLimit.x)
-                transform.localPosition += new Vector3(0, 0, ZoomAxis);
+            case < 0:
+            {
+                if (CameraZoomNext > -zoomLimit.y)
+                    transform.localPosition += new Vector3(0, 0, ZoomAxis);
+                break;
+            }
+            case > 0:
+            {
+                if (CameraZoomNext < -zoomLimit.x)
+                    transform.localPosition += new Vector3(0, 0, ZoomAxis);
+                break;
+            }
         }
     }
     

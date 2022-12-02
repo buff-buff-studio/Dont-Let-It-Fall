@@ -11,7 +11,8 @@ namespace DLIFR.Game
         [Header("REFERENCES")]
         public GameMatch match;
         public RectTransform sellItems;
-        public RectTransform fuelFill;
+        public Image fuelFill;
+        public Image timeClock;
 
         [Header("SETTINGS")]
         public Value<int> ticksPerDay = 50 * 24;
@@ -35,10 +36,12 @@ namespace DLIFR.Game
                 dayNumber.value = Mathf.FloorToInt(time / 24f) + 1;
             };
 
-            shipFuelLevel.variable.onChange += () => 
+            shipFuelLevel.variable.onChange += () =>
             {
-                fuelFill.sizeDelta = new Vector2(100f * shipFuelLevel.value/shipFuelMaxLevel.value, 25f);  
+                fuelFill.fillAmount = shipFuelLevel.value / shipFuelMaxLevel.value;
             };
+            
+            dayTime.variable.onChange += ClockUpdate;
         }
 
         public void UpdateShopWishlist()
@@ -60,6 +63,25 @@ namespace DLIFR.Game
                     sellItem.sprite.sprite = type.sprite;
                     sellItem.labelPrice.text = $"{type.value}";
                 }
+            }
+        }
+        
+        private void ClockUpdate()
+        {
+            var time = dayTime.value/24;
+            if (time >= .5f)
+            {
+                if (timeClock.fillClockwise)
+                    timeClock.fillClockwise = false;
+
+                timeClock.fillAmount = 1 - ((time - .5f) / .5f);
+            }
+            else
+            {
+                if (!timeClock.fillClockwise)
+                    timeClock.fillClockwise = true;
+
+                timeClock.fillAmount = (time) / .5f;
             }
         }
     }

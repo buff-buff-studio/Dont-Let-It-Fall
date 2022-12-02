@@ -40,33 +40,11 @@ namespace DLIFR.Props
                 Spawn();
         }
 
-        /*
-        private void OnDrawGizmos() 
-        {
-            foreach (var top in topSpawnPoints)
-            {
-                Matrix4x4 preMatrix = Gizmos.matrix;
-                Gizmos.color = Color.blue;
-                Gizmos.matrix = top.worldToLocalMatrix;
-                Gizmos.DrawWireCube(top.position, Vector3.one);
-                Gizmos.matrix = preMatrix;
-            }
-            foreach (var side in sideSpawnPoints)
-            {
-                Matrix4x4 preMatrix = Gizmos.matrix;
-                Gizmos.color = Color.green;
-                Gizmos.matrix = side.worldToLocalMatrix;
-                Gizmos.DrawWireCube(side.position, Vector3.one);
-                Gizmos.matrix = preMatrix;
-            }
-        }
-        */
-
-        public void Spawn(bool spawnOnTop = true)
+        public void Spawn(Transform[] spawnPoints = null)
         {
             List<Vector3> buffer = new List<Vector3>();
             Debug.Log("Spawning");
-            Transform[] spawnPoints = spawnOnTop ? topSpawnPoints : sideSpawnPoints;
+            spawnPoints = spawnPoints ?? topSpawnPoints;
 
             foreach(LootTable.LootTableEntry entry in lootTable.entries)
             {
@@ -87,8 +65,6 @@ namespace DLIFR.Props
                     
                     GameObject go = GameObject.Instantiate(entry.prefab, position, transform.rotation, spawnParent);
                     buffer.Add(position);
-                    
-                    if(!spawnOnTop) go.GetComponent<Rigidbody>().AddForce(new Vector3(25, UnityEngine.Random.Range(0,10), 0), ForceMode.Impulse);
                 }
             }
         }

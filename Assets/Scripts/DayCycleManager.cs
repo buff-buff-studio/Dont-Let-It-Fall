@@ -37,6 +37,7 @@ public class DayCycleManager : MonoBehaviour
 
     private Vector3 WorldAngles => transform.eulerAngles;
     private float sunsetLevel = 0f;
+    public Color lightColor;
 
     private void FixedUpdate()
     {
@@ -60,29 +61,30 @@ public class DayCycleManager : MonoBehaviour
         switch (timeOfDay.value)
         {
             case >= 5.25f and <= 6.25f:
+                sunLight.shadows = LightShadows.Soft;
                 sunsetLevel = Mathf.Clamp01(GetSunsetLevel(5.25f));
-                //sunLight.color = Color.Lerp(dayColor, nightColor, sunsetLevel);
+                lightColor = Color.Lerp(nightColor, dayColor, sunsetLevel);
                 break;
             
             case >= 17.8f and <= 18.8f:
                 sunsetLevel = Mathf.Clamp01(GetSunsetLevel(17.5f));
-                //sunLight.color = Color.Lerp(nightColor, dayColor, sunsetLevel);
+                lightColor = Color.Lerp(dayColor, nightColor, sunsetLevel);
                 break;
             
             default:
                 sunsetLevel = 0;
-                sunLight.color = isDay ? dayColor : nightColor;
+                lightColor = isDay ? dayColor : nightColor;
                 sunLight.shadows = isDay ? LightShadows.Soft : LightShadows.None;
                 break;
         }
         
-        //skyboxMaterial.SetFloat("_SunsetGradientLevel", sunsetLevel);
+        sunLight.color = lightColor;
     }
 
     private float GetSunsetLevel(float timeStart)
     {
-        var sunsetTime = timeOfDay - timeStart;
-        return -sunsetPower * (Mathf.Pow(sunsetTime, 2) - sunsetTime);
+        var sunsetTime = timeOfDay.value - timeStart;
+        return sunsetTime;
     }
 
     private Vector2 CoordToAngle(Vector2 coord)

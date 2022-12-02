@@ -28,6 +28,11 @@ public class EventsManager : MonoBehaviour
     private float snowValue = 0;
     private float rainValue = 0;
     private float iceValue = 0;
+    
+    [SerializeField]
+    [Range(0f,1f)]
+    private float decreaseValue = 0.1f;
+    private float decreaseTime => Time.fixedDeltaTime * decreaseValue;
 
     private void FixedUpdate()
     {
@@ -40,14 +45,15 @@ public class EventsManager : MonoBehaviour
         else
         {
             rainValue = events.increaseRain
-                ? Mathf.Clamp01(rainValue + Time.fixedDeltaTime)
-                : Mathf.Clamp01(rainValue - Time.fixedDeltaTime);
+                ? Mathf.Clamp01(rainValue + decreaseTime)
+                : Mathf.Clamp01(rainValue - decreaseTime);
             
             snowValue = events.increaseSnow
-                ? Mathf.Clamp01(snowValue + Time.fixedDeltaTime)
-                : Mathf.Clamp01(snowValue - Time.fixedDeltaTime);
+                ? Mathf.Clamp01(snowValue + decreaseTime)
+                : Mathf.Clamp01(snowValue - decreaseTime);
             
             if(snowValue > 0 && rainValue > 0) iceValue = Mathf.Clamp01(snowValue + rainValue);
+            else iceValue = Mathf.Clamp01(iceValue - decreaseTime);
             
             UpdateMaterials();
         }
