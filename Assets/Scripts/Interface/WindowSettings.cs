@@ -15,8 +15,16 @@ namespace DLIFR.Interface
         [Header("WIDGETS")]
         public Slider sliderVolumeVfx;
         public Slider sliderVolumeMusic;
+        public Slider sliderSense;
         public TMPro.TMP_Dropdown dropdownLanguage;
+        public TMPro.TMP_Dropdown dropdownTexture;
+        public TMPro.TMP_Dropdown dropdownLShadow;
+        public TMPro.TMP_Dropdown dropdownLight;
         public Toggle toggleTutorial;
+        public Toggle togglePFX;
+        public Toggle toggleVsync;
+        public Toggle toggleFullscreen;
+        public Toggle toggleFInvertXY;
 
         private void OnEnable() 
         {

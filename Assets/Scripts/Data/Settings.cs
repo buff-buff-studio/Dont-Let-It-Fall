@@ -16,6 +16,9 @@ namespace DLIFR.Data
         public Value<float> volumeVfx;
         public Value<float> volumeMusic;
         public Value<bool> showTutorial;
+        public Value<bool> showVsync;
+        public Value<bool> showFullscreen;
+        public Value<bool> showInvertXY;
 
         public Language language;
 

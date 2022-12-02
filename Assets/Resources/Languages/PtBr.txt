@@ -15,9 +15,21 @@ mainmenu.settings=Ajustes
 mainmenu.credits=Créditos
 mainmenu.exit=Sair
 
+settingsmenu.video=Vídeo
+settingsmenu.audio=Áudio
+settingsmenu.other=Outros
+
 settings.fxvolume=Volume de Efeitos
 settings.musicvolume=Volume da Música
 settings.language=Idioma
+settings.texture=Textura
+settings.shadow=Sombra
+settings.light=Luz
+settings.pfx=Pós-Procesamento
+settings.fullscreen=Tela Cheia
+settings.vsync=VSync
+settings.camsense=Sensibilidade da Camera
+settings.invertxy=Inverter X/Y
 settings.show_tutorial=Mostrar tutorial no próximo jogo
 
 ######################################

@@ -15,9 +15,21 @@ mainmenu.settings=Settings
 mainmenu.credits=Credits
 mainmenu.exit=Exit
 
+settingsmenu.video=Video
+settingsmenu.audio=Audio
+settingsmenu.other=Other
+
 settings.fxvolume=FX Volume
 settings.musicvolume=Music Volume
 settings.language=Language
+settings.texture=Texture
+settings.shadow=Shadow
+settings.light=Light
+settings.fullscreen=Fullscreen
+settings.vsync=VSync
+settings.pfx=PFX
+settings.camsense=Camera Sensitivity
+settings.invertxy=Invert X/Y
 settings.show_tutorial=Show Tutorial On The Next Match
 
 ######################################
