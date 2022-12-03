@@ -21,6 +21,18 @@ MonoBehaviour:
   showTutorial:
     variable: {fileID: 0}
     _value: 1
+  showVsync:
+    variable: {fileID: 0}
+    _value: 0
+  showFullscreen:
+    variable: {fileID: 0}
+    _value: 0
+  showInvertXY:
+    variable: {fileID: 0}
+    _value: 0
+  graphicsQuality:
+    variable: {fileID: 0}
+    _value: 0
   language: {fileID: 11400000, guid: 9f919bb7c5c91bf4197d578baa81046e, type: 2}
   languages:
   - {fileID: 11400000, guid: fc9d1452716a79145a995e6e8303a3f0, type: 2}

@@ -22,15 +22,20 @@ settingsmenu.other=Other
 settings.fxvolume=FX Volume
 settings.musicvolume=Music Volume
 settings.language=Language
-settings.texture=Texture
-settings.shadow=Shadow
-settings.light=Light
+settings.graphics=Graphics Quality
 settings.fullscreen=Fullscreen
 settings.vsync=VSync
 settings.pfx=PFX
 settings.camsense=Camera Sensitivity
 settings.invertxy=Invert X/Y
 settings.show_tutorial=Show Tutorial On The Next Match
+
+graphics.quality.very_low=Very Low
+graphics.quality.low=Low
+graphics.quality.medium=Medium
+graphics.quality.high=High
+graphics.quality.very_high=Very High
+graphics.quality.ultra=Ultra
 
 ######################################
 #GAME

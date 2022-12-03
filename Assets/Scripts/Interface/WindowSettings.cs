@@ -17,9 +17,7 @@ namespace DLIFR.Interface
         public Slider sliderVolumeMusic;
         public Slider sliderSense;
         public TMPro.TMP_Dropdown dropdownLanguage;
-        public TMPro.TMP_Dropdown dropdownTexture;
-        public TMPro.TMP_Dropdown dropdownLShadow;
-        public TMPro.TMP_Dropdown dropdownLight;
+        public TMPro.TMP_Dropdown dropdownGraphics;
         public Toggle toggleTutorial;
         public Toggle togglePFX;
         public Toggle toggleVsync;
@@ -45,6 +43,32 @@ namespace DLIFR.Interface
 
             if(toggleTutorial != null)
                 toggleTutorial.isOn = settings.showTutorial;
+            
+            UpdateQualityDropDown();
+        }
+
+        public void OnUpdateQualityDropdown()
+        {
+            settings.graphicsQuality.value = dropdownGraphics.value;
+            settings.UpdateGraphicSettings();
+        }
+
+        public void UpdateQualityDropDown()
+        {
+            dropdownGraphics.ClearOptions();
+
+            List<string> graphics = new List<string>();
+            dropdownGraphics.ClearOptions();
+
+            foreach(string quality in QualitySettings.names)
+            {
+                string q = "graphics.quality." + quality.ToLower().Replace(" ","_");
+            
+                graphics.Add(settings.language.GetEntry(q));
+            }
+
+            dropdownGraphics.AddOptions(graphics);
+            dropdownGraphics.value = settings.graphicsQuality.value;
         }
 
         private void OnDisable() 
@@ -58,7 +82,7 @@ namespace DLIFR.Interface
             settings.volumeMusic.value = sliderVolumeMusic.value/10f;
 
             if(toggleTutorial != null)
-                settings.showTutorial = toggleTutorial.isOn;
+                settings.showTutorial = toggleTutorial.isOn;          
         }
 
         public void UpdateLanguage()
@@ -73,6 +97,8 @@ namespace DLIFR.Interface
                     label.ReloadText();
                 }
             } 
+
+            UpdateQualityDropDown();
         }
 
         private void FixedUpdate() 

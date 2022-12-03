@@ -19,6 +19,7 @@ namespace DLIFR.Data
         public Value<bool> showVsync;
         public Value<bool> showFullscreen;
         public Value<bool> showInvertXY;
+        public Value<int> graphicsQuality;
 
         public Language language;
 
@@ -29,10 +30,16 @@ namespace DLIFR.Data
         [Serializable]
         public class Values
         {
-            public float volumeVfx;
-            public float volumeMusic;
+            public float volumeVfx = 0.5f;
+            public float volumeMusic = 0.5f;
             public int languageIndex;
-            public bool showTutorial;
+            public bool showTutorial = true;
+            public int qualityLevel = 3;
+        }
+
+        public void UpdateGraphicSettings()
+        {
+            QualitySettings.SetQualityLevel(graphicsQuality.value);
         }
 
         public void Load()
@@ -50,17 +57,21 @@ namespace DLIFR.Data
                 volumeMusic.value = values.volumeMusic;
                 language = languages[values.languageIndex];
                 showTutorial.value = values.showTutorial;
+                graphicsQuality.value = values.qualityLevel;
             }
             else
             {
                 volumeVfx.value = 0.5f;
                 volumeMusic.value = 0.5f;
                 showTutorial.value = true;
+                graphicsQuality.value = 3;
 
                 language = languages[0];
 
                 Save();
             }
+
+            UpdateGraphicSettings();
             
             Debug.Log($"[Settings] Loading from '{Application.persistentDataPath}'");
         }
@@ -72,6 +83,7 @@ namespace DLIFR.Data
             values.volumeMusic = volumeMusic.value;
             values.languageIndex = languageIndex;
             values.showTutorial = showTutorial.value;
+            values.qualityLevel = graphicsQuality.value;
 
             File.WriteAllText(filePath, JsonUtility.ToJson(values, true));
 

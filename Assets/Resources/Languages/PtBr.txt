@@ -22,15 +22,21 @@ settingsmenu.other=Outros
 settings.fxvolume=Volume de Efeitos
 settings.musicvolume=Volume da Música
 settings.language=Idioma
-settings.texture=Textura
-settings.shadow=Sombra
-settings.light=Luz
+settings.graphics=Qualidade Gráfica
 settings.pfx=Pós-Procesamento
 settings.fullscreen=Tela Cheia
 settings.vsync=VSync
 settings.camsense=Sensibilidade da Camera
 settings.invertxy=Inverter X/Y
 settings.show_tutorial=Mostrar tutorial no próximo jogo
+
+graphics.quality.very_low=Bem Baixo
+graphics.quality.low=Baixo
+graphics.quality.medium=Médio
+graphics.quality.high=Alto
+graphics.quality.very_high=Muito Alto
+graphics.quality.ultra=Ultra
+
 
 ######################################
 #GAME
