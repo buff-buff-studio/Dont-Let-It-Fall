@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using DLIFR.Game;
@@ -8,6 +9,8 @@ namespace DLIFR.Entities
 {
     public class Crewmate : InteractableBehaviour
     {
+        public static List<Crewmate> crewmates = new List<Crewmate>();
+
         public const float PATH_CHECK_INTERVAL = 0.5F;
 
         #region Public Fields
@@ -57,7 +60,6 @@ namespace DLIFR.Entities
         public Value<float> salaryRechargeTime;
         public Value<bool> shouldTimePass;
         
-
         [Header("GRAVITY")]
         public float gravityForce = 10f;
 
@@ -80,6 +82,9 @@ namespace DLIFR.Entities
         public override void OnEnable() 
         {
             base.OnEnable();
+
+            if(!crewmates.Contains(this))
+                crewmates.Add(this);
 
             characterColor = Random.ColorHSV(0, 1, 1f, 1f, 1f, 1f);
 
@@ -130,7 +135,7 @@ namespace DLIFR.Entities
         }
 
         public override void OnDisable() 
-        {
+        {    
             base.OnDisable();
         }
 
@@ -153,10 +158,22 @@ namespace DLIFR.Entities
 
             targetHolder = null;
             agent = null;
+
+            crewmates.Remove(this);
+
+            if(crewmates.Count == 0)
+            {
+                match.OnGameOver("no_crew");
+            }
         }
         
         private void FixedUpdate()
         {
+            if(transform.position.y <= -11.5f)
+            {
+                Destroy(gameObject);
+            }
+
             animator.SetLayerWeight(1, carrying != null ? 1f : 0f);
             float pay = salaryTime;
             material.SetFloat("_Dissolve", pay > 1f ? 0f : (1f - pay));
@@ -177,8 +194,7 @@ namespace DLIFR.Entities
             }
 
             paymentDisplay.sizeDelta = new Vector2(100 * salaryTime.value/salaryRechargeTime.value, 25f);
-    
-            
+
             #endregion
 
             #region Update Grounded

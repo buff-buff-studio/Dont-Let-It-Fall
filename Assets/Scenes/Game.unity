@@ -214,7 +214,7 @@ MonoBehaviour:
     _value: 0
   timeSpeed: 0
   latitudeAngle: -30
-  timeAngle: -87.4
+  timeAngle: -85.24
   lightColor: {r: 0.13725491, g: 0.25882354, b: 0.49019608, a: 1}
 --- !u!224 &23218821 stripped
 RectTransform:
@@ -5241,7 +5241,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 598643719}
-  m_LocalRotation: {x: -0.69088244, y: 0, z: 0, w: 0.72296715}
+  m_LocalRotation: {x: -0.67713284, y: 0, z: 0, w: 0.73586076}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11682,7 +11682,7 @@ GameObject:
   - component: {fileID: 1366601352}
   - component: {fileID: 1366601351}
   m_Layer: 5
-  m_Name: Title (1)
+  m_Name: Subtitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16956,6 +16956,7 @@ MonoBehaviour:
   settings: {fileID: 11400000, guid: 4768b1ec962dad149b1d92bcb4ae7c31, type: 2}
   hudBindings: {fileID: 2018840281}
   gameOverCanvas: {fileID: 328229652}
+  gameOverSubtitle: {fileID: 1366601351}
   ticksPerDay:
     variable: {fileID: 11400000, guid: c7e00ef0845615c418a73caf4b63ab09, type: 2}
     _value: 50

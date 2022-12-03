@@ -9,6 +9,7 @@ using DLIFR.Interface;
 using DLIFR.Interface.Widgets;
 using DLIFR.Game.Tutorial;
 using DLIFR.Audio;
+using TMPro;
 
 namespace DLIFR.Game
 {
@@ -52,6 +53,7 @@ namespace DLIFR.Game
         public Settings settings;
         public GameObject hudBindings;
         public CanvasGroup gameOverCanvas;
+        public TMP_Text gameOverSubtitle;
 
         [Header("SETTINGS")]
         public Value<int> ticksPerDay = 50 * 24;
@@ -205,7 +207,7 @@ namespace DLIFR.Game
                 if(!b)
                 {
                     shipFuelLevel.variable.onChange = null;
-                    OnGameOver();
+                    OnGameOver("no_fuel");
                 }
             };
         }
@@ -476,11 +478,12 @@ namespace DLIFR.Game
             return canDoAction == null ? true : canDoAction.Invoke(action, obj);
         }
 
-        public void OnGameOver()
+        public void OnGameOver(string reason)
         {
             isPaused.value = true;
             shouldTimePass.value = true;
             gameOverCanvas.gameObject.SetActive(true);
+            gameOverSubtitle.text = settings.language.GetEntry("gameover." + reason);
 
             AudioController.PlayAudio("game_over");
         }
