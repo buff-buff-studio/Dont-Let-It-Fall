@@ -100,7 +100,7 @@ Material:
     - _Parallax: 0.005
     - _Progress: 0.071
     - _QueueOffset: 0
-    - _Radius: 91.88495
+    - _Radius: 50
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
