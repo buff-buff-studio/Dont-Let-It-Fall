@@ -37,6 +37,7 @@ graphics.quality.high=Alto
 graphics.quality.very_high=Muito Alto
 graphics.quality.ultra=Ultra
 
+tutorial.ongoing=Tutorial Em Andamento
 
 ######################################
 #GAME

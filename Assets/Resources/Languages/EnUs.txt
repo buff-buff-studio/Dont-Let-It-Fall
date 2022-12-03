@@ -37,6 +37,8 @@ graphics.quality.high=High
 graphics.quality.very_high=Very High
 graphics.quality.ultra=Ultra
 
+tutorial.ongoing=Tutorial Ongoing
+
 ######################################
 #GAME
 ######################################
