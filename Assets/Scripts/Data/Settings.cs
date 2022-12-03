@@ -16,10 +16,12 @@ namespace DLIFR.Data
         public Value<float> volumeVfx;
         public Value<float> volumeMusic;
         public Value<bool> showTutorial;
-        public Value<bool> showVsync;
-        public Value<bool> showFullscreen;
-        public Value<bool> showInvertXY;
+        public Value<bool> Vsync;
+        public Value<bool> fullScreen;
+        public Value<bool> invertXY;
         public Value<int> graphicsQuality;
+        public Value<bool> pfx;
+        public Value<float> camSense;
 
         public Language language;
 
@@ -35,6 +37,11 @@ namespace DLIFR.Data
             public int languageIndex;
             public bool showTutorial = true;
             public int qualityLevel = 3;
+            public bool Vsync = true;
+            public bool fullScreen = true;
+            public bool invertXY = false;
+            public float camSense = .5f;
+            public bool pfx = true;
         }
 
         public void UpdateGraphicSettings()
@@ -58,6 +65,11 @@ namespace DLIFR.Data
                 language = languages[values.languageIndex];
                 showTutorial.value = values.showTutorial;
                 graphicsQuality.value = values.qualityLevel;
+                Vsync.value = values.Vsync;
+                fullScreen.value = values.fullScreen;
+                invertXY.value = values.invertXY;
+                camSense.value = values.camSense;
+                pfx.value = values.pfx;
             }
             else
             {
@@ -65,6 +77,11 @@ namespace DLIFR.Data
                 volumeMusic.value = 0.5f;
                 showTutorial.value = true;
                 graphicsQuality.value = 3;
+                Vsync.value = true;
+                fullScreen.value = true;
+                invertXY.value = false;
+                camSense.value = .5f;
+                pfx.value = true;
 
                 language = languages[0];
 
@@ -84,6 +101,11 @@ namespace DLIFR.Data
             values.languageIndex = languageIndex;
             values.showTutorial = showTutorial.value;
             values.qualityLevel = graphicsQuality.value;
+            values.Vsync = Vsync.value;
+            values.fullScreen = fullScreen.value;
+            values.invertXY = invertXY.value;
+            values.camSense = camSense.value;
+            values.pfx = pfx.value;
 
             File.WriteAllText(filePath, JsonUtility.ToJson(values, true));
 

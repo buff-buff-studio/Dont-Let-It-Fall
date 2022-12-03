@@ -2743,7 +2743,8 @@ MonoBehaviour:
   mainTarget: {fileID: 1332377288}
   extraTarget: {fileID: 0}
   currentTarget: {fileID: 0}
-  cameraSensitivity: 0.5
+  invertXY: {fileID: 11400000, guid: 05d58a570a750684d9438e79991e685a, type: 2}
+  cameraSensitivity: {fileID: 11400000, guid: 3990219d078880f4fa78156b1e38b03e, type: 2}
   zoomSensitivity: 7
   targetMoveSpeed: 10.1
   zoomLimit: {x: 10, y: 40}
@@ -2885,6 +2886,7 @@ GameObject:
   m_Component:
   - component: {fileID: 336668121}
   - component: {fileID: 336668122}
+  - component: {fileID: 336668123}
   m_Layer: 0
   m_Name: PFX
   m_TagString: Untagged
@@ -2924,6 +2926,21 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 9ad99d2014b1b5347a07616fc807275b, type: 2}
+--- !u!114 &336668123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336668120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee0473b6c4092e46be5562489a51602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pfxEnabled:
+    variable: {fileID: 11400000, guid: ad07bccdc1b663d4e87f795fb3c035c8, type: 2}
+    _value: 0
 --- !u!1001 &356705861
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14377,8 +14394,14 @@ MonoBehaviour:
   settings: {fileID: 11400000, guid: 4768b1ec962dad149b1d92bcb4ae7c31, type: 2}
   sliderVolumeVfx: {fileID: 8054786863756752450}
   sliderVolumeMusic: {fileID: 155215541}
+  sliderSense: {fileID: 0}
   dropdownLanguage: {fileID: 2191671841109201271}
+  dropdownGraphics: {fileID: 0}
   toggleTutorial: {fileID: 0}
+  togglePFX: {fileID: 0}
+  toggleVsync: {fileID: 0}
+  toggleFullscreen: {fileID: 0}
+  toggleFInvertXY: {fileID: 0}
 --- !u!1 &1567016667
 GameObject:
   m_ObjectHideFlags: 0

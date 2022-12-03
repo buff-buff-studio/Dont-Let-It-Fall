@@ -1478,6 +1478,7 @@ GameObject:
   m_Component:
   - component: {fileID: 153012096}
   - component: {fileID: 153012097}
+  - component: {fileID: 153012098}
   m_Layer: 0
   m_Name: PFX
   m_TagString: Untagged
@@ -1517,6 +1518,21 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: ad7083b7123346c49be92abd02e5e86b, type: 2}
+--- !u!114 &153012098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153012095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee0473b6c4092e46be5562489a51602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pfxEnabled:
+    variable: {fileID: 11400000, guid: ad07bccdc1b663d4e87f795fb3c035c8, type: 2}
+    _value: 0
 --- !u!1 &154432550
 GameObject:
   m_ObjectHideFlags: 0
@@ -6555,6 +6571,18 @@ MonoBehaviour:
           m_StringArgument: click
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 153012098}
+        m_TargetAssemblyTypeName: PFXSettings, Assembly-CSharp
+        m_MethodName: UpdatePFXEnabled
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &1136096298
 GameObject:
@@ -7561,7 +7589,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1075603512}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 10
+  m_MaxValue: 2
   m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
@@ -7577,6 +7605,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: click
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1621262048}
+        m_TargetAssemblyTypeName: DLIFR.Interface.WindowSettings, Assembly-CSharp
+        m_MethodName: UpdateValues
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1355632035
@@ -9455,10 +9495,10 @@ MonoBehaviour:
   dropdownLanguage: {fileID: 135810641}
   dropdownGraphics: {fileID: 446554138}
   toggleTutorial: {fileID: 44475504}
-  togglePFX: {fileID: 0}
-  toggleVsync: {fileID: 0}
-  toggleFullscreen: {fileID: 0}
-  toggleFInvertXY: {fileID: 0}
+  togglePFX: {fileID: 1127440189}
+  toggleVsync: {fileID: 637160754}
+  toggleFullscreen: {fileID: 543079330}
+  toggleFInvertXY: {fileID: 481285073}
 --- !u!1 &1632446910
 GameObject:
   m_ObjectHideFlags: 0

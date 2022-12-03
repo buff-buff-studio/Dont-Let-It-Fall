@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DLIFR.Data;
 using UnityEngine;
 
 public class OrbitalCamera : MonoBehaviour
@@ -8,8 +9,9 @@ public class OrbitalCamera : MonoBehaviour
     public Transform extraTarget;
     public Transform currentTarget;
 
-    [Range(.1f,2)]
-    public float cameraSensitivity;
+    public Variable<bool> invertXY;
+    
+    public Variable<float> cameraSensitivity;
     [Range(.1f,10)]
     public float zoomSensitivity;
 
@@ -19,7 +21,7 @@ public class OrbitalCamera : MonoBehaviour
     public Vector2 zoomLimit;
 
     private bool targetChange;
-    
+
     private Coroutine targetChangeRoutine;
     
     //☺
@@ -31,17 +33,17 @@ public class OrbitalCamera : MonoBehaviour
     private float AxisX;
     private float AxisY;
     private float AxisZ => Input.GetAxis("Mouse ScrollWheel");
-    private Vector2 CameraAxis => new Vector3(AxisX * cameraSensitivity, -AxisY * cameraSensitivity);
+    private Vector2 CameraAxis => new Vector3(AxisX * cameraSensitivity.value, -AxisY * cameraSensitivity.value);
     private float ZoomAxis => (AxisZ * zoomSensitivity);
 
     private void Update()
     {
-        AxisX = Input.GetAxis("Vertical");
-        AxisY = Input.GetAxis("Horizontal");
+        AxisX = Input.GetAxis("Vertical") * (invertXY.value ? -1 : 1);
+        AxisY = Input.GetAxis("Horizontal") * (invertXY.value ? -1 : 1);
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            AxisX = -Input.GetAxis("Mouse Y");
-            AxisY = -Input.GetAxis("Mouse X");
+            AxisX = -Input.GetAxis("Mouse Y") * (invertXY.value ? -1 : 1);
+            AxisY = -Input.GetAxis("Mouse X") * (invertXY.value ? -1 : 1);
         }
         
         TargetFunction();

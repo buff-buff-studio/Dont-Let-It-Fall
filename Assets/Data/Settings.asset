@@ -21,16 +21,22 @@ MonoBehaviour:
   showTutorial:
     variable: {fileID: 0}
     _value: 1
-  showVsync:
+  Vsync:
     variable: {fileID: 0}
     _value: 0
-  showFullscreen:
+  fullScreen:
     variable: {fileID: 0}
     _value: 0
-  showInvertXY:
-    variable: {fileID: 0}
+  invertXY:
+    variable: {fileID: 11400000, guid: 05d58a570a750684d9438e79991e685a, type: 2}
     _value: 0
   graphicsQuality:
+    variable: {fileID: 0}
+    _value: 0
+  pfx:
+    variable: {fileID: 0}
+    _value: 0
+  camSense:
     variable: {fileID: 0}
     _value: 0
   language: {fileID: 11400000, guid: 9f919bb7c5c91bf4197d578baa81046e, type: 2}

@@ -80,6 +80,11 @@ namespace DLIFR.Interface
         {
             settings.volumeVfx.value = sliderVolumeVfx.value/10f;
             settings.volumeMusic.value = sliderVolumeMusic.value/10f;
+            settings.camSense.value = sliderSense.value;
+            settings.Vsync.value = toggleVsync.isOn;
+            settings.fullScreen.value = toggleFullscreen.isOn;
+            settings.invertXY.value = toggleFInvertXY.isOn;
+            settings.pfx.value = togglePFX.isOn;
 
             if(toggleTutorial != null)
                 settings.showTutorial = toggleTutorial.isOn;          
