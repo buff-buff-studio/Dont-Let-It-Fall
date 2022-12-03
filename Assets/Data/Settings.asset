@@ -20,7 +20,7 @@ MonoBehaviour:
     _value: 0
   showTutorial:
     variable: {fileID: 0}
-    _value: 1
+    _value: 0
   Vsync:
     variable: {fileID: 0}
     _value: 0
