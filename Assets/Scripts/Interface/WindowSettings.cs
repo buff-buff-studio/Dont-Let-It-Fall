@@ -55,6 +55,9 @@ namespace DLIFR.Interface
 
         public void UpdateQualityDropDown()
         {
+            if(dropdownGraphics == null)
+                return;
+
             dropdownGraphics.ClearOptions();
 
             List<string> graphics = new List<string>();

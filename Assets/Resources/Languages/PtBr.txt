@@ -37,6 +37,7 @@ graphics.quality.high=Alto
 graphics.quality.very_high=Muito Alto
 graphics.quality.ultra=Ultra
 
+tutorial.ongoing=Tutorial Em Andamento
 
 ######################################
 #GAME
@@ -127,3 +128,6 @@ game.shop.fuel=Combustível (10 por caixa)
 game.shop.cargo=Mercadorias (10 por mercadoria)
 game.shop.crew=Contrato de Tripulante (100 por tripulante)
 game.shop.keep=Dinheiro Mantido
+
+gameover.no_crew=Sem tripulação restante
+gameover.no_fuel=O navio ficou sem combustível

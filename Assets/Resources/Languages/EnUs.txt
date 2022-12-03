@@ -37,6 +37,8 @@ graphics.quality.high=High
 graphics.quality.very_high=Very High
 graphics.quality.ultra=Ultra
 
+tutorial.ongoing=Tutorial Ongoing
+
 ######################################
 #GAME
 ######################################
@@ -126,3 +128,6 @@ game.shop.fuel=Fuel Box (10 for each fuel)
 game.shop.cargo=Cargo Parts (10 for each cargo)
 game.shop.crew=Crew Hire (100 to hire a new crewmate)
 game.shop.keep=Keep Share
+
+gameover.no_crew=No Crewmates Left
+gameover.no_fuel=No Fuel Left
